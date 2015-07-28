@@ -62,6 +62,8 @@
 % this package provides a more flexible enumeration within an itemize environment
 \usepackage{enumitem}
 
+\usepackage{wrapfig}
+
 % own itemize environment for better left margin
 \newenvironment{Itemize}{
   \begin{itemize}[leftmargin=0.5cm]{
@@ -226,14 +228,13 @@ In a nutshell, for each time step, 3D surfaces are constructed using the set of 
 		\end{overpic}
 \caption[Approximation of the lateral root using $\alpha$-shapes.]
 {
-{\bf Top: Nuclei of last time step for dataset $\# 130607$ in front, side and radial view. Bottom: Approximation of the lateral root using $\alpha$-shapes.}
+{\bf Top:} Nuclei of last time step for dataset $\# 130607$ in front, side and radial view. {\bf Bottom:} Approximation of the lateral root using $\alpha$-shapes.
 }
 	\label{fig:alphaShapes}
 	\end{center}
 \end{figure}
 %
 However, when using a single surface to represent the whole virtual lateral root we only have the normal vectors for the outer cells of the surface. This means that for cells dividing in the interior, no normal information is given to be compared with the division orientations. For this reason, after a classified periclinal division, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to get normal information even of the cells dividing in the interior. The algorithm now performs at each time step several angle comparisons between division orientations and vertex/surface normals in order to classify the three division types. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}) which is written in C{}\verb!++! using \textit{OpenSceneGraph} (\href{http://www.openscenegraph.org/}{http://www.openscenegraph.org/}), \textit{Qt} (\href{http://www.qt.io/}{http://www.qt.io/}) and other useful libraries such as \textit{Boost} (\href{http://www.boost.org/}{http://www.boost.org/}) and \textit{CGAL} (\href{http://www.cgal.org/}{http://www.cgal.org/}). For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
-
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -241,7 +242,7 @@ However, when using a single surface to represent the whole virtual lateral root
 		\end{overpic}
 \caption[Surface generation for automatic classification of division types.]
 {
-{\bf Top: After a  \textcolor{green}{\textbf{periclinal}} division the outer daughter cell is assigned to a new surface with blue colour. Bottom: Example situation in which two $\alpha$-shapes are generated.}
+{\bf Top:} After a  \textcolor{green}{\textbf{periclinal}} division the outer daughter cell is assigned to a new surface with blue colour. {\bf Bottom:} Example situation in which two $\alpha$-shapes are generated.
 }
 	\label{fig:newSurfaceGeneration}
 	\end{center}
@@ -251,53 +252,38 @@ However, when using a single surface to represent the whole virtual lateral root
 \subsection{Visual Analysis of Division Behaviour}
 \subsubsection{Colour-coded Cell Lineages}
 \noindent
-We colour-coded the nodes in the lineage tree representation based on the corresponding division type to further analyse the division behaviour among several datasets (see Figure~\ref{fig:divisionAnalysis}).
-%%
-%\begin{sidewaysfigure}
-%	\begin{center}
-%		\begin{overpic}[width=0.8\linewidth]{images/allMasterTrees.pdf}
-%		\end{overpic}
-%\caption[Visual analysis of division behaviour of all cell lineages located in the master cell file.]
-%{
-%{\bf Visual analysis of division behaviour of all cell lineages located in the master cell file. The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}.}
-%}
-%	\label{fig:divisionAnalysis}
-%	\end{center}
-%\end{sidewaysfigure}
-%%
-The ``bricks'' visualisation at the bottom of each tree allows a more adequate comparison of division sequences among several trees. The number of columns indicates the number of total leaf nodes while the rows in each column corresponds to the division type that each ``leaf cell'' has cycled through. For example, the outermost left leaf cell in the left tree in Figure~\ref{fig:divisionAnalysis} originated from an anticlinal, periclinal, anticlinal, periclinal and finally an anticlinal division. This sequence corresponds to the outermost left column of the bricks visualisation read from top to bottom.
-%%
-%\begin{figure}[htbp]
-%	\begin{center}
-%		\begin{overpic}[width=1.\linewidth]{images/allTrees.pdf}
-%		\end{overpic}
-%\caption[All cell lineages of our five datasets.]
-%{
-%{\bf All cell lineages of our five datasets. The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The bricks visualisation at the bottom of each tree allows a comparison of division sequences among several trees.}
-%}
-%	\label{fig:allTrees}
-%	\end{center}
-%\end{figure}
-%%
+%
+\begin{wrapfigure}{r}{0.23\textwidth}
+\vspace{-20pt}
+	\begin{center}
+	\includegraphics[width=0.18\textwidth]{images/cellLineage.pdf}
+	\end{center}
+\vspace{-20pt}
+\caption[Colour-coded lineage tree.]{\bf Lineage tree.}
+\vspace{-10pt}
+\label{fig:cellLineage}
+\end{wrapfigure}
+%
+We colour-coded the nodes in the lineage tree representation based on the corresponding division type to further analyse the division behaviour among several datasets (see Figure~\ref{fig:cellLineage}). The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The ``bricks'' visualisation at the bottom of each tree allows a more adequate comparison of division sequences among several trees. The number of columns indicates the number of total leaf nodes while the rows in each column corresponds to the division type that each ``leaf cell'' has cycled through. For example, the outermost left leaf cell in the tree in Figure~\ref{fig:cellLineage} originated from an anticlinal, periclinal, anticlinal, periclinal and finally an anticlinal division. This sequence corresponds to the outermost left column of the bricks visualisation read from top to bottom. A visualisation of all cell lineages of all five datasets is given in Figure~\ref{fig:allTrees} and only the lineages located in the master cell files are illustrated in Figure~\ref{fig:allMasterTrees}.
 
 \subsubsection{Periclinal Division Sequences}
 \label{sec:treeDivisionSequence}
 \noindent
-Periclinal divisions are responsible for the layer organisations in the lateral root. We generated a tree division sequence visualisation to focus on these periclinal divisions (see Figure~\ref{fig:treeDivisionSequences}). Through this we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets.
-%%
-%\begin{figure}[htbp]
-%	\begin{center}
-%		\begin{overpic}[width=1.\linewidth]{images/treeDivisionSequences.pdf}
-%		\end{overpic}
-%\caption[Tree division sequence for all five datasets.]
-%{
-%{\bf Tree division sequences for all five datasets. The x-axis corresponds to the number of cells. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions.}
-%}
-%	\label{fig:treeDivisionSequences}
-%	\end{center}
-%\end{figure}
-%%
-The layer assignment is given by a unique sequence and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time steps. Each tree visualisation in Figure~\ref{fig:treeDivisionSequences} shows this spatial layer organisation along the number of time steps. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The visualisation of the lineage trees as well as the tree division sequences are done in \textit{scifer}.
+Periclinal divisions are responsible for the layer organisations in the lateral root. We generated a division sequence tree to focus on these periclinal divisions (see Figure~\ref{fig:treeDivisionSequenceSample}).
+%
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{overpic}[width=0.8\linewidth]{images/treeDivisionSequenceSample.pdf}
+		\end{overpic}
+\caption[Division sequence tree.]
+{
+{\bf Division sequence tree for dataset $\#120830$.}
+}
+	\label{fig:treeDivisionSequenceSample}
+	\end{center}
+\end{figure}
+%
+Through this, we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets. The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time steps. This spatial layer organisation is rendered along the number of time steps. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The division sequence trees for all datasets are shown in Figure~\ref{fig:treeDivisionSequences}. The visualisation of the lineage trees as well as the division sequence trees are done in \textit{scifer}.
 
 \section{Quantification and Visualisation of Lateral Root Deformation}
 \noindent
@@ -346,7 +332,7 @@ M = \langle m \rangle = \langle l \otimes l \rangle =
 		\end{overpic}
 \caption[Deformation computation and representation.]
 {
-{\bf Left: 2D example of \textcolor{blue}{conserved}, \textcolor{red}{appearing} and \textcolor{green}{disappearing} links between two time steps due two a cell division. Right: Deformation is represented by the axes of an ellipse.}
+{\bf Left:} 2D example of \textcolor{blue}{conserved}, \textcolor{red}{appearing} and \textcolor{green}{disappearing} links between two time steps due two a cell division. {\bf Right:} Deformation is represented by the axes of an ellipse.
 }
 	\label{fig:ellipseDeformation}
 	\end{center}
@@ -403,7 +389,7 @@ The usage of the floor function performs a rounding of $s(i)$ to the nearest int
 		\end{overpic}
 \caption[Spatial registration of datasets.]
 {
-{\bf Top: Generation of front, side and radial views according to centre of mass (black node) and principal components. Bottom: Manual fitting based on convex hulls of datasets: \textcolor{magenta}{$\#120830$}, \textcolor{yellow}{$\#121204$}, \textcolor{red}{$\#121211$}, \textcolor{green}{$\#130508$}, \textcolor{blue}{$\#130607$}.}
+{\bf Top:} Generation of front, side and radial views according to centre of mass (black node) and principal components. {\bf Bottom:} Manual fitting based on convex hulls of datasets: \textcolor{magenta}{$\#120830$}, \textcolor{yellow}{$\#121204$}, \textcolor{red}{$\#121211$}, \textcolor{green}{$\#130508$}, \textcolor{blue}{$\#130607$}.
 }
 	\label{fig:spatialRegistration}
 	\end{center}
@@ -428,7 +414,7 @@ Through this, each tile represents an averaged deformation that is represented b
 		\end{overpic}
 \caption[Averaging over datasets and visualisation of deformation information.]
 {
-{\bf Left: Example of how the deformation information of all datasets is averaged using a grid approach. Right: Visualisation of averaged deformation information by colour-coded lines according to magnitude values given in Table~\ref{tab:deformationParameters} and ``bow ties' 'over all datasets in side view. The contour shows the convex hull using a B\'ezier curve.}
+{\bf Left:} Example of how the deformation information of all datasets is averaged using a grid approach. {\bf Right:} Visualisation of averaged deformation information by colour-coded lines according to magnitude values given in Table~\ref{tab:deformationParameters} and ``bow ties'' over all datasets in side view. The contour shows the convex hull using a B\'ezier curve.
 }
 	\label{fig:gridDeformation}
 	\end{center}
@@ -551,7 +537,7 @@ with the control points $c_{i,j} \in S_{cur}$ and $t \in [0,1]$ as the temporal 
 		\end{overpic}
 \caption[Initial and final B\'ezier surface of degree $(6, 6)$ for the generalized model.]
 {
-{\bf Initial and final B\'ezier surface of degree $(6, 6)$ for the generalized model. The mapping of $(u_i, v_i)$ to the changing position on the surface is unique over time.}
+{\bf Initial and final B\'ezier surface of degree $(6, 6)$ for the generalized model.} The mapping of $(u_i, v_i)$ to the changing position on the surface is unique over time.
 }
 	\label{fig:modelSurface}
 	\end{center}
@@ -640,7 +626,7 @@ The last scenario is considering a random rule but preserving almost equal area 
 		\end{overpic}
 \caption[Cell Shape Preservation.]
 {
-{\bf Cell Shape Preservation:} For each division line through the centre of mass rotated by an user-selected angle $\alpha$, a length check of the connected cell walls is applied. For this purpose, the two interconnection nodes $u$ and $v$ as well as the adjacent junctions $u_1, u_2$ and $v_1, v_2$ are determined. From these positions the lengths $a, b, c, d$ and the cell wall lengths $a+b$ and $c+d$ are computed. It is now checked in four cases if $a < (a+b)\cdot \delta$, $b < (a+b)\cdot \delta$, $c < (c+d)\cdot \delta$, or $d < (c+d)\cdot \delta$. If only one statement is false then this division line orientation is omitted. The user-selected value $\delta$ is in $[0,1]$ and denotes the percentage that a sub-line must have with respect to the total call wall length.
+{\bf Cell Shape Preservation.} For each division line through the centre of mass rotated by an user-selected angle $\alpha$, a length check of the connected cell walls is applied. For this purpose, the two interconnection nodes $u$ and $v$ as well as the adjacent junctions $u_1, u_2$ and $v_1, v_2$ are determined. From these positions the lengths $a, b, c, d$ and the cell wall lengths $a+b$ and $c+d$ are computed. It is now checked in four cases if $a < (a+b)\cdot \delta$, $b < (a+b)\cdot \delta$, $c < (c+d)\cdot \delta$, or $d < (c+d)\cdot \delta$. If only one statement is false then this division line orientation is omitted. The user-selected value $\delta$ is in $[0,1]$ and denotes the percentage that a sub-line must have with respect to the total call wall length.
 }
 	\label{fig:shapePreserving}
 	\end{center}
@@ -653,15 +639,16 @@ In the model, a total random configuration of cell division lines may result in 
 
 \subsection{Visualisation and Comparison of Division Behaviour}
 \noindent
-We can run several samples of the model using division rules that include a randomized factor with each resulting in one tree division sequence visualisation as explained in section~\ref{sec:treeDivisionSequence}. However, we want to visually check how often and where the high-order pattern of periclinal divisions is preserved among several runs. This allows us to use statistically solid results of the model to compare them with the real-world datasets. For this purpose, we modify the visualisation of the tree division sequences. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time steps by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
+We can run several samples of the model using division rules that include a randomized factor with each resulting in one division sequence tree as explained in section~\ref{sec:treeDivisionSequence}. However, we want to visually check how often and where the high-order pattern of periclinal divisions is preserved among several runs. This allows us to use statistically solid results of the model to compare them with the real-world datasets. For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time steps by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
 %
 \begin{figure}[htbp]
 	\begin{center}
 		\begin{overpic}[width=0.5\linewidth]{images/averagedTreeDivisionSequence.pdf}
 		\end{overpic}
-\caption[Averaged tree division sequence visualisation.]
+\caption[Averaged division sequence tree.]
 {
-{\bf Averaged tree division sequence visualisation with three comparisons of high-order pattern.} In only $48 \%$ of the $100$ comparisons the upper layers were generated before the lower ones resulting in a red rectangle. In the other two cases with fewer comparisons ($81$ and $92$), more than $74 \%$ of the upper layers were generated first and green rectangles are drawn.}
+{\bf Averaged division sequence tree.} In only $48 \%$ of the $100$ comparisons in total, the upper layers were generated before the lower ones resulting in a red rectangle. In the other two cases with fewer comparisons ($81$ and $92$), more than $74 \%$ of the upper layers were generated first and green rectangles are drawn.
+}
 	\label{fig:averagedTreeDivisionSequence}
 	\end{center}
 \end{figure}
@@ -751,7 +738,7 @@ We can run several samples of the model using division rules that include a rand
 {
 {\bf Visual analysis of division behaviour of all cell lineages located in the master cell file.} The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}.
 }
-	\label{fig:divisionAnalysis}
+	\label{fig:allMasterTrees}
 	\end{center}
 \end{sidewaysfigure}
 \clearpage
@@ -810,9 +797,9 @@ We can run several samples of the model using division rules that include a rand
 	\begin{center}
 		\begin{overpic}[width=1.\linewidth]{images/treeDivisionSequences.pdf}
 		\end{overpic}
-\caption[Tree division sequence for all five datasets.]
+\caption[Division sequence trees for all five datasets.]
 {
-{\bf Tree division sequences for all five datasets.} The x-axis corresponds to the number of cells. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions.}
+{\bf Division sequence trees for all five datasets.} The x-axis corresponds to the number of cells. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions.}
 	\label{fig:treeDivisionSequences}
 	\end{center}
 \end{figure}
