@@ -89,6 +89,11 @@
 % no space after a punctuation mark
 \frenchspacing
 
+\usepackage{tabularx, ragged2e}
+%\usepackage{ltablex}
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}l}
+
 \usepackage{titlesec}
 \titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
@@ -161,6 +166,7 @@ Images are stored as 16-bit lossless Tagged Image File Format (TIFF). The comple
 \section{The Virtual Lateral Roots: Nuclei Segmentation, Tracking and Datasets Registration}
 
 \subsection{Nuclei Segmentation and Tracking}
+\label{sec:segmentation}
 \noindent
 The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program called \textit{TrackGen}. This tool provides an interactive visual representation of the 3D datasets over time. The user can create a \textit{track} (or lineage) for each clicked nucleus defined by a unique identifier, its 3D position and time step as well as a list holding the identification numbers of its progenitor cells. In order to minimize the manual effort only two time frames are clicked for each non-dividing cell. The first time frame is right after the division in which the current cell is created (or the very first appearance for a founder cell). The second one is the last time step before the cell will divide (or the last time step analysed). The positions in between are then interpolated linearly. The segmentation and tracking were realized for the first 24--25 hours of the development and the resulting data was exported to a tabular format for further analysis. Figure~\ref{fig:allTrees} shows the cell lineages for all five datasets with colour-coded information of the occurring division types. The classification of these divisions are determined in section~\ref{sec:divisionTypes}.
 
@@ -869,7 +875,32 @@ We can run several samples of the model using division rules that include a rand
 %
 
 \subsection{Supporting Datasets}
-\TODO{JENS: we will make available all VLR files (5 wild type datasets and the aurora mutant). Could you prepare the files and write a 1-2 sentence description of the columns headings?} 
+\noindent
+In this section, we briefly explain the file formatting of the generated and analysed VLR files stored in the \textit{*.csv} format. In total, there are five wild type datasets ($\#120830$WT.csv, $\#121204$WT.csv, $\#121211$WT.csv,  $\#130508$WT.csv, $\#130607$WT.csv) and the aurora mutant (auroraMutant.csv). As already explained in section~\ref{sec:segmentation}, for each cell, we only store the position of the first and the last frame before it divides. This means that for each cell a pair of lines is stored referring to the first and last tracked frame. In the program, the positions in between are interpolated linearly. All files share the same header information which are explained below:
+
+\noindent
+\begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{2.8cm} X @{}}
+\textbf{DataRotation:} &
+Angles for which the dataset is rotated around the x, y and z axes to create the three viewing types: Front (x-y), side (x-z) and radial (y-z).\\
+\textbf{RootCenter:} &
+Centre of the root which is determined manually.\\
+\textbf{DataDimension:} &
+Dimension of the raw dataset.\\
+\textbf{Id:} &
+The unique ID for each cell nuclei.\\
+\textbf{X, Y, Z, T:} &
+The 3D positions and the time step of the cell.\\
+\textbf{Precursors:} &
+The sorted list of precursor IDs to generate the tracking information.\\
+\textbf{Lineage:} &
+The cell lineage identifier.\\
+\textbf{CellFile:} &
+The cell file value which is determined manually.\\
+\textbf{Layer:} &
+The unique layer value according to performed periclinal divisions.\\
+\textbf{DivType:} &
+The type of division of the cell: Anticlinal $\widehat{=} \; 0$, periclinal $\widehat{=} \; 1$, radial $\widehat{=} \; 2$. For the first pair of a cell description and the last analysed time step, ``-'' is inserted.\\
+\end{tabularx}
 
 % list of sources included in the table of contents: 
 \addcontentsline{toc}{section}{%
