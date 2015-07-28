@@ -1,0 +1,10 @@
+*.*~
+*~
+*.bbl
+*.aux
+*.blg
+*.log
+*.out
+suppMat.pdf
+*.gz
+*.toc
