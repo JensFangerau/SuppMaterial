@@ -62,6 +62,8 @@
 % this package provides a more flexible enumeration within an itemize environment
 \usepackage{enumitem}
 
+\usepackage{wrapfig}
+
 % own itemize environment for better left margin
 \newenvironment{Itemize}{
   \begin{itemize}[leftmargin=0.5cm]{
@@ -234,7 +236,6 @@ In a nutshell, for each time step, 3D surfaces are constructed using the set of 
 \end{figure}
 %
 However, when using a single surface to represent the whole virtual lateral root we only have the normal vectors for the outer cells of the surface. This means that for cells dividing in the interior, no normal information is given to be compared with the division orientations. For this reason, after a classified periclinal division, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to get normal information even of the cells dividing in the interior. The algorithm now performs at each time step several angle comparisons between division orientations and vertex/surface normals in order to classify the three division types. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}) which is written in C{}\verb!++! using \textit{OpenSceneGraph} (\href{http://www.openscenegraph.org/}{http://www.openscenegraph.org/}), \textit{Qt} (\href{http://www.qt.io/}{http://www.qt.io/}) and other useful libraries such as \textit{Boost} (\href{http://www.boost.org/}{http://www.boost.org/}) and \textit{CGAL} (\href{http://www.cgal.org/}{http://www.cgal.org/}). For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
-
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -252,53 +253,38 @@ However, when using a single surface to represent the whole virtual lateral root
 \subsection{Visual Analysis of Division Behaviour}
 \subsubsection{Colour-coded Cell Lineages}
 \noindent
-We colour-coded the nodes in the lineage tree representation based on the corresponding division type to further analyse the division behaviour among several datasets (see Figure~\ref{fig:divisionAnalysis}).
-%%
-%\begin{sidewaysfigure}
-%	\begin{center}
-%		\begin{overpic}[width=0.8\linewidth]{images/allMasterTrees.pdf}
-%		\end{overpic}
-%\caption[Visual analysis of division behaviour of all cell lineages located in the master cell file.]
-%{
-%{\bf Visual analysis of division behaviour of all cell lineages located in the master cell file. The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}.}
-%}
-%	\label{fig:divisionAnalysis}
-%	\end{center}
-%\end{sidewaysfigure}
-%%
-The ``bricks'' visualisation at the bottom of each tree allows a more adequate comparison of division sequences among several trees. The number of columns indicates the number of total leaf nodes while the rows in each column corresponds to the division type that each ``leaf cell'' has cycled through. For example, the outermost left leaf cell in the left tree in Figure~\ref{fig:divisionAnalysis} originated from an anticlinal, periclinal, anticlinal, periclinal and finally an anticlinal division. This sequence corresponds to the outermost left column of the bricks visualisation read from top to bottom.
-%%
-%\begin{figure}[htbp]
-%	\begin{center}
-%		\begin{overpic}[width=1.\linewidth]{images/allTrees.pdf}
-%		\end{overpic}
-%\caption[All cell lineages of our five datasets.]
-%{
-%{\bf All cell lineages of our five datasets. The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The bricks visualisation at the bottom of each tree allows a comparison of division sequences among several trees.}
-%}
-%	\label{fig:allTrees}
-%	\end{center}
-%\end{figure}
-%%
+%
+\begin{wrapfigure}{r}{0.23\textwidth}
+\vspace{-20pt}
+	\begin{center}
+	\includegraphics[width=0.18\textwidth]{images/cellLineage.pdf}
+	\end{center}
+\vspace{-20pt}
+\caption[Colour-coded lineage tree.]{\bf Lineage tree.}
+\vspace{-10pt}
+\label{fig:cellLineage}
+\end{wrapfigure}
+%
+We colour-coded the nodes in the lineage tree representation based on the corresponding division type to further analyse the division behaviour among several datasets (see Figure~\ref{fig:cellLineage}). The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The ``bricks'' visualisation at the bottom of each tree allows a more adequate comparison of division sequences among several trees. The number of columns indicates the number of total leaf nodes while the rows in each column corresponds to the division type that each ``leaf cell'' has cycled through. For example, the outermost left leaf cell in the tree in Figure~\ref{fig:cellLineage} originated from an anticlinal, periclinal, anticlinal, periclinal and finally an anticlinal division. This sequence corresponds to the outermost left column of the bricks visualisation read from top to bottom. A visualisation of all cell lineages of all five datasets is given in Figure~\ref{fig:allTrees} and only the lineages located in the master cell files are illustrated in Figure~\ref{fig:allMasterTrees}.
 
 \subsubsection{Periclinal Division Sequences}
 \label{sec:treeDivisionSequence}
 \noindent
-Periclinal divisions are responsible for the layer organisations in the lateral root. We generated a tree division sequence visualisation to focus on these periclinal divisions (see Figure~\ref{fig:treeDivisionSequences}). Through this we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets.
-%%
-%\begin{figure}[htbp]
-%	\begin{center}
-%		\begin{overpic}[width=1.\linewidth]{images/treeDivisionSequences.pdf}
-%		\end{overpic}
-%\caption[Tree division sequence for all five datasets.]
-%{
-%{\bf Tree division sequences for all five datasets. The x-axis corresponds to the number of cells. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions.}
-%}
-%	\label{fig:treeDivisionSequences}
-%	\end{center}
-%\end{figure}
-%%
-The layer assignment is given by a unique sequence and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time steps. Each tree visualisation in Figure~\ref{fig:treeDivisionSequences} shows this spatial layer organisation along the number of time steps. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The visualisation of the lineage trees as well as the tree division sequences are done in \textit{scifer}.
+Periclinal divisions are responsible for the layer organisations in the lateral root. We generated a tree division sequence visualisation to focus on these periclinal divisions (see Figure~\ref{fig:treeDivisionSequenceSample}).
+%
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{overpic}[width=0.8\linewidth]{images/treeDivisionSequenceSample.pdf}
+		\end{overpic}
+\caption[Tree division sequence visualisation.]
+{
+{\bf Tree division sequence visualisation for dataset $\#120830$.}
+}
+	\label{fig:treeDivisionSequenceSample}
+	\end{center}
+\end{figure}
+%
+Through this, we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets. The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time steps. This spatial layer organisation is rendered along the number of time steps. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The visualisation of the lineage trees as well as the tree division sequences are done in \textit{scifer}. The tree division sequences for all datasets are shown in Figure~\ref{fig:treeDivisionSequences}.
 
 \section{Quantification and Visualisation of Lateral Root Deformation}
 \noindent
@@ -751,7 +737,7 @@ We can run several samples of the model using division rules that include a rand
 {
 {\bf Visual analysis of division behaviour of all cell lineages located in the master cell file. The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}.}
 }
-	\label{fig:divisionAnalysis}
+	\label{fig:allMasterTrees}
 	\end{center}
 \end{sidewaysfigure}
 \clearpage
