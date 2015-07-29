@@ -618,7 +618,20 @@ The last scenario is considering a random rule but preserving almost equal area 
 \noindent
 In the model, a total random configuration of cell division lines may result in implausible cell developments with unequal sizes and triangle-shaped contours that cannot be observed in any real-world scenario of plant growth. However, we want to analyse a random behaviour of cell divisions that somehow preserve equal sizes and shapes of cells while dividing. We therefore first find a set of division line orientations that satisfy a specific constraint and assign each one a certain probability. The idea of this approach is explained in Figure~\ref{fig:shapePreserving}.
 
-\subsection{Visualisation and Comparison of Division Behaviour}
+\subsubsection{Computation of Centre of cell}
+\noindent
+\TODO{describe how the real centre of mass is computed}
+
+\subsubsection{Parameter Setting for Data-driven and Idealized Model}
+\noindent
+\TODO{list all common parameters for models}
+
+\subsection{Visual Analysis of Model}
+\subsubsection{Model Visualisation}
+\noindent
+\TODO{describe visualisation of models with cell contours/spheres/layers}
+
+\subsubsection{Visual Division Analysis}
 \noindent
 We can run several samples of the model using division rules that include a randomized factor with each resulting in one division sequence tree as explained in section~\ref{sec:treeDivisionSequence}. However, we want to visually check how often and where the high-order pattern of periclinal divisions is preserved among several runs. This allows us to use statistically solid results of the model to compare them with the real-world datasets.
 %
@@ -636,9 +649,9 @@ We can run several samples of the model using division rules that include a rand
 %
 For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time steps by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
 
-\subsection{Setting for Models}
+\subsubsection{Level of Detail}
 \noindent
-\TODO{add tables of area ratios etc.}
+\TODO{describe applied level of detail}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -704,29 +717,29 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 & $\#120830$ & $\#121204$ & $\#121211$ & $\#130508$ & $\#130607$ && BD & D & PDG & R & RE\\ \midrule
 \textbf{NH}\\
 Area ratio & 0.098 & 0.080 & 0.100 & 0.129 & 0.118 && 0.320 & & & 0.308 & 0.308\\
-Average Cells & 63.8 & 47.1 & 82.2 & 42.4 & 82.3 && 59.8 & & & 65.9 & 66.4\\
-Average AD & 29.6 & 24.9 & 28.1 & 21.0 & 36.6 && 19.6 & & & 30.6 & 34.0\\
-Average PD & 32.1 & 20.2 & 49.1 & 20.4 & 42.7 && 38.1 & & & 33.2 & 30.3\\
+Average $\#$ Cells & 63.8 & 47.1 & 82.2 & 42.4 & 82.3 && 59.8 & & & 65.9 & 66.4\\
+Average $\#$ AD & 29.6 & 24.9 & 28.1 & 21.0 & 36.6 && 19.6 & & & 30.6 & 34.0\\
+Average $\#$ PD & 32.1 & 20.2 & 49.1 & 20.4 & 42.7 && 38.1 & & & 33.2 & 30.3\\
 \textbf{1DC}\\
 Area Ratio & 0.070 & 0.070 & 0.034 & 0.035 & 0.095 && 0.420 & & & &\\
-Average Cells & 63.5 & 48.5 & 81.6 & 46.2 & 81.4 && 66.6 & & & &\\
-Average AD & 30.2 & 23.4 & 32.5 & 20.1 & 38.1 && 18.3 & & & &\\
-Average PD & 31.3 & 23.0 & 47.1 & 24.1 & 41.3 && 46.3 & & & &\\
+Average $\#$ Cells & 63.5 & 48.5 & 81.6 & 46.2 & 81.4 && 66.6 & & & &\\
+Average $\#$ AD & 30.2 & 23.4 & 32.5 & 20.1 & 38.1 && 18.3 & & & &\\
+Average $\#$ PD & 31.3 & 23.0 & 47.1 & 24.1 & 41.3 && 46.3 & & & &\\
 \textbf{2DC}\\
 Area Ratio & 0.078 & 0.060 & 0.048 & 0.047 & 0.054 && 0.450 & & & &\\
-Average Cells & 61.9 & 48.3 & 79.1 & 45.1 & 86.5 && & & & &\\
-Average AD & 32.1 & 27.3 & 33.3 & 22.5 & 42.3 && & & & &\\
-Average PD & 27.8 & 19.0 & 43.8 & 20.5 & 42.1 && & & & &\\
+Average $\#$ Cells & 61.9 & 48.3 & 79.1 & 45.1 & 86.5 && & & & &\\
+Average $\#$ AD & 32.1 & 27.3 & 33.3 & 22.5 & 42.3 && & & & &\\
+Average $\#$ PD & 27.8 & 19.0 & 43.8 & 20.5 & 42.1 && & & & &\\
 \textbf{2DCBase}\\
 Area Ratio & & & & & && 0.450 & & & &\\
-Average Cells & & & & & && 62.5 & & & &\\
-Average AD & & & & & && 18.0 & & & &\\
-Average PD & & & & & && 42.4 & & & &\\
+Average $\#$ Cells & & & & & && 62.5 & & & &\\
+Average $\#$ AD & & & & & && 18.0 & & & &\\
+Average $\#$ PD & & & & & && 42.4 & & & &\\
 \textbf{Real Data}\\
-Cells & 64 & 49 & 81 & 45 & 82 && & & & &\\
-AD & 31 & 21 & 25 & 18 & 27 && & & & &\\
-PD & 23 & 19 & 36 & 19 & 39 && & & & &\\
-RD & 8 & 7 & 15 & 7 & 13 && & & & &\\
+$\#$ Cells & 64 & 49 & 81 & 45 & 82 && & & & &\\
+$\#$ AD & 31 & 21 & 25 & 18 & 27 && & & & &\\
+$\#$ PD & 23 & 19 & 36 & 19 & 39 && & & & &\\
+$\#$ RD & 8 & 7 & 15 & 7 & 13 && & & & &\\
 \bottomrule
 \end{tabular}
 	\caption[Parameters for data-driven and idealized models.]{\textbf{Parameters for data-driven and idealized models.} The table lists the average number of cells, anticlinal (AD) and periclinal divisions (PD) for each model setting performing 100 runs. NH, 1DC, 2DC and 2DCBase describe the different hard-wired division settings in the model. At the bottom, the number of cells and divisions are given for the real-world datasets.
