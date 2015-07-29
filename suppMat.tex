@@ -446,7 +446,7 @@ In a nutshell, the simulation starts with a specific number and positioning of f
 
 \subsection{Model Surfaces}
 \noindent
-The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that the changing vertices of the surface influence the evolving cells of the model and their corresponding walls and junctions. We use two surface types to represent the structure of the VLR: Triangle meshes and B\'ezier surfaces. The first one is used to create a triangulation based on real nuclei positions in the dataset for each time step. Through this, we can generate a model that incorporates the deformation behaviour of the nuclei and therefore the growth of the VLR. Furthermore, we are able to compare the model result with the real-world datasets. The B\'ezier surface is applied in order to generate a generalized model that allows an investigation of a more common growth behaviour of the VLR. For this purpose, we use a set of B\'ezier surfaces to represent the smooth tissue development. Our analysis goal is here to use non-deterministic division rule behaviours to find common patterns of cell divisions in the model. We achieve a non-deterministic behaviour by including a random variation of the division line orientation which is explained below in detail. As a consequence, we can run several samples (e.g.~100) of the model for each division rule and can therefore analyse the division behaviour based on statistically solid results.
+The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that the changing vertices of the surface influence the evolving cells of the model and their corresponding walls and junctions. We use two surface types to represent the structure of the VLR: Triangle meshes and B\'ezier surfaces. The first one is used to create a triangulation based on real nuclei positions in the dataset for each time step. Through this, we can generate a data-driven model that incorporates the deformation behaviour of the nuclei and are able to compare the result with the real-world datasets. The B\'ezier surface is used for a generalized model that allows an investigation of a common growth behaviour of the VLR. For this, we use non-deterministic division rules for each model, i.e.\ a random variation of the division line orientation which is explained below in section~\ref{sec:divisionRules}. By running such a slight random model with the same setting several times (e.g.\ 100) we can analyse its division behaviour based on statistically solid results.
 
 \subsubsection{Triangle Mesh}
 \noindent
@@ -502,7 +502,7 @@ The exchange of the different triangle meshes between $t+1$ and $t+2$ is realize
 %
 
 \subsubsection{B\'ezier Surface}
-A two-dimensional B\'ezier surface of degree $(n, m)$ with $(n+1) \cdot (m+1)$ control points $c_{i, j} \in \mathbb{R}^2$ is a parametric surface that maps the unit square into a smooth-continuous surface embedded in the same space as its control points. Each point $P(u, v) \in \mathbb{R}^2$ on such a B\'ezier surface $S_{cur}$ with parametric coordinates $u ,v \in [0,1]$ is computed by the following equation:
+For this idealized model, we use a set of B\'ezier surfaces to represent the smooth tissue development. A two-dimensional B\'ezier surface of degree $(n, m)$ with $(n+1) \cdot (m+1)$ control points $c_{i, j} \in \mathbb{R}^2$ is a parametric surface that maps the unit square into a smooth-continuous surface embedded in the same space as its control points. Each point $P(u, v) \in \mathbb{R}^2$ on such a B\'ezier surface $S_{cur}$ with parametric coordinates $u ,v \in [0,1]$ is computed by the following equation:
 \begin{equation}
 P(u, v) = \sum_{i=0}^{n} \sum_{j=0}^{m} B_{i}^{n} (u) \; B_{j}^{m} (v) \; c_{i,j}, \qquad B_{i}^{n} (u) = \binom{n}{i} u^i (1-u)^{n-i}.
 \end{equation}
@@ -529,11 +529,11 @@ with the control points $c_{i,j} \in S_{cur}$ and $t \in [0,1]$ as the temporal 
 \noindent
 For the modelling approach we have to set the number and spatial properties of founder cells that affect the overall development of the lateral root. We are using two different setting types depending on the kind of model.
 
-\subsubsection{Comparison between Model and Real Data}
+\subsubsection{Data-driven Models}
 \noindent
 The first setting is designed in such a way that a valid comparison between model and real world dataset is achieved. The underlying surface of the model is a triangle mesh based on real nuclei positions as explained above. Furthermore, the number of cells in the model is selected such that it approximately matches the same number of cells in the real-world datasets for both, the beginning and the end of the given datasets. In order to preserve the same number of cells at the end in the model, we steer the parameter for the division event as explained later.
 
-\subsubsection{Generalized Model}
+\subsubsection{Idealized Models}
 \noindent
 For the generalized model, we use a B\'ezier surface starting with two founder cells sharing the same size and shape (see Figure~\ref{fig:founderCellsSetting}, left). We consider three different division settings at the beginning. In the first one, the model starts with two founder cells sharing the same size and the tissue further develops depending on the selected division rules explained below. In another setting, the model starts identically but we hardwire the first division cycle with an anticlinal division (see Figure~\ref{fig:founderCellsSetting}, middle). More precisely, the inner daughter cells share the same size but with only one third of the parents cell's size. In the last scenario, we additionally hardwire the second division cycle simulating a periclinal division behavior (see Figure~\ref{fig:founderCellsSetting}, right). Note that the interphase durations between the division cycles take some steps in the model in which the overall lateral root already started to evolve and eventually changed its tissue structure. But for the sake of clarity, the three surface tissues in Figure~\ref{fig:founderCellsSetting} are the same.
 %
@@ -561,6 +561,7 @@ The division behaviour is a fundamental property of the tissue model to evolve. 
 For each cell in the model the initial area size is computed that a cell has right after its birth. In each model step, the current area of each cell is computed and compared with its initial area size. If the cell's area exceeds the initial area by a certain amount then a division event will occur. This amount is determined in using an \textit{area ratio} as well as an \textit{area threshold}. The first parameter allows the user to set up the percentage expansion of a cell. For example, a ratio of $0.5$ denotes that the cell will divide if its initial size has increased by at least $50\%$. However, only using this ratio would result in cell sizes that converge to zero in later steps. For this reason, the area threshold is used as a barrier to guarantee a minimum area size for each cell before it divides.
 
 \subsubsection{Division Rules}
+\label{sec:divisionRules}
 \noindent
 After defining the occurrence of a division event we need to set the orientation of the division line. In our model approach we consider five different division scenarios (see Figure~\ref{fig:divisionRules}):
 \begin{Itemize}
@@ -622,9 +623,9 @@ In the model, a total random configuration of cell division lines may result in 
 \noindent
 \TODO{describe how the real centre of mass is computed}
 
-\subsubsection{Parameter Setting for Data-driven and Idealized Model}
+\subsubsection{Parameter Setting for Data-driven and Idealized Models}
 \noindent
-\TODO{list all common parameters for models}
+For each model setting we perform $100$ runs with $500$ steps to test how stable the model and therefore the divisions results are based on the randomized factor included in each division rule. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is steered in such a way that at the end of each model step a certain number of cells is reached. For the data-driven models, this number is chosen to be almost identical to the number of cells in the master cell file of the real-world datasets. For the idealized models, we tried to set an area ratio value in such a way that at the end approximately $64$. This value is chosen based on the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+45+82)/5 \approx 64$). The comprehensive Table~\ref{tab:modelParameters} lists all area ratios, average number of cells, anticlinal and periclinal divisions for both the data-driven and the idealized models for each hard-wired division setting that is analysed.
 
 \subsection{Visual Analysis of Model}
 \subsubsection{Model Visualisation}
