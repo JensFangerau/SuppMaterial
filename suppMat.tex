@@ -35,6 +35,9 @@
 % for larger math symbols
 \usepackage{relsize}
 
+% for nicer tables
+\usepackage{booktabs}
+
 \usepackage{color, colortbl}
 \usepackage{listings}
 \usepackage{stackrel}
@@ -421,29 +424,7 @@ Through this, each tile represents an averaged deformation that is represented b
 \end{figure}
 %
 
-We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time step ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. But note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using the programming language \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}).
-%
-\begin{table}
-	\begin{center}
-		\begin{tabular}[h]{c|c|c}
-		\multirow{2}{*}{\parbox{1.4cm}{\centering{View}}} &
-		\multirow{2}{*}{\parbox{1.4cm}{\centering{Cell File}}} &
-		\multirow{2}{*}{\parbox{6.0cm}{\centering{[Min, Max] deformation in $\boldsymbol{\nicefrac{\mu m}{min}}$}}}\\
-		& &\\
-		\hline
-		\hline
-		Front & All & $[ 0.0032, 0.1995 ]$\\
-		\hline
-		Side & Master & $[ 0.0016, 0.1259 ]$\\
-		\hline
-		Radial & All & $[ 0.0016, 0.0501 ]$\\
-		\end{tabular}
-	\end{center}
-	\caption[Deformation magnitudes when averaging over all datasets and different views.]{\textbf{Deformation magnitudes when averaging over all datasets and different views.}
-	}
-	\label{tab:deformationParameters}
-\end{table}
-%
+We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time step ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using the programming language \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}).
 
 \section{Modelling of the Virtual Lateral Root}
 \noindent
@@ -639,7 +620,7 @@ In the model, a total random configuration of cell division lines may result in 
 
 \subsection{Visualisation and Comparison of Division Behaviour}
 \noindent
-We can run several samples of the model using division rules that include a randomized factor with each resulting in one division sequence tree as explained in section~\ref{sec:treeDivisionSequence}. However, we want to visually check how often and where the high-order pattern of periclinal divisions is preserved among several runs. This allows us to use statistically solid results of the model to compare them with the real-world datasets. For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time steps by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
+We can run several samples of the model using division rules that include a randomized factor with each resulting in one division sequence tree as explained in section~\ref{sec:treeDivisionSequence}. However, we want to visually check how often and where the high-order pattern of periclinal divisions is preserved among several runs. This allows us to use statistically solid results of the model to compare them with the real-world datasets.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -653,29 +634,73 @@ We can run several samples of the model using division rules that include a rand
 	\end{center}
 \end{figure}
 %
+For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time steps by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
 
+\subsection{Setting for Models}
+\noindent
+\TODO{add tables of area ratios etc.}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SUPP TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Supporting tables, figures, movies and datasets}
 \subsection{Supporting tables}
+\noindent
 % Reset the Figure numbering and Add the "S"
 \setcounter{table}{0}
 \makeatletter 
-\renewcommand{\thetable}{S\@arabic\c@figure}
+\renewcommand{\thetable}{S\@arabic\c@table}
 \makeatother
 %
-\TODO{CONVERT THE BLOODY TABLES TO LATEX...}
-\begin{table}[htbp]
-\begin{tabular}{llr} \toprule \multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2} Animal & Description & Price (\$) \\ \midrule Gnat & per gram & 13.65 \\ & each & 0.01 \\ Gnu & stuffed & 92.50 \\ Emu & stuffed & 33.33 \\ Armadillo & frozen & 8.99 \\ \bottomrule
-\end{tabular}
- \caption{A normal caption} 
- \label{tab:metadata}
- \end{table}
 
-\begin{table}[htbp]
-\begin{tabular}{llr} \toprule \multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2} Animal & Description & Price (\$) \\ \midrule Gnat & per gram & 13.65 \\ & each & 0.01 \\ Gnu & stuffed & 92.50 \\ Emu & stuffed & 33.33 \\ Armadillo & frozen & 8.99 \\ \bottomrule
-\end{tabular}
- \caption{A normal caption} 
- \end{table}
+% more space between rows
+\renewcommand{\arraystretch}{1.2}
+%
+\begin{table}
+	\begin{center}
+		\begin{tabular}[!htbp]{@{}lccccccc@{}}
+		\toprule
+		Event & $\#120830$ & $\#121204$ & $\#121211$ & $\#130508$ & $\#130607$ & Average & SD\\
+		\midrule
+		1\textsuperscript{st} anticlinal division & 10 & 11 & 11 & 9 & 15 & 11 & 2\\
+		1\textsuperscript{st} periclinal division & 22 & 25 & 30 & 16 & 28 & 24 & 5\\
+		2\textsuperscript{nd} periclinal division & 58 & 51 & 64 & 50 & 56 & 56 & 6\\
+		1\textsuperscript{st} radial division & 36 & 62 & 106 & 55 & 97 & 71 & 39\\
+		Emergence & - & 155 & 208 & - & 173 & 179 & 27\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption[Number of cells in developmental stages for all datasets.]{\textbf{Number of cells in developmental stages for all datasets.}
+	}
+	\label{tab:developmentalStages}
+\end{table}
+%
 
+\vspace{1cm}
+%
+\begin{table}
+	\begin{center}
+		\begin{tabular}[!htbp]{@{}llc@{}}
+		\toprule
+		View & Cell File & [Min, Max] deformation in $\boldsymbol{\nicefrac{\mu m}{min}}$\\
+		\midrule
+		Front & All & $[ 0.0032, 0.1995 ]$\\
+		Side & Master & $[ 0.0016, 0.1259 ]$\\
+		Radial & All & $[ 0.0016, 0.0501 ]$\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption[Deformation magnitudes when averaging over all datasets and different views.]{\textbf{Deformation magnitudes when averaging over all datasets and different views.}
+	}
+	\label{tab:deformationParameters}
+\end{table}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SUPP FIGURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 \subsection{Supporting figures}
 % Reset the Figure numbering and Add the "S"
 \setcounter{figure}{0}
@@ -863,8 +888,11 @@ We can run several samples of the model using division rules that include a rand
 \label{fig:modelrandea}
 \end{figure}
 %
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SUPP MOVIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
-%
 \subsection{Supporting Movies Captions}
 % Reset the Movies numbering 
 \setcounter{figure}{0}
@@ -889,7 +917,10 @@ We can run several samples of the model using division rules that include a rand
 \end{center}
 \end{figure}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SUPP DATASETS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
 \subsection{Supporting Datasets}
 \noindent
 In this section, we briefly explain the file formatting of the generated and analysed VLR files stored in the \textit{*.csv} format. In total, there are five wild type datasets ($\#120830$WT.csv, $\#121204$WT.csv, $\#121211$WT.csv,  $\#130508$WT.csv, $\#130607$WT.csv) and the aurora mutant (auroraMutant.csv). As already explained in section~\ref{sec:segmentation}, for each cell, we only store the position of the first and the last frame before it divides. This means that for each cell a pair of lines is stored referring to the first and last tracked frame. In the program, the positions in between are interpolated linearly. All files share the same header information which are explained below:
@@ -918,6 +949,7 @@ The unique layer value according to performed periclinal divisions.\\
 The type of division of the cell: Anticlinal $\widehat{=} \; 0$, periclinal $\widehat{=} \; 1$, radial $\widehat{=} \; 2$. For the first pair of a cell description and the last analysed time step, ``-'' is inserted.\\
 \end{tabularx}
 
+\clearpage
 % list of sources included in the table of contents: 
 \addcontentsline{toc}{section}{%
   \numberline{}Bibliography}
