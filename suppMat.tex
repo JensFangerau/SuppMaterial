@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper, final]{article}
+\documentclass[11pt,a4paper, draft]{article}
 \usepackage{ocg}
 \usepackage{times}
 \usepackage{pdfpages}
@@ -649,9 +649,23 @@ We can run several samples of the model using division rules that include a rand
 %
 For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time steps by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
 
-\subsubsection{Level of Detail}
+\subsubsection{Smoother Cell Contours}
 \noindent
-\TODO{describe applied level of detail}
+One initial cells consists of four junctions that define a rectangular cell shape within the underlying tissue.
+%
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{overpic}[width=1.\linewidth]{images/subdivision.pdf}
+		\end{overpic}
+\caption[Subdivision approach for model tissue.]
+{
+{\bf Subdivision approach for model tissue. Top:} Using only six junctions (red nodes) for two cells result in a coarse tissue development based on the underlying B\'ezier surface. \textbf{Bottom:} Creating more inner junctions (cyan nodes) result in a much smoother tissue development.
+}
+	\label{fig:subdivision}
+	\end{center}
+\end{figure}
+%
+For example, consider the initial B\'ezier surface from Figure~\ref{fig:modelSurface} and having two cells at the first model step resulting in six junctions (two are shared by the cells) with their corresponding parametric coordinates (see Figure~\ref{fig:subdivision}, top left). In a later model step of the VLR, the tissue will start to grow evolving into the dome-like structure (see Figure~\ref{fig:subdivision}, top right). However, only the junction with the parametric coordinate $(u=\nicefrac{1}{2}, v=1)$ will move upwards based on the underlying B\'ezier surface creating a triangle-shaped tissue. In order to better approximate the underlying surface, additional inner junctions (cyan nodes in Figure~\ref{fig:subdivision}, bottom left) are created that result in a much smoother tissue development of the model (see Figure~\ref{fig:subdivision}, bottom right). This smoothness is defined by a user-chosen subdivision level which is $4$ in all our models and yields $2^{4-1} - 1 = 7$ additional inner junctions.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -716,25 +730,25 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 \cmidrule{2-6} \cmidrule{8-12}
 & $\#120830$ & $\#121204$ & $\#121211$ & $\#130508$ & $\#130607$ && BD & D & PDG & R & RE\\ \midrule
 \textbf{NH}\\
-Area ratio & 0.098 & 0.080 & 0.100 & 0.129 & 0.118 && 0.320 & & & 0.308 & 0.308\\
-Average $\#$ Cells & 63.8 & 47.1 & 82.2 & 42.4 & 82.3 && 59.8 & & & 65.9 & 66.4\\
-Average $\#$ AD & 29.6 & 24.9 & 28.1 & 21.0 & 36.6 && 19.6 & & & 30.6 & 34.0\\
-Average $\#$ PD & 32.1 & 20.2 & 49.1 & 20.4 & 42.7 && 38.1 & & & 33.2 & 30.3\\
+Area ratio & 0.098 & 0.080 & 0.100 & 0.129 & 0.118 && 0.320 & 0.300 & 0.300 & 0.308 & 0.308\\
+Average $\#$ Cells & 63.8 & 47.1 & 82.2 & 42.4 & 82.3 && 59.8 & 64.0 & & 65.9 & 66.4\\
+Average $\#$ AD & 29.6 & 24.9 & 28.1 & 21.0 & 36.6 && 19.6 & 27.0 & & 30.6 & 34.0\\
+Average $\#$ PD & 32.1 & 20.2 & 49.1 & 20.4 & 42.7 && 38.1 & 35.0 & & 33.2 & 30.3\\
 \textbf{1DC}\\
-Area Ratio & 0.070 & 0.070 & 0.034 & 0.035 & 0.095 && 0.420 & & & &\\
-Average $\#$ Cells & 63.5 & 48.5 & 81.6 & 46.2 & 81.4 && 66.6 & & & &\\
-Average $\#$ AD & 30.2 & 23.4 & 32.5 & 20.1 & 38.1 && 18.3 & & & &\\
-Average $\#$ PD & 31.3 & 23.0 & 47.1 & 24.1 & 41.3 && 46.3 & & & &\\
+Area Ratio & 0.070 & 0.070 & 0.034 & 0.035 & 0.095 && 0.420 & 0.445 & 0.445 & &\\
+Average $\#$ Cells & 63.5 & 48.5 & 81.6 & 46.2 & 81.4 && 66.6 & 63.6 & & &\\
+Average $\#$ AD & 30.2 & 23.4 & 32.5 & 20.1 & 38.1 && 18.3 & 26.0 & & &\\
+Average $\#$ PD & 31.3 & 23.0 & 47.1 & 24.1 & 41.3 && 46.3 & 35.6 & & &\\
 \textbf{2DC}\\
-Area Ratio & 0.078 & 0.060 & 0.048 & 0.047 & 0.054 && 0.450 & & & &\\
-Average $\#$ Cells & 61.9 & 48.3 & 79.1 & 45.1 & 86.5 && & & & &\\
-Average $\#$ AD & 32.1 & 27.3 & 33.3 & 22.5 & 42.3 && & & & &\\
-Average $\#$ PD & 27.8 & 19.0 & 43.8 & 20.5 & 42.1 && & & & &\\
+Area Ratio & 0.078 & 0.060 & 0.048 & 0.047 & 0.054 && 0.450 & 0.450 & 0.450 & &\\
+Average $\#$ Cells & 61.9 & 48.3 & 79.1 & 45.1 & 86.5 && & 64.5 & & &\\
+Average $\#$ AD & 32.1 & 27.3 & 33.3 & 22.5 & 42.3 && & 26.0 & & &\\
+Average $\#$ PD & 27.8 & 19.0 & 43.8 & 20.5 & 42.1 && & 36.5 & & &\\
 \textbf{2DCBase}\\
-Area Ratio & & & & & && 0.450 & & & &\\
-Average $\#$ Cells & & & & & && 62.5 & & & &\\
-Average $\#$ AD & & & & & && 18.0 & & & &\\
-Average $\#$ PD & & & & & && 42.4 & & & &\\
+Area Ratio & & & & & && 0.450 & 0.450 & 0.450 & &\\
+Average $\#$ Cells & & & & & && 62.5 & 66.2 & & &\\
+Average $\#$ AD & & & & & && 18.0 & 36.6 & & &\\
+Average $\#$ PD & & & & & && 42.4 & 27.5 & & &\\
 \textbf{Real Data}\\
 $\#$ Cells & 64 & 49 & 81 & 45 & 82 && & & & &\\
 $\#$ AD & 31 & 21 & 25 & 18 & 27 && & & & &\\
