@@ -142,7 +142,7 @@
 %\listoftables
 
 \noindent
-\TODO{add motivation/instruction about supplemental materials - All supplemental Figures and their legends should be in there}
+
 \clearpage
 \section{Material and Methods}
 \subsection{Reporters, Molecular Biology and Growth Conditions}
@@ -157,16 +157,16 @@ Before imaging plants were grown vertically on 0.5X MS plates. The plates were p
 
 \subsection{Light Sheet Fluorescence Imaging}
 \subsubsection{Sample Preparation}
-Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip and then pushed carefully over the root until the capillary reached the leaves. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). \TODO{LINK TO PREP METHODS VIDEO}. A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$ L pipet tip glued into the lid of a 15 mL tube.
+Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip and then pushed carefully over the root until the capillary reached the leaves. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). A supplementary video illustrating the sample preparation procedure is available (see Supplemental movies \ref{sec:suppmovies}). A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$ L pipet tip glued into the lid of a 15 mL tube.
 
 \subsubsection{Imaging}
-The plant is placed vertically in the 0.5XMS-filled chamber with the leaves in the air. The plant is inserted from above but is held from below. during imaging, the plant is illuminated by a flexible glass fiber (1/2 inch in diameter) that guide standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5MS medium and maintained at 23$\degree$C
+The plant is placed vertically in the 0.5X MS-filled chamber with the leaves in the air. The plant is inserted from above but is held from below. during imaging, the plant is illuminated by a flexible glass fiber (1/2 inch in diameter) that guide standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5MS medium and maintained at 23$\degree$C
 
-Two color channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excitedby a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 100 ms, the laser intensity was set between 0.12 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in \TODO{TABLE SXX}.
+Two color channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excitedby a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 100 ms, the laser intensity was set between 0.12 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in  Table~\ref{tab:metadata}.
 
 \subsubsection{Image Processing}
-Images are stored as 16-bit lossless Tagged Image File Format (TIFF). The complete four dimensional dataset ($x,y,z,t$) was loaded as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The virtual hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
-(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}). The plugin registers the time points using the phase correlation algorithm implemented based on the intensity of the membrane channel. The data set was then cropped to the region of the lateral root primordium along the x-, y- and z-directions. The 3D reconstruction  on Figure 1B was performed with \emph{AMIRA}  (\href{http://www.fei.com}).
+Images were stored as 16-bit lossless Tagged Image File Format (TIFF). The complete four dimensional dataset ($x,y,z,t$) was loaded as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The virtual hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
+(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}). The plugin registers the time points using the phase correlation algorithm implemented based on the intensity of the membrane channel. The data set was then cropped to the region of the lateral root primordium along the x-, y- and z-directions. The 3D reconstruction  of Figure 1B (main text) was performed with \textit{AMIRA} (\href{http://www.fei.com}{http://www.fei.com}).
 
 \clearpage
 \section{The Virtual Lateral Roots: Nuclei Segmentation, Tracking and Datasets Registration}
@@ -178,9 +178,9 @@ The nuclei were segmented and tracked manually for each dataset by means of an i
 
 \subsection{Visualisation and Registration}
 \noindent
-The visualisation of the 3D datasets is realized in \textit{Mathematica} in which individual cells are rendered by spheres. We applied affine transformations (rotation, translation) in order to bring all datasets in a common Cartesian coordinate system and to analyse each dataset using \textit{three viewing types}: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis),  and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Figure~\ref{fig:alphaShapes} shows these views for the last time step of dataset $\# 130607$.
+The visualisation of the 3D datasets is realized in \textit{Mathematica} in which individual cells nuclei are rendered by spheres. We applied affine transformations (rotation, translation) in order to bring all datasets in a common Cartesian coordinate system and to analyse each dataset using three viewing types: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis),  and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Figure~\ref{fig:alphaShapes} shows these views for the last time step of dataset $\# 130607$.
 
-In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell (sphere) in a file a unique colour \TODO{add figure or reference}. In this context, we define the \textit{master cell file} as the one that contributes most of the cell mass and label it by \textbf{0}. In the side view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{1, 2, 3}).
+In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus (sphere) in a file a unique colour (Figure~\ref{fig:trackingfounders}). In this context, we define the \textit{master cell file} as the one that contributes most of the cell mass and label it by \textbf{0}. In the side view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{1, 2, 3}).
 
 \clearpage
 \section{Quantitative Analysis of the Virtual Lateral Roots}
@@ -189,7 +189,7 @@ To estimate cellular growth rate and doubling time of each virtual lateral roots
 \begin{equation}
 N(t)=N_0e^{kt}
 \end{equation} 
-where $N(t)$ is the number of cells at time point $t$, $N_0$ the number of cells at $t=0$ and $k$ the growth constant. The fitting is based on a non-linear model fitting and is realized in \textit{Matlab}.
+where $N(t)$ is the number of cells at time point $t$, $N_0$ the number of cells at $t=0$ and $k$ the cellular growth rate. The fitting is based on a non-linear model fitting and is realized in \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}).
 The doubling time $T$ is computed as:
 \begin{equation}
 T=\frac{ln(2)}{k}
@@ -207,11 +207,14 @@ We computed in Mathematica the height, width, length and volume as follow:
 \subsection{Cell divisions properties}
 For each dataset, we determine relevant properties of the cell divisions such as:
 \TODO{@Alexis: here should your analysis come using violin plots/ circle charts etc.}
-Interphase duration / Angle between two consecutive divisions
 
 \noindent
 \begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{4.5cm} X @{}}
 \textbf{Cell cycle:} &
+\\
+\textbf{Angle between two consecutive divisions: }&
+\\
+\textbf{Interphase duration:}&
 \\
 \textbf{Direction of last division:} &
 \TODO{add figure}\\
@@ -224,12 +227,14 @@ Interphase duration / Angle between two consecutive divisions
 \textbf{Cell layer:} &
 \\
 \end{tabularx}
+Statistical analyses and plotting of the interphase duration (Figure 3C, main text and Figure~\ref{fig:mastertimediv}) and of the angle between two consecutive divisions (Figure 4C, 4D, 5C, 5F, 5I, 5K, 5P main text and Figure~\ref{fig:suppmodel}) were performed in \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
+
 
 \clearpage
 \section{Automatic Classification of Cell Divisions in the Virtual Lateral Root}
 \label{sec:divisionTypes}
 \noindent
-Plant cells are turgid and nonmotile. This means that the lateral root development is formed by a combination of cell divisions and cell growth. In order to analyse this cell behaviour we developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to classify the three different division types occurring during growth in the lateral root: \textcolor{red}{\textbf{anticlinal}} (parallel to the root-shoot axis), \textcolor{green}{\textbf{periclinal}} (normal to the surface of the organ) and \textcolor{blue}{\textbf{radial}} (tangential to the organ and orthogonal to the root-shoot axis) (see Figure~\ref{fig:divisionTypes}).
+We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to classify the three different division types occurring during growth in the lateral root: \textcolor{red}{\textbf{anticlinal}} (parallel to the root-shoot axis), \textcolor{green}{\textbf{periclinal}} (normal to the surface of the organ) and \textcolor{blue}{\textbf{radial}} (tangential to the organ and orthogonal to the root-shoot axis) (see Figure~\ref{fig:divisionTypes}).
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -309,7 +314,7 @@ Periclinal divisions are responsible for the layer organisations in the lateral 
 Through this, we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets. The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time steps. This spatial layer organisation is rendered along the number of time steps. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The division sequence trees for all datasets are shown in Figure~\ref{fig:treeDivisionSequences}. The visualisation of the lineage trees as well as the division sequence trees are done in \textit{scifer}.
 
 \clearpage
-\section{Quantification and Visualisation of Lateral Root Deformation}
+\section{Quantification and Visualisation of Deformation in the Virtual Lateral Root}
 \noindent
 The analysis of the temporal deformation information during the growth of the lateral root is inspired by the work of Graner~et~al.~\cite{graner_et_al_2008}. The idea is that the deformation can be computed using geometrical and topological properties of the underlying tissue. Since in our case we have a set of 3D cell nuclei for each time step (red nodes in Figure~\ref{fig:deformation}) we use this one to generate a triangulation (e.g. Delaunay triangulation) creating a surface that represents the tissue (see Figure~\ref{fig:deformation}). The deformation analysis can now be performed object- or spatial-oriented. This means that either the deformation is evaluated and illustrated for each cell or the total area of interest is subdivided into regions of equal sizes to measure the deformation within each of such a region. We consider the former case because we want to focus on individual cell changes. Besides, the number of cells are quite small at the beginning of our datasets so the total area of interest is not covered by all cells which makes an object-oriented analysis per cell more reasonable.
 %
@@ -364,7 +369,7 @@ M = \langle m \rangle = \langle l \otimes l \rangle =
 %
 
 \noindent
-Note that the averaging could also include a weight parameter for each link which we set to one for simplicity. The geometrical and topological terms are now computed by considering the variation of conserved, appearing and disappearing links between two time steps $t$ and $t + \Delta t$ (see Figure~\ref{fig:ellipseDeformation}, left). More precisely, the geometrical variation, denoted as $B$ is computed by averaging the amount of conserved links $N_c$ between two time steps~\cite{graner_et_al_2008}:
+The geometrical and topological terms are now computed by considering the variation of conserved, appearing and disappearing links between two time steps $t$ and $t + \Delta t$ (see Figure~\ref{fig:ellipseDeformation}, left). More precisely, the geometrical variation, denoted as $B$ is computed by averaging the amount of conserved links $N_c$ between two time steps~\cite{graner_et_al_2008}:
 \begin{equation}
 B = \frac{N_c}{N} \left\langle \frac{\Delta m}{\Delta t} \right\rangle = \frac{N_c}{N} \left\langle \frac{\Delta (l \otimes l) }{\Delta t} \right\rangle.
 \end{equation}
@@ -445,12 +450,13 @@ Through this, each tile represents an averaged deformation that is represented b
 \end{figure}
 %
 
-We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time step ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using the programming language \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}). \TODO{add the exact number of considered cells for each step to the movie description.}
+We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time step ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using  \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}). \TODO{add the exact number of considered cells for each step to the movie description.}
 
 \clearpage
-\section{Modelling of the Virtual Lateral Root}
+\section{Modelling}
+\TODO{\@ JENS: as we are never using the results of the data-driven models, I wonder whether the triangle mesh section should even appear. It could appear confusing. What do you think?}
 \noindent
-Our non-mechanical 2D modelling approach of the VLR development is based on L-systems or also called Lindenmayer~Systems~\cite{lindenmayer_1968, prusinkiewicz_lindenmayer_1990}. The L-system is a language that consists of a set of strings based on some predefined rules. More precisely, it consists of an axiom, the starting point of the system, and a set of production rules. The growth of a dynamic structure is realized by applying these rules to the axiom in which the resulting string is again in the language of the used system. Through this, the growth can be described by an infinite set of strings that 'steers' the growth behaviour. L-systems are commonly used to model plant growths as well as to generate fractals such as the Sierpinski triangle, for example.
+Our non-mechanical 2D modelling approach of the VLR development is based on L-systems or also called Lindenmayer~Systems~\cite{lindenmayer_1968, prusinkiewicz_lindenmayer_1990}. The L-system is a language that consists of a set of strings based on  predefined rules. More precisely, it consists of an axiom, the starting point of the system, and a set of production rules. The growth of a dynamic structure is realized by applying these rules to the axiom in which the resulting string is again in the language of the used system. Through this, the growth can be described by an infinite set of strings that 'steers' the growth behaviour. L-systems are commonly used to model plant growths as well as to generate fractals such as the Sierpinski triangle, for example.
 
 We are using a 2D model for two reasons. First, such a model is much easier to describe than in 3D which significantly reduces the model complexity. Second, we can focus on the 2D case because we want to compare the model result with the real-world cells located in the master cell file of the VLR. These cells feature the property that their positions almost lie on a plane in 3D and that they can be projected onto a 2D plane in side view. Furthermore, based on our analysis the cells in the master cell file are the main contributor to the data-driven growth of the VLR.
 
@@ -558,6 +564,7 @@ The first setting is designed in such a way that a valid comparison between mode
 \subsubsection{Idealized Models}
 \noindent
 For the generalized model, we use a B\'ezier surface starting with two founder cells sharing the same size and shape (see Figure~\ref{fig:founderCellsSetting}, left). We consider three different division settings at the beginning. In the first one, the model starts with two founder cells sharing the same size and the tissue further develops depending on the selected division rules explained below. In another setting, the model starts identically but we hardwire the first division cycle with an anticlinal division (see Figure~\ref{fig:founderCellsSetting}, middle). More precisely, the inner daughter cells share the same size but with only one third of the parents cell's size. In the last scenario, we additionally hardwire the second division cycle simulating a periclinal division behavior (see Figure~\ref{fig:founderCellsSetting}, right). Note that the interphase durations between the division cycles take some steps in the model in which the overall lateral root already started to evolve and eventually changed its tissue structure. But for the sake of clarity, the three surface tissues in Figure~\ref{fig:founderCellsSetting} are the same. \TODO{add naming convention for each hardwired situation.}
+\TODO{Harmonize naming with the one of main text/figure (a minima: explaining the equivalence between the naming in the main text/figure and what you name here.}
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -584,6 +591,7 @@ For each cell in the model the initial area size is computed that a cell has rig
 
 \subsubsection{Division Rules}
 \label{sec:divisionRules}
+\TODO{Harmonize naming with the one of main text/figure (a minima: explaining the equivalence between the naming in the main text/figure and what you name here.}
 \noindent
 After defining the occurrence of a division event we need to set the orientation of the division line. In our model approach we consider five different division scenarios (see Figure~\ref{fig:divisionRules}):
 \begin{Itemize}
@@ -725,8 +733,8 @@ For example, consider the initial B\'ezier surface from Figure~\ref{fig:modelSur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SUPP TABLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Supporting tables, figures, movies and datasets}
-\subsection{Supporting tables}
+\section{Supporting Tables, Figures, Movies and Datasets}
+\subsection{Supporting Tables}
 \noindent
 % Reset the Figure numbering and Add the "S"
 \setcounter{table}{0}
@@ -752,11 +760,33 @@ For example, consider the initial B\'ezier surface from Figure~\ref{fig:modelSur
 		\bottomrule
 		\end{tabular}
 	\end{center}
+	\caption[XXXXX.]{\textbf{PLACEHOLDER.}
+	}
+	\label{tab:metadata}
+\end{table}
+%
+%
+\begin{table}
+	\begin{center}
+		\begin{tabular}[h]{@{}lccccccc@{}}
+		\toprule
+		Event & $\#120830$ & $\#121204$ & $\#121211$ & $\#130508$ & $\#130607$ & Average & SD\\
+		\midrule
+		1\textsuperscript{st} anticlinal division & 10 & 11 & 11 & 9 & 15 & 11 & 2\\
+		1\textsuperscript{st} periclinal division & 22 & 25 & 30 & 16 & 28 & 24 & 5\\
+		2\textsuperscript{nd} periclinal division & 58 & 51 & 64 & 50 & 56 & 56 & 6\\
+		1\textsuperscript{st} radial division & 36 & 62 & 106 & 55 & 97 & 71 & 39\\
+		Emergence & - & 155 & 208 & - & 173 & 179 & 27\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
 	\caption[Number of cells in developmental stages for all datasets.]{\textbf{Number of cells in developmental stages for all datasets.}
 	}
 	\label{tab:developmentalStages}
 \end{table}
 %
+
+
 
 %
 \begin{table}
@@ -839,7 +869,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 % SUPP FIGURES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\subsection{Supporting figures}
+\subsection{Supporting Figures}
 % Reset the Figure numbering and Add the "S"
 \setcounter{figure}{0}
 \makeatletter 
@@ -875,7 +905,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
 	\end{overpic}
 \caption[Time lapse recording of five lateral root primordia.]
-{{\bf Time lapse recording of five lateral root primordia.} For each indicated dataset (Table 1 and \ref{tab:metadata}) Five time points of a longitudinal section (side view) and a transverse section (radial view). Time is relative to the point of gravity-stimulation. The signal of UBQ10::YFP-PIP1;4 (membranes) and GATA23::GUS-GFP-NLS (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are on table S~\ref{tab:metadata}.}
+{{\bf Time lapse recording of five lateral root primordia.} For each indicated dataset (details on Table 1 (main text) and \ref{tab:metadata}) Five time points of a longitudinal section (side view) and a transverse section (radial view). Time is relative to the point of gravity-stimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::GUS-GFP-NLS} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are on table~\ref{tab:metadata}.}
 	\label{fig:alldatasets}
 	\end{center}
 \end{figure}
@@ -886,7 +916,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=1.\linewidth]{images/DatasetsTrackingFounders_compressed.pdf}
 	\end{overpic}
 \caption[Five virtual lateral root primordia.]
-{{\bf Five virtual lateral root primordia.} For each indicated datasets, the spatial distribution of cell nuclei is represented. The first and last time point segmented as well as the one corresponding to 142 cells primordia are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 2C. }
+{{\bf Five virtual lateral root primordia.} For each indicated datasets, the spatial distribution of cell nuclei is represented. The first and last time point segmented as well as the one corresponding to 142 cells primordia are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 2C (main text). }
 	\label{fig:trackingfounders}
 	\end{center}
 \end{figure}
@@ -988,7 +1018,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=.66\linewidth]{images/MasterCellFile_time_of_divisions.pdf}
 	\end{overpic}
 \caption[Timing of each division per cell file.]
-{{\bf Timing of each division per cell file.} For each indicated round of division (subpanels $Cycle 1, ... Cycle 6$), each division is plotted according to the cell file in which it occurs and its time of occurrence (in 5mins  time-steps). }
+{{\bf Timing of each division per cell file.} For each indicated round of division (subpanels $Cycle 1, ... Cycle 6$), each division is plotted according to the cell file in which it occurs and its time of occurrence (in 5mins  time-steps). The dashed box indicates the master cell file.}
 	\label{fig:mastertimediv}
 	\end{center}
 \end{figure}
@@ -1022,8 +1052,8 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=1.\linewidth]{images/model_supp.pdf}
 	\end{overpic}
 \caption[Model of lateral root formation with random choice of division plane and  generation of  daughter cells of equal surface.]
-{{\bf Model of lateral root formation with random choice of division plane and  generation of  daughter cells of equal surface.} (A) visualise the result of the model at the end of the simulation. Cell outlines (top), nuclei (middle) and layers (bottom) are represented. Colours indicate layers as in Figure 2D. (B)  tree representation of the order of periclinal divisions for 100 independent runs of the model. The dashed boxes indicate the proportion of models in which the periclinal divisions occur first in the outer layer (green ?50\%, red <50\%). (C) Pie charts representing the proportion of alternating divisions (in blue) between the indicated division cycles. For reference, the proportions observed in the virtual lateral roots (Figure 4D) are indicated. }
-\label{fig:modelrandea}
+{{\bf Model of lateral root formation with random choice of division plane and  generation of  daughter cells of equal surface.} (A) visualise the result of the model at the end of the simulation. Cell outlines (top), nuclei (middle) and layers (bottom) are represented. Colours indicate layers as in Figure 2D (main text). (B)  tree representation of the order of periclinal divisions for 100 independent runs of the model. The dashed boxes indicate the proportion of models in which the periclinal divisions occur first in the outer layer (green $\geqslant$50\%, red $<$50\%). (C) Pie charts representing the proportion of alternating divisions (in blue) between the indicated division cycles. For reference, the proportions observed in the virtual lateral roots (Figure 4D, main text) are indicated. }
+\label{fig:suppmodel}
 \end{figure}
 %
 
@@ -1032,10 +1062,10 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \subsection{Supporting Movies}
-\TODO{Update with missing links, improve titles and descriptions}
+\label{sec:suppmovies}
 
 \begin{itemize}
-    \item Recording of the entire process of lateral root formation. Corresponds to Figure 1B \href{http://youtu.be/navcxqh7KCo}{\textcolor{blue}{[LINK]}}
+    \item Recording of the entire process of lateral root formation. Corresponds to Figure 1B  (main text) \href{http://youtu.be/navcxqh7KCo}{\textcolor{blue}{[LINK]}}
     \item Time lapse recording of individual datasets:
     \begin{itemize}
     	\item Time lapse recording \#120803 \href{http://youtu.be/hvoDhoWLdSI}{\textcolor{blue}{[LINK]}}
@@ -1046,8 +1076,8 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
     \end{itemize}
     \item Virtual lateral roots datasets \href{http://youtu.be/EXIp3H0y5UI}{\textcolor{blue}{[LINK]}}
     \item Synchronisation on the number of cells, radial view \href{http://youtu.be/YZFkpcnyjiY}{\textcolor{blue}{[LINK]}}
-    \item Average growth tensor. Corresponds to Figure 2B \href{https://youtu.be/unsGbA8-J-Y}{\textcolor{blue}{[LINK]}}
-    \item Layer formation in all datasets in 3 views
+    \item Average growth tensor. Corresponds to Figure 2B (main text) \href{https://youtu.be/unsGbA8-J-Y}{\textcolor{blue}{[LINK]}}
+    \item Layers formation in all datasets:
     \begin{itemize}
         \item Dataset \#130607 \href{http://youtu.be/cdY3t1iVRF8}{\textcolor{blue}{[LINK]}}
         \item Dataset \#120803 \href{http://youtu.be/yXki6QpltZo}{\textcolor{blue}{[LINK]}}
@@ -1055,18 +1085,16 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
         \item Dataset \#121211 \href{http://youtu.be/NOouEVqpGj8}{\textcolor{blue}{[LINK]}}
         \item Dataset \#130508 \href{http://youtu.be/EajarNlRvtA}{\textcolor{blue}{[LINK]}}
     \end{itemize}		
-    \item Model of lateral root formation, \emph{Geometric} model, corresponding to Figure 5A  \href{https://youtu.be/GLUKCE4nN3A}{\textcolor{blue}{[LINK]}}
-        \item Model of lateral root formation, \emph{Geometric plus asymmetric} model, corresponding to Figure 5D  \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}
-    \item Model of lateral root formation, \emph{Random} model, corresponding to Figure 5G  \href{https://youtu.be/V9xkyPfRQeM}{\textcolor{blue}{[LINK]}}
-    \item Model of lateral root formation, \emph{Basal growth} model, corresponding to Figure 5N  \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}
+    \item Model of lateral root formation, \emph{Geometric} model, corresponding to Figure 5A (main text)  \href{https://youtu.be/GLUKCE4nN3A}{\textcolor{blue}{[LINK]}}
+        \item Model of lateral root formation, \emph{Geometric plus asymmetric} model, corresponding to Figure 5D (main text)  \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}
+    \item Model of lateral root formation, \emph{Random} model, corresponding to Figure 5G (main text)  \href{https://youtu.be/V9xkyPfRQeM}{\textcolor{blue}{[LINK]}}
+    \item Model of lateral root formation, \emph{Basal growth} model, corresponding to Figure 5N (main text)  \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}
 
     \item Time lapse recording of the \emph{aur1-2 aur2-2} double mutant, dataset \#131203. Corresponds to Figure~\ref{fig:aurora} \href{http://youtu.be/y8b-0J4lPHg}{\textcolor{blue}{[LINK]}}
     \item Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant \href{http://youtu.be/kkQZub-puVI}{\textcolor{blue}{[LINK]}}
     \item Layer formation in the \emph{aur1-2 aur2-2} double mutant  \href{http://youtu.be/FH5BJ177TGk}{\textcolor{blue}{[LINK]}}
     \item Lateral root induction by gravistimulation \href{http://youtu.be/sLvVCbWye-E}{\textcolor{blue}{[LINK]}}
-    \item Sample preparation \href{http://youtu.be/sLvVCbWye-E}{\textcolor{red}{[MISSING LINK]}}
-
-
+    \item Sample preparation \href{https://youtu.be/uFdOIjmO9vI}{\textcolor{blue}{[LINK]}}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
