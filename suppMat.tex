@@ -168,6 +168,7 @@ Two color channels were recorded, GFP and YFP were excited by a 488nm diode lase
 Images are stored as 16-bit lossless Tagged Image File Format (TIFF). The complete four dimensional dataset ($x,y,z,t$) was loaded as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The virtual hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
 (\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}). The plugin registers the time points using the phase correlation algorithm implemented based on the intensity of the membrane channel. The data set was then cropped to the region of the lateral root primordium along the x-, y- and z-directions. The 3D reconstruction  on Figure 1B was performed with \emph{AMIRA}  (\href{http://www.fei.com}).
 
+\clearpage
 \section{The Virtual Lateral Roots: Nuclei Segmentation, Tracking and Datasets Registration}
 
 \subsection{Nuclei Segmentation and Tracking}
@@ -181,6 +182,7 @@ The visualisation of the 3D datasets is realized in \textit{Mathematica} in whic
 
 In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell (sphere) in a file a unique colour \TODO{add figure or reference}. In this context, we define the \textit{master cell file} as the one that contributes most of the cell mass and label it by \textbf{0}. In the side view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{1, 2, 3}).
 
+\clearpage
 \section{Quantitative Analysis of the Virtual Lateral Roots}
 \subsection{Growth Rate}
 To estimate cellular growth rate and doubling time of each virtual lateral roots, we performed data fitting on the total number of cells for all datasets assuming an exponential growth model (Figure~\ref{fig:growthcurves}):
@@ -203,9 +205,27 @@ We computed in Mathematica the height, width, length and volume as follow:
 \end{Itemize} 
 
 \subsection{Cell divisions properties}
+For each dataset, we determine relevant properties of the cell divisions such as:
+\TODO{@Alexis: here should your analysis come using violin plots/ circle charts etc.}
 Interphase duration / Angle between two consecutive divisions
-\TODO{WRITE EVERYTHING DONE ON THAT...}
 
+\noindent
+\begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{4.5cm} X @{}}
+\textbf{Cell cycle:} &
+\\
+\textbf{Direction of last division:} &
+\TODO{add figure}\\
+\textbf{Direction of this division:} &
+\TODO{add figure}\\
+\textbf{Division angle:} &
+\\
+\textbf{Division type:} &
+\\
+\textbf{Cell layer:} &
+\\
+\end{tabularx}
+
+\clearpage
 \section{Automatic Classification of Cell Divisions in the Virtual Lateral Root}
 \label{sec:divisionTypes}
 \noindent
@@ -288,6 +308,7 @@ Periclinal divisions are responsible for the layer organisations in the lateral 
 %
 Through this, we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets. The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time steps. This spatial layer organisation is rendered along the number of time steps. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The division sequence trees for all datasets are shown in Figure~\ref{fig:treeDivisionSequences}. The visualisation of the lineage trees as well as the division sequence trees are done in \textit{scifer}.
 
+\clearpage
 \section{Quantification and Visualisation of Lateral Root Deformation}
 \noindent
 The analysis of the temporal deformation information during the growth of the lateral root is inspired by the work of Graner~et~al.~\cite{graner_et_al_2008}. The idea is that the deformation can be computed using geometrical and topological properties of the underlying tissue. Since in our case we have a set of 3D cell nuclei for each time step (red nodes in Figure~\ref{fig:deformation}) we use this one to generate a triangulation (e.g. Delaunay triangulation) creating a surface that represents the tissue (see Figure~\ref{fig:deformation}). The deformation analysis can now be performed object- or spatial-oriented. This means that either the deformation is evaluated and illustrated for each cell or the total area of interest is subdivided into regions of equal sizes to measure the deformation within each of such a region. We consider the former case because we want to focus on individual cell changes. Besides, the number of cells are quite small at the beginning of our datasets so the total area of interest is not covered by all cells which makes an object-oriented analysis per cell more reasonable.
@@ -424,8 +445,9 @@ Through this, each tile represents an averaged deformation that is represented b
 \end{figure}
 %
 
-We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time step ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using the programming language \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}).
+We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time step ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using the programming language \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}). \TODO{add the exact number of considered cells for each step to the movie description.}
 
+\clearpage
 \section{Modelling of the Virtual Lateral Root}
 \noindent
 Our non-mechanical 2D modelling approach of the VLR development is based on L-systems or also called Lindenmayer~Systems~\cite{lindenmayer_1968, prusinkiewicz_lindenmayer_1990}. The L-system is a language that consists of a set of strings based on some predefined rules. More precisely, it consists of an axiom, the starting point of the system, and a set of production rules. The growth of a dynamic structure is realized by applying these rules to the axiom in which the resulting string is again in the language of the used system. Through this, the growth can be described by an infinite set of strings that 'steers' the growth behaviour. L-systems are commonly used to model plant growths as well as to generate fractals such as the Sierpinski triangle, for example.
@@ -514,7 +536,7 @@ with the control points $c_{i,j} \in S_{cur}$ and $t \in [0,1]$ as the temporal 
 %
 \begin{figure}[htbp]
 	\begin{center}
-		\begin{overpic}[width=1.\linewidth]{images/modelSurface.pdf}
+		\begin{overpic}[width=0.8\linewidth]{images/modelSurface.pdf}
 		\end{overpic}
 \caption[Initial and final B\'ezier surface of degree $(6, 6)$ for the generalized model.]
 {
@@ -535,7 +557,7 @@ The first setting is designed in such a way that a valid comparison between mode
 
 \subsubsection{Idealized Models}
 \noindent
-For the generalized model, we use a B\'ezier surface starting with two founder cells sharing the same size and shape (see Figure~\ref{fig:founderCellsSetting}, left). We consider three different division settings at the beginning. In the first one, the model starts with two founder cells sharing the same size and the tissue further develops depending on the selected division rules explained below. In another setting, the model starts identically but we hardwire the first division cycle with an anticlinal division (see Figure~\ref{fig:founderCellsSetting}, middle). More precisely, the inner daughter cells share the same size but with only one third of the parents cell's size. In the last scenario, we additionally hardwire the second division cycle simulating a periclinal division behavior (see Figure~\ref{fig:founderCellsSetting}, right). Note that the interphase durations between the division cycles take some steps in the model in which the overall lateral root already started to evolve and eventually changed its tissue structure. But for the sake of clarity, the three surface tissues in Figure~\ref{fig:founderCellsSetting} are the same.
+For the generalized model, we use a B\'ezier surface starting with two founder cells sharing the same size and shape (see Figure~\ref{fig:founderCellsSetting}, left). We consider three different division settings at the beginning. In the first one, the model starts with two founder cells sharing the same size and the tissue further develops depending on the selected division rules explained below. In another setting, the model starts identically but we hardwire the first division cycle with an anticlinal division (see Figure~\ref{fig:founderCellsSetting}, middle). More precisely, the inner daughter cells share the same size but with only one third of the parents cell's size. In the last scenario, we additionally hardwire the second division cycle simulating a periclinal division behavior (see Figure~\ref{fig:founderCellsSetting}, right). Note that the interphase durations between the division cycles take some steps in the model in which the overall lateral root already started to evolve and eventually changed its tissue structure. But for the sake of clarity, the three surface tissues in Figure~\ref{fig:founderCellsSetting} are the same. \TODO{add naming convention for each hardwired situation.}
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -545,7 +567,7 @@ For the generalized model, we use a B\'ezier surface starting with two founder c
 		\end{overpic}
 \caption[Initial situation of founder cells in the generalized model and hardwired division cycles.]
 {
-{\bf Initial situation of founder cells in the generalized model and hardwired division cycles.}
+{\bf Initial situation of founder cells in the generalized model and hardwired division cycles.} \TODO{add 2DCBase}
 }
 	\label{fig:founderCellsSetting}
 	\end{center}
@@ -615,43 +637,61 @@ The last scenario is considering a random rule but preserving almost equal area 
 
 \subsubsection{Cell Shape Preservation}
 \noindent
-In the model, a total random configuration of cell division lines may result in implausible cell developments with unequal sizes and triangle-shaped contours that cannot be observed in any real-world scenario of plant growth. However, we want to analyse a random behaviour of cell divisions that somehow preserve equal sizes and shapes of cells while dividing. We therefore first find a set of division line orientations that satisfy a specific constraint and assign each one a certain probability. The idea of this approach is explained in Figure~\ref{fig:shapePreserving}.
+In the model, a total random configuration of cell division lines may result in implausible cell developments with unequal sizes and triangle-shaped contours that cannot be observed in any real-world scenario of plant growth. However, we want to analyse a random behaviour of cell divisions that somehow preserve equal sizes and shapes of cells while dividing. We therefore first find a set of division line orientations that satisfy a specific constraint and assign each one the same probability value. The idea of this approach is explained in Figure~\ref{fig:shapePreserving}. We use a value of $\delta = 0.15$ for the division rule R and RE while this value is set to zero for BD, D and PDG.
 
-\subsubsection{Computation of Centre of cell}
+\subsubsection{Modified Computation of Centre of Mass.}
 \noindent
-Remark that for all division rules the division line passes always through the centre of mass. However, in later model steps, morel cells are created that share several junctions (see Figure~\ref{fig:levelOfDetail}, left). Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (blue node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division line that also does not preserve equal areas of daughter cells. In order to solve this issue, we perform a \textit{level of detail} of cell walls called the \textit{edge criterion} in such a way that only these junctions are preserved that mainly captures the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four junctions left (see Figure~\ref{fig:levelOfDetail}, right) while preserving the main shape structure of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}.
-
+Remark that for all division rules the division line passes always through the centre of mass. However, in later model steps, morel cells are created that share several junctions (see Figure~\ref{fig:levelOfDetail}, left).
 %
 \begin{figure}[htbp]
 	\begin{center}
 		\begin{overpic}[width=1.\linewidth]{images/levelOfDetail.pdf}
 		\end{overpic}
-\caption[Realistic computation of centre of mass.]
+\caption[Modified computation of centre of mass.]
 {
-{\bf Realistic computation of centre of mass. Left:}. \textbf{Right:}.
+{\bf Modified computation of centre of mass. Left:} The centre of mass of cells with several junctions may not yield a ``real'' centre of the cell. \textbf{Right:} Using a level of detail approach yields few junctions preserving the shape of the cell.
 }
 	\label{fig:levelOfDetail}
 	\end{center}
 \end{figure}
 %
-
+Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (blue node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division line that also does not preserve equal areas of daughter cells. In order to solve this issue, we perform a \textit{level of detail} of cell walls called the \textit{edge criterion} in such a way that only these junctions are preserved that mainly captures the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four junctions left (see Figure~\ref{fig:levelOfDetail}, right) while preserving the main shape structure of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}. Note that we apply this level of detail only for the computation of the centre of mass. We do not remove any junctions of cells in the model itself.
 
 \subsubsection{Parameter Setting for Data-driven and Idealized Models}
 \noindent
 For each model setting we perform $100$ runs with $500$ steps to test how stable the model and therefore the divisions results are based on the randomized factor included in each division rule. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is steered in such a way that at the end of each model step a certain number of cells is reached. For the data-driven models, this number is chosen to be almost identical to the number of cells in the master cell file of the real-world datasets. For the idealized models, we tried to set an area ratio value in such a way that at the end approximately $64$. This value is chosen based on the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+45+82)/5 \approx 64$). The comprehensive Table~\ref{tab:modelParameters} lists all area ratios, average number of cells, anticlinal and periclinal divisions for both the data-driven and the idealized models for each hard-wired division setting that is analysed.
 
-\subsection{Visual Analysis of Model}
-\subsubsection{Model Visualisation}
+\subsection{Visual Analysis of Models}
+\subsubsection{Visualisation Approaches}
 \noindent
-\TODO{describe visualisation of models with cell contours/spheres/layers}
+For each model setting, we generate three different representations of the evolving cells in the tissue: Illustration of
+\begin{inparaenum}[(\itshape A\upshape)]
+\item all cell contours (see Figure~\ref{fig:modelVisualisation}, left),
+\item cells as spheres (see Figure~\ref{fig:modelVisualisation}, mid),
+\item adjacent cell layers (see Figure~\ref{fig:modelVisualisation}, right).
+\end{inparaenum}
+%
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{overpic}[width=1.\linewidth]{images/modelVisualisation.pdf}
+		\end{overpic}
+\caption[Representation of evolving cells in model.]
+{
+{\bf Representation of evolving cells in model.} The model result can be illustrated by cell contours, cell spheres or by cell layers.
+}
+	\label{fig:modelVisualisation}
+	\end{center}
+\end{figure}
+%
+The first representation shows all cell contour information within the evolving tissue. Each cell is coloured by a gradient with focus on the computed centre of mass. The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value (colour). Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells.
 
-\subsubsection{Visual Division Analysis}
+\subsubsection{Division Analysis}
 \noindent
 We can run several samples of the model using division rules that include a randomized factor with each resulting in one division sequence tree as explained in section~\ref{sec:treeDivisionSequence}. However, we want to visually check how often and where the high-order pattern of periclinal divisions is preserved among several runs. This allows us to use statistically solid results of the model to compare them with the real-world datasets.
 %
 \begin{figure}[htbp]
 	\begin{center}
-		\begin{overpic}[width=0.5\linewidth]{images/averagedTreeDivisionSequence.pdf}
+		\begin{overpic}[width=0.4\linewidth]{images/averagedTreeDivisionSequence.pdf}
 		\end{overpic}
 \caption[Averaged division sequence tree.]
 {
@@ -681,7 +721,7 @@ One initial cells consists of four junctions that define a rectangular cell shap
 %
 For example, consider the initial B\'ezier surface from Figure~\ref{fig:modelSurface} and having two cells at the first model step resulting in six junctions (two are shared by the cells) with their corresponding parametric coordinates (see Figure~\ref{fig:subdivision}, top left). In a later model step of the VLR, the tissue will start to grow evolving into the dome-like structure (see Figure~\ref{fig:subdivision}, top right). However, only the junction with the parametric coordinate $(u=\nicefrac{1}{2}, v=1)$ will move upwards based on the underlying B\'ezier surface creating a triangle-shaped tissue. In order to better approximate the underlying surface, additional inner junctions (cyan nodes in Figure~\ref{fig:subdivision}, bottom left) are created that result in a much smoother tissue development of the model (see Figure~\ref{fig:subdivision}, bottom right). This smoothness is defined by a user-chosen subdivision level which is $4$ in all our models and yields $2^{4-1} - 1 = 7$ additional inner junctions.
 
-\newpage
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SUPP TABLES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -754,31 +794,31 @@ Average $\#$ PD & 32.1 & 20.2 & 49.1 & 20.4 & 42.7 &&
 38.1 & 35.0 & 60.7 & 33.2 & 30.3\\
 \textbf{1DC}\\
 Area Ratio & 0.070 & 0.070 & 0.034 & 0.035 & 0.095 &&
-0.420 & 0.445 & 0.445 & &\\
+0.420 & 0.445 & 0.445 & 0.450 & 0.450\\
 Average $\#$ Cells & 63.5 & 48.5 & 81.6 & 46.2 & 81.4 &&
-66.6 & 63.6 & 62.5 & &\\
+66.6 & 63.6 & 62.5 & 58.3 & 61.9\\
 Average $\#$ AD & 30.2 & 23.4 & 32.5 & 20.1 & 38.1 &&
-18.3 & 26.0 & 3.98 & &\\
+18.3 & 26.0 & 3.98 & 28.8 & 34.1\\
 Average $\#$ PD & 31.3 & 23.0 & 47.1 & 24.1 & 41.3 &&
-46.3 & 35.6 & 56.5 & &\\
+46.3 & 35.6 & 56.5 & 27.5 & 25.8\\
 \textbf{2DC}\\
 Area Ratio & 0.078 & 0.060 & 0.048 & 0.047 & 0.054 &&
-0.450 & 0.450 & 0.450 & &\\
+0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
 Average $\#$ Cells & 61.9 & 48.3 & 79.1 & 45.1 & 86.5 &&
-& 64.5 & 60.2 & &\\
+62.6 & 64.5 & 60.2 & 61.2 & 65.3\\
 Average $\#$ AD & 32.1 & 27.3 & 33.3 & 22.5 & 42.3 &&
-& 26.0 & 4.08 & &\\
+20.3 & 26.0 & 4.08 & 29.9 & 42.2\\
 Average $\#$ PD & 27.8 & 19.0 & 43.8 & 20.5 & 42.1 &&
-& 36.5 & 54.1 & &\\
+40.2 & 36.5 & 54.1 & 29.2 & 21.1\\
 \textbf{2DCBase}\\
 Area Ratio & & & & & &&
-0.450 & 0.450 & 0.450 & &\\
+0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
 Average $\#$ Cells & & & & & &&
-62.5 & 66.2 & 72.9 & &\\
+62.5 & 66.2 & 72.9 & 59.5 & 65.8\\
 Average $\#$ AD & & & & & &&
-18.0 & 36.6 & 4.24 & &\\
+18.0 & 36.6 & 4.24 & 29.9 & 25.5\\
 Average $\#$ PD & & & & & &&
-42.4 & 27.5 & 66.7 & &\\
+42.4 & 27.5 & 66.7 & 27.6 & 38.3\\
 \textbf{Real Data}\\
 $\#$ Cells & 64 & 49 & 81 & 45 & 82 &&
 & & & &\\
