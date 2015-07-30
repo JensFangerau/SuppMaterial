@@ -619,7 +619,8 @@ In the model, a total random configuration of cell division lines may result in 
 
 \subsubsection{Computation of Centre of cell}
 \noindent
-\TODO{describe how the real centre of mass is computed}
+Remark that for all division rules the division line passes always through the centre of mass. However, in later model steps, morel cells are created that share several junctions (see Figure~\ref{fig:levelOfDetail}, left). Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (blue node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division line that also does not preserve equal areas of daughter cells. In order to solve this issue, we perform a \textit{level of detail} of cell walls called the \textit{edge criterion} in such a way that only these junctions are preserved that mainly captures the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four junctions left (see Figure~\ref{fig:levelOfDetail}, right) while preserving the main shape structure of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}.
+
 %
 \begin{figure}[htbp]
 	\begin{center}
