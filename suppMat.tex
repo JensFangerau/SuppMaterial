@@ -47,6 +47,17 @@
 \newcolumntype{x}[1]{%
 >{\centering\hspace{0pt}}p{#1}}%
 
+% to get really small font size:
+\makeatletter
+\ifcase \@ptsize \relax% 10pt
+  \newcommand{\miniscule}{\@setfontsize\miniscule{3}{4}}% \tiny: 5/6
+\or% 11pt
+  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 6/7
+\or% 12pt
+  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 6/7
+\fi
+\makeatother
+
 % new command for colored TODO text
 \newcommand{\TODO}[1]{
 \textcolor{red}{TODO:#1}
@@ -767,7 +778,8 @@ For example, consider the initial B\'ezier surface from Figure~\ref{fig:modelSur
 % more space between rows
 \renewcommand{\arraystretch}{1.1}
 %
-\tiny
+\begin{sidewaystable}
+	\miniscule
 \begin{longtable}{@{} l l l l l l l @{}}
 \toprule
 Dataset & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & \#131203\\
@@ -848,6 +860,7 @@ Post Processing & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift 
 	}
 \label{tab:metadata}
 \end{longtable}
+\end{sidewaystable}
 %
 %
 \begin{table}
@@ -990,7 +1003,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
 	\end{overpic}
 \caption[Time lapse recording of five lateral root primordia.]
-{{\bf Time lapse recording of five lateral root primordia.} For each indicated dataset (details on Table 1 (main text) and \ref{tab:metadata}) Five time points of a longitudinal section (side view) and a transverse section (radial view). Time is relative to the point of gravity-stimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::GUS-GFP-NLS} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are on table~\ref{tab:metadata}. Links to movies of each datasets are listed in~\ref{\label{sec:suppmovies}}}.
+{{\bf Time lapse recording of five lateral root primordia.} For each indicated dataset (details on Table 1 (main text) and \ref{tab:metadata}) Five time points of a longitudinal section (side view) and a transverse section (radial view). Time is relative to the point of gravity-stimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::GUS-GFP-NLS} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are on table~\ref{tab:metadata}. Links to movies of each datasets are listed in~\ref{sec:suppmovies}.}
 	\label{fig:alldatasets}
 	\end{center}
 \end{figure}
@@ -1001,7 +1014,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=1.\linewidth]{images/DatasetsTrackingFounders_compressed.pdf}
 	\end{overpic}
 \caption[Five virtual lateral root primordia.]
-{{\bf Five virtual lateral root primordia.} For each indicated datasets, the spatial distribution of cell nuclei is represented. The first and last time point segmented as well as the one corresponding to 142 cells primordia are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 2C (main text). Links to movies of each datasets are listed in~\ref{\label{sec:suppmovies}}}.
+{{\bf Five virtual lateral root primordia.} For each indicated datasets, the spatial distribution of cell nuclei is represented. The first and last time point segmented as well as the one corresponding to 142 cells primordia are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 2C (main text). Links to movies of each datasets are listed in~\ref{sec:suppmovies}.}
 	\label{fig:trackingfounders}
 	\end{center}
 \end{figure}
@@ -1078,7 +1091,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 		\end{overpic}
 \caption[Division sequence trees for all five datasets and the aurora mutant.]
 {
-{\bf Division sequence trees for all five datasets and the aurora mutant.} The x-axis corresponds to the number of cells. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions. Links to movies depicting layers formation for each datasets are listed in~\ref{\label{sec:suppmovies}}}}
+{\bf Division sequence trees for all five datasets and the aurora mutant.} The x-axis corresponds to the number of cells. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions. Links to movies depicting layers formation for each datasets are listed in~\ref{sec:suppmovies}}
 	\label{fig:treeDivisionSequences}
 	\end{center}
 \end{figure}
@@ -1162,7 +1175,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
   \end{itemize}
   \item Virtual lateral roots datasets \href{http://youtu.be/EXIp3H0y5UI}{\textcolor{blue}{[LINK]}}
   \item Synchronisation on the number of cells, radial view \href{http://youtu.be/YZFkpcnyjiY}{\textcolor{blue}{[LINK]}}
-  \item Average growth tensor. Corresponds to Figure 2B (main text) \href{https://youtu.be/unsGbA8-J-Y}{\textcolor{blue}{[LINK]}}
+  \item Average growth tensor. Corresponds to Figure 2B (main text) \href{https://youtu.be/t2hpMR6VFIg}{\textcolor{blue}{[LINK]}}
   \item Layers formation in all datasets:
   \begin{itemize}
     \item Dataset \#130607 \href{http://youtu.be/cdY3t1iVRF8}{\textcolor{blue}{[LINK]}}
