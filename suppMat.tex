@@ -94,6 +94,12 @@
 % no space after a punctuation mark
 \frenchspacing
 
+% for defining the authors
+\usepackage{authblk}
+
+% to use the same footnote for several authors
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+
 \usepackage{tabularx, ragged2e}
 %\usepackage{ltablex}
 \newcolumntype{b}{X}
@@ -109,21 +115,32 @@
 \makeatother
 
 {\renewcommand{\arraystretch}{1.2}
+
+\title{\Large
+\textbf{Supplemental Material}\\[1em]
+\textsc{Cell lineages analysis of lateral root formation reveals the non-stereotyped yet robust nature of post-embryonic organ morphogenesis in plants}}
+\author[1,2]{Daniel von Wangenheim}
+\author[2,3]{Jens Fangerau\thanks{Contributed equally.}}
+\author[1]{Alexander Schmitz\samethanks}
+\author[4]{Richard Smith}
+\author[3]{Heike Leitte}
+\author[1]{Ernst H. K. Stelzer\thanks{Corresponding authors. E-mail: \href{ernst.stelzer@physikalischebiologie.de}{ernst.stelzer@physikalischebiologie.de} (E.H.K.S) and \href{alexis.maizel@cos.uni-heidelberg.de}{alexis.maizel@cos.uni-heidelberg.de} (A.M.).}}
+\author[2]{Alexis Maizel\samethanks}
+\affil[1]{Buchmann Institute for Molecular Life Sciences, Goethe University Frankfurt, D-60438 Frankfurt Am Main, Germany.}
+\affil[2]{Centre for Organismal Studies, Heidelberg University, D-69120 Heidelberg, Germany.}
+\affil[3]{Interdisciplinary Center for Scientific Computing, Heidelberg University, D-69120 Heidelberg, Germany.}
+\affil[4]{Max Planck Institue for Plant Breeding Research, D-50829 Cologne, Germany.}
+
+\renewcommand\Authands{ and }
+\setlength{\affilsep}{3em}
+\renewcommand\Authfont{\scshape}
+\renewcommand\Affilfont{\itshape\footnotesize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % begin of document
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
-\begin{center}\large
-\textbf{Supplemental Material}\\[1em]
-
-\textsc{Cell lineages analysis of lateral root formation reveals the non-stereotyped yet robust nature of post-embryonic organ morphogenesis in plants}
-
-\TODO{add authors}
-
-\TODO{add affiliations}
-
-\end{center}
+\maketitle
 
 % depth in table of contents 
 \setcounter{tocdepth}{2}
