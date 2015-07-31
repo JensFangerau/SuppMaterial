@@ -67,6 +67,10 @@
 
 \usepackage{wrapfig}
 
+% for long tables
+\usepackage{longtable}
+\usepackage{pdflscape}
+
 % own itemize environment for better left margin
 \newenvironment{Itemize}{
  \begin{itemize}[leftmargin=0.5cm]{
@@ -471,8 +475,8 @@ We perform this averaging for all three viewing types (front, side, radial). Fig
 
 \clearpage
 \section{Modelling}
-\TODO{\@ JENS: as we are never using the results of the data-driven models, I wonder whether the triangle mesh section should even appear. It could appear confusing. What do you think?}
 \noindent
+\TODO{rewiew and omit data-driven models}
 Our non-mechanical 2D modelling approach of the VLR development is based on L-systems or also called Lindenmayer~Systems~\cite{lindenmayer_1968, prusinkiewicz_lindenmayer_1990}. The L-system is a language that consists of a set of strings based on predefined rules. More precisely, it consists of an axiom, the starting point of the system, and a set of production rules. The growth of a dynamic structure is realized by applying these rules to the axiom in which the resulting string is again in the language of the used system. Through this, the growth can be described by an infinite set of strings that 'steers' the growth behaviour. L-systems are commonly used to model plant growths as well as to generate fractals such as the Sierpinski triangle, for example.
 
 We are using a 2D model for two reasons. First, such a model is much easier to describe than in 3D which significantly reduces the model complexity. Second, we can focus on the 2D case because we want to compare the model result with the real-world cells located in the master cell file of the VLR. These cells feature the property that their positions almost lie on a plane in 3D and that they can be projected onto a 2D plane in side view. Furthermore, based on our analysis the cells in the master cell file are the main contributor to the data-driven growth of the VLR.
@@ -493,58 +497,58 @@ In a nutshell, the simulation starts with a specific number and positioning of f
 \noindent
 The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that the changing vertices of the surface influence the evolving cells of the model and their corresponding walls and junctions. We use two surface types to represent the structure of the VLR: Triangle meshes and B\'ezier surfaces. The first one is used to create a triangulation based on real nuclei positions in the dataset for each time step. Through this, we can generate a data-driven model that incorporates the deformation behaviour of the nuclei and are able to compare the result with the real-world datasets. The B\'ezier surface is used for a generalized model that allows an investigation of a common growth behaviour of the VLR. For this, we use non-deterministic division rules for each model, i.e.\ a random variation of the division line orientation which is explained below in section~\ref{sec:divisionRules}. By running such a slight random model with the same setting several times (e.g.\ 100) we can analyse its division behaviour based on statistically solid results.
 
-\subsubsection{Triangle Mesh}
-\noindent
-For each real-world dataset, we create a set of 2D triangle meshes. This means that for each time step, we generate a triangulation based on the corresponding real nuclei positions located in the master cell file only because these are mainly responsible for the overall dome-like structure of the VLR. Through this, the triangulation captures the temporal displacement and growth behaviour of the nuclei which is then further used in the model to dictate the simulation and tissue growth (see Figure~\ref{fig:surfaceGeneration}). More precisely, the cells in the model consists of changing junctions that are affected by the triangle changes. If a junction $j$ of a cell is located within a specific triangle then $j$ is given uniquely by a convex combination $j = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3$ of the three triangle vertices $r_i$. The $\lambda_i$ $\left( \sum_{i=1}^{3} \lambda_i = 1, \lambda_i \geq 0 \; \forall i \right)$ are called the barycentric coordinates of $j$ with respect to the triangle. In the model itself, a lot of conversions between these barycentric and Cartesian coordinates occur to compute the changing cells.
+%\subsubsection{Triangle Mesh}
+%\noindent
+%For each real-world dataset, we create a set of 2D triangle meshes. This means that for each time step, we generate a triangulation based on the corresponding real nuclei positions located in the master cell file only because these are mainly responsible for the overall dome-like structure of the VLR. Through this, the triangulation captures the temporal displacement and growth behaviour of the nuclei which is then further used in the model to dictate the simulation and tissue growth (see Figure~\ref{fig:surfaceGeneration}). More precisely, the cells in the model consists of changing junctions that are affected by the triangle changes. If a junction $j$ of a cell is located within a specific triangle then $j$ is given uniquely by a convex combination $j = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3$ of the three triangle vertices $r_i$. The $\lambda_i$ $\left( \sum_{i=1}^{3} \lambda_i = 1, \lambda_i \geq 0 \; \forall i \right)$ are called the barycentric coordinates of $j$ with respect to the triangle. In the model itself, a lot of conversions between these barycentric and Cartesian coordinates occur to compute the changing cells.
+%%
+%\begin{figure}[htbp]
+%	\begin{center}
+%		\begin{overpic}[width=1.\linewidth]{images/surfaceGeneration.pdf}
+%		\end{overpic}
+%\caption[Generation of triangle mesh based on real nuclei displacements.]
+%{
+%{\bf Generation of triangle mesh based on real nuclei displacements.}
+%}
+%	\label{fig:surfaceGeneration}
+%	\end{center}
+%\end{figure}
+%%
 %
-\begin{figure}[htbp]
-	\begin{center}
-		\begin{overpic}[width=1.\linewidth]{images/surfaceGeneration.pdf}
-		\end{overpic}
-\caption[Generation of triangle mesh based on real nuclei displacements.]
-{
-{\bf Generation of triangle mesh based on real nuclei displacements.}
-}
-	\label{fig:surfaceGeneration}
-	\end{center}
-\end{figure}
+%The triangulation can be either realized by a Delaunay triangulation or an $\alpha$-shape. Since we are only using the nuclei to construct the triangulation we require some additional information to of the VLR contour. Therefore, for each dataset, we manually generate a set of contour points to approximate the boundary of the VLR for the first (bottom left image in Figure~\ref{fig:surfaceGeneration}) and the last (bottom right image in Figure~\ref{fig:surfaceGeneration}) time step. We choose a constant number of 16 points such that the contour points for the time steps in between are interpolated linearly (see bottom mid image in Figure~\ref{fig:surfaceGeneration}).
+%%
+%\begin{figure}[htbp]
+%	\begin{center}
+%		\begin{overpic}[width=0.8\linewidth]{images/surfaceMapping.pdf}
+%%			\putIndex{0}{0}{A.pdf}
+%%			\putIndex{52}{0}{B.pdf}
+%		\end{overpic}
+%\caption[Mapping of triangles and nuclei between subsequent time steps.]
+%{
+%{\bf Mapping of triangles and nuclei between subsequent time steps.} Nuclei displacements only do not interfere the bijectivity requirement but cell divisions do result in more triangles.
+%}
+%	\label{fig:surfaceMapping}
+%	\end{center}
+%\end{figure}
+%%
 %
-
-The triangulation can be either realized by a Delaunay triangulation or an $\alpha$-shape. Since we are only using the nuclei to construct the triangulation we require some additional information to of the VLR contour. Therefore, for each dataset, we manually generate a set of contour points to approximate the boundary of the VLR for the first (bottom left image in Figure~\ref{fig:surfaceGeneration}) and the last (bottom right image in Figure~\ref{fig:surfaceGeneration}) time step. We choose a constant number of 16 points such that the contour points for the time steps in between are interpolated linearly (see bottom mid image in Figure~\ref{fig:surfaceGeneration}).
+%For the set of generated meshes, a bijective mapping of the triangles between time step $t$ and $t+1$ is required for the computation of arbitrary cell positions in between in the model. This means that each nuclei position in time step $t+1$ is uniquely assigned to a previous position in time step $t$ (top left in Figure~\ref{fig:surfaceMapping}). More precisely, our approach requires that we use the same triangulation (but with different nuclei positions) for subsequent time steps. However, cell divisions may result in more nuclei in the next time step and consequently in more triangles (top right in Figure~\ref{fig:surfaceMapping}) impairing the bijectivity. To overcome this issue, for each occurring cell division, the average position of the two daughter cells (grey nodes) is computed at the next time step and represents a single nuclei position (cyan node) that can be bijectively mapped to the previous dividing cell (green node). At time step $t+2$, the two triangles originally created at $t+1$ are considered and the next time step $t+3$ is checked again. In total, there are two triangle meshes for each pair of subsequent time steps that guarantee a bijective mapping which are between time step $t$ and $t+1$, as well as $t+2$ and $t+3$, respectively.
 %
-\begin{figure}[htbp]
-	\begin{center}
-		\begin{overpic}[width=0.8\linewidth]{images/surfaceMapping.pdf}
-%			\putIndex{0}{0}{A.pdf}
-%			\putIndex{52}{0}{B.pdf}
-		\end{overpic}
-\caption[Mapping of triangles and nuclei between subsequent time steps.]
-{
-{\bf Mapping of triangles and nuclei between subsequent time steps.} Nuclei displacements only do not interfere the bijectivity requirement but cell divisions do result in more triangles.
-}
-	\label{fig:surfaceMapping}
-	\end{center}
-\end{figure}
-%
-
-For the set of generated meshes, a bijective mapping of the triangles between time step $t$ and $t+1$ is required for the computation of arbitrary cell positions in between in the model. This means that each nuclei position in time step $t+1$ is uniquely assigned to a previous position in time step $t$ (top left in Figure~\ref{fig:surfaceMapping}). More precisely, our approach requires that we use the same triangulation (but with different nuclei positions) for subsequent time steps. However, cell divisions may result in more nuclei in the next time step and consequently in more triangles (top right in Figure~\ref{fig:surfaceMapping}) impairing the bijectivity. To overcome this issue, for each occurring cell division, the average position of the two daughter cells (grey nodes) is computed at the next time step and represents a single nuclei position (cyan node) that can be bijectively mapped to the previous dividing cell (green node). At time step $t+2$, the two triangles originally created at $t+1$ are considered and the next time step $t+3$ is checked again. In total, there are two triangle meshes for each pair of subsequent time steps that guarantee a bijective mapping which are between time step $t$ and $t+1$, as well as $t+2$ and $t+3$, respectively.
-
-The exchange of the different triangle meshes between $t+1$ and $t+2$ is realized by another approach. Consider the simplified model with three cells in Figure~\ref{fig:triangleExchange} and the inner junction $j$ in the model. At time step $t$, the position of $j$ is computed by its barycentric coordinates within the blue-rimmed triangle. When in the next time step the triangle mesh should have changed then it will be checked in which triangle $j$ is located now. Based on the position in the newly found blue-rimmed triangle, the new barycentric coordinates are computed. In further steps, either only a bijective mapping between two equal triangulations is needed or the same approach is applied facing a new triangle mesh. Note that at the beginning of the model, the setting of cells as well as their positions have to be defined manually. Based on these positions, the triangles are identified in which the junctions are located and the barycentric coordinates are computed.
-%
-\begin{figure}[htbp]
-	\begin{center}
-		\begin{overpic}[width=0.8\linewidth]{images/triangleExchange.pdf}
-%			\putIndex{0}{0}{A.pdf}
-%			\putIndex{52}{0}{B.pdf}
-		\end{overpic}
-\caption[Transition between two different triangle meshes.]
-{
-{\bf Transition between two different triangle meshes.} For each junction position $j$, the triangle of the underlying surface has to be identified in which $j$ is located at time step $t+1$. The red nodes indicate the nuclei while the black ones denote the contour points.
-}
-	\label{fig:triangleExchange}
-	\end{center}
-\end{figure}
-%
+%The exchange of the different triangle meshes between $t+1$ and $t+2$ is realized by another approach. Consider the simplified model with three cells in Figure~\ref{fig:triangleExchange} and the inner junction $j$ in the model. At time step $t$, the position of $j$ is computed by its barycentric coordinates within the blue-rimmed triangle. When in the next time step the triangle mesh should have changed then it will be checked in which triangle $j$ is located now. Based on the position in the newly found blue-rimmed triangle, the new barycentric coordinates are computed. In further steps, either only a bijective mapping between two equal triangulations is needed or the same approach is applied facing a new triangle mesh. Note that at the beginning of the model, the setting of cells as well as their positions have to be defined manually. Based on these positions, the triangles are identified in which the junctions are located and the barycentric coordinates are computed.
+%%
+%\begin{figure}[htbp]
+%	\begin{center}
+%		\begin{overpic}[width=0.8\linewidth]{images/triangleExchange.pdf}
+%%			\putIndex{0}{0}{A.pdf}
+%%			\putIndex{52}{0}{B.pdf}
+%		\end{overpic}
+%\caption[Transition between two different triangle meshes.]
+%{
+%{\bf Transition between two different triangle meshes.} For each junction position $j$, the triangle of the underlying surface has to be identified in which $j$ is located at time step $t+1$. The red nodes indicate the nuclei while the black ones denote the contour points.
+%}
+%	\label{fig:triangleExchange}
+%	\end{center}
+%\end{figure}
+%%
 
 \subsubsection{B\'ezier Surface}
 For this idealized model, we use a set of B\'ezier surfaces to represent the smooth tissue development. A two-dimensional B\'ezier surface of degree $(n, m)$ with $(n+1) \cdot (m+1)$ control points $c_{i, j} \in \mathbb{R}^2$ is a parametric surface that maps the unit square into a smooth-continuous surface embedded in the same space as its control points. Each point $P(u, v) \in \mathbb{R}^2$ on such a B\'ezier surface $S_{cur}$ with parametric coordinates $u ,v \in [0,1]$ is computed by the following equation:
@@ -574,9 +578,9 @@ with the control points $c_{i,j} \in S_{cur}$ and $t \in [0,1]$ as the temporal 
 \noindent
 For the modelling approach we have to set the number and spatial properties of founder cells that affect the overall development of the lateral root. We are using two different setting types depending on the kind of model.
 
-\subsubsection{Data-driven Models}
-\noindent
-The first setting is designed in such a way that a valid comparison between model and real world dataset is achieved. The underlying surface of the model is a triangle mesh based on real nuclei positions as explained above. Furthermore, the number of cells in the model is selected such that it approximately matches the same number of cells in the real-world datasets for both, the beginning and the end of the given datasets. In order to preserve the same number of cells at the end in the model, we steer the parameter for the division event as explained later.
+%\subsubsection{Data-driven Models}
+%\noindent
+%The first setting is designed in such a way that a valid comparison between model and real world dataset is achieved. The underlying surface of the model is a triangle mesh based on real nuclei positions as explained above. Furthermore, the number of cells in the model is selected such that it approximately matches the same number of cells in the real-world datasets for both, the beginning and the end of the given datasets. In order to preserve the same number of cells at the end in the model, we steer the parameter for the division event as explained later.
 
 \subsubsection{Idealized Models}
 \noindent
@@ -682,7 +686,7 @@ Remark that for all division rules the division line passes always through the c
 %
 Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (blue node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division line that also does not preserve equal areas of daughter cells. In order to solve this issue, we perform a \textit{level of detail} of cell walls called the \textit{edge criterion} in such a way that only these junctions are preserved that mainly captures the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four junctions left (see Figure~\ref{fig:levelOfDetail}, right) while preserving the main shape structure of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}. Note that we apply this level of detail only for the computation of the centre of mass. We do not remove any junctions of cells in the model itself.
 
-\subsubsection{Parameter Setting for Data-driven and Idealized Models}
+\subsubsection{Parameter Setting for Idealized Models}
 \noindent
 For each model setting we perform $100$ runs with $500$ steps to test how stable the model and therefore the divisions results are based on the randomized factor included in each division rule. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is steered in such a way that at the end of each model step a certain number of cells is reached. For the data-driven models, this number is chosen to be almost identical to the number of cells in the master cell file of the real-world datasets. For the idealized models, we tried to set an area ratio value in such a way that at the end approximately $64$. This value is chosen based on the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+45+82)/5 \approx 64$). The comprehensive Table~\ref{tab:modelParameters} lists all area ratios, average number of cells, anticlinal and periclinal divisions for both the data-driven and the idealized models for each hard-wired division setting that is analysed.
 
@@ -761,85 +765,89 @@ For example, consider the initial B\'ezier surface from Figure~\ref{fig:modelSur
 %
 \TODO{fix format and floating}
 % more space between rows
-\renewcommand{\arraystretch}{1.2}
+\renewcommand{\arraystretch}{1.1}
 %
-\begin{sidewaystable}\centering
-\begin{tabular}{ | l | l | l | l | l | l | l | }
-\hline
-	Dataset & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & \#131203 \\ \hline
-	Specimen & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0
-aur1-2 aur2-2 double mutant \\ \hline
-	Reporters & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pUBI10::H2B-RFP \\ \hline
-	 & pUBI10::H2B-RFP & pUBI10::H2B-RFP & pUBI10::H2B-RFP & pUBI10::H2B-RFP & pUBI10::H2B-RFP & pPIN1::PIN1-GFP \\ \hline
-	 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & \ \\ \hline
-	\ & \ & \ & \ & \ & \ & \ \\ \hline
-	Growth & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator \\ \hline
-	Seeds Sowed: 23.8.2012 & Seeds Sowed: 26.11.2012 & Seeds Sowed: 5.12.2012 & Seeds Sowed: 2.5.2013 & Seeds Sowed: 31.5.2013 & Seeds Sowed: 26.11.2013 & \ \\ \hline
-	1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & \ \\ \hline
-	2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & \ \\ \hline
-	1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & \ \\ \hline
-	0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & \ \\ \hline
-	1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & \ \\ \hline
-	Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & \ \\ \hline
-	 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-3 & Light Intensity = 120-140 $\mu$mol*m-2*s-4 & Light Intensity = 120-140 $\mu$mol*m-2*s-5 & Light Intensity = 120-140 $\mu$mol*m-2*s-6 & Light Intensity = 120-140 $\mu$mol*m-2*s-6 \\ \hline
-	Light Cycle Day/Night = 16/8 & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & \ \\ \hline
-	Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & \ \\ \hline
-	 & Gravistimulation Prior To Recording = 8h 34min & Gravistimulation Prior To Recording = 14h 20min & Gravistimulation Prior To Recording = 15h 45min & Gravistimulation Prior To Recording = 8h 25min & Gravistimulation Prior To Recording = 7h 15min & Gravistimulation Prior To Recording = 12h 40min \\ \hline
-	 & 30.08.12, 7:50am - 16:00pm & 3.12.2012, 11:00pm - 9:00am (+1 Day) & 10.12.2012, 11:00pm - 9:00am (+1 Day) & 8.5.2013, 04:00am - 11:00am & 3.6.2013, 07:45am - 14:45pm & 3.12.2013, 00:00am - 07:30am \\ \hline
-	 & & & & & & \ \\ \hline
-	Light sheet Imaging & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope \\ \hline
-	Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & \ \\ \hline
-	 & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) \\ \hline
-	 & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) \\ \hline
-	 & Perfusion Speed = 0.47ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min \\ \hline
-	 & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions \\ \hline
-	 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 \\ \hline
-	 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 \\ \hline
-	 & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C \\ \hline
-	 & & & & & \ & \ \\ \hline
-	Microscopy & Microscopy & Microscopy & Microscopy & Microscopy & Microscopy & \ \\ \hline
-	Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data & \ \\ \hline
-	Start Time = 30.8.2012, 16:24pm & Start Time = 4.12.2012, 1:20pm & Start Time = 11.12.2012, 14:45pm & Start Time = 8.5.2013, 12:25pm & Start Time = 3.6.2013, 15:00pm & Start Time = 3.12.2013, 12:40pm & \ \\ \hline
-	Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min & \ \\ \hline
-	Total Recording Time = 47h & Total Recording Time = 45h & Total Recording Time = 39h 30min & Total Recording Time = 50h 30min & Total Recording Time = 65h 20min & Total Recording Time = 42h 55min & \ \\ \hline
-	Total Raw Data = 100 GB & Total Raw Data = 167 GB & Total Raw Data = 152 GB & Total Raw Data = 432 GB & Total Raw Data = 243 GB & Total Raw Data = 159 GB & \ \\ \hline
-	Detection Lens & Detection Lens & Detection Lens & Detection Lens & Detection Lens & Detection Lens & \ \\ \hline
-	 Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & \ \\ \hline
-	 & Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens \\ \hline
-	 Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & \ \\ \hline
-	Stack & Stack & Stack & Stack & Stack & Stack & \ \\ \hline
-	Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & \ \\ \hline
-	Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & \ \\ \hline
-	Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & \ \\ \hline
-	Channels & Channels & Channels & Channels & Channels & Channels & \ \\ \hline
-	Channel 1 & Channel 3 & Channel 4 & Channel 5 & Channel 6 & Channel 6 & \ \\ \hline
-	Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & \ \\ \hline
-	Laser Power = 0.16 mW & Laser Power = 0.18 mW & Laser Power = 0.12 mW & Laser Power = 0.42 mW & Laser Power = 0.42 mW & Laser Power = 0.02 mW (re-adjust to 0.35 mW) & \ \\ \hline
-	Filter = 534/30 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50 & \ \\ \hline
-	Camera Integration Time = 75 ms & Camera Integration Time = 40 ms & Camera Integration Time = 75 ms & Camera Integration Time = 30 ms & Camera Integration Time = 30 ms & Camera Integration Time = 40 ms & \ \\ \hline
-	Channel 2 & Channel 4 & Channel 5 & Channel 6 & Channel 7 & Channel 7 & \ \\ \hline
-	Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & \ \\ \hline
-	Laser Power = 0.32 mW & Laser Power = 0.4 mW & Laser Power = 0.21 mW & Laser Power = 0.21 mW & Laser Power = 0.6 mW & Laser Power = 0.02 mW & \ \\ \hline
-	Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & \ \\ \hline
-	Camera Integration Time = 75 ms & Camera Integration Time = 40 ms & Camera Integration Time = 75 ms & Camera Integration Time = 30 ms & Camera Integration Time = 30 ms & Camera Integration Time = 40 ms & \ \\ \hline
-	Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & \ \\ \hline
-	Binning & Binning & Binning & Binning & Binning & Binning & \ \\ \hline
-	Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & \ \\ \hline
-	Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & \ \\ \hline
-	Format & Format & Format & Format & Format & Format & \ \\ \hline
-	Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & \ \\ \hline
-	Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & \ \\ \hline
-	Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & \ \\ \hline
-	Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1 & \ \\ \hline
-	\ & \ & \ & \ & \ & \ & \ \\ \hline
-	Post Processing & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift \\ \hline
-	Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & \ \\ \hline
-	555 x 221 x 147 & 689 x 393 x 200 & 736 x 376 x 170 & 682 x 406 x 130 & 666 x 404 x 130 & 684 x 378 x 110 & \ \\ \hline
-\end{tabular}
-	\caption[XXXXX.]{\textbf{PLACEHOLDER.}
+\tiny
+\begin{longtable}{@{} l l l l l l l @{}}
+\toprule
+Dataset & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & \#131203\\
+\midrule
+Specimen & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0 & Arabidopsis thaliana, Col-0
+aur1-2 aur2-2 double mutant\\
+Reporters & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pUBI10::H2B-RFP\\
+& pUBI10::H2B-RFP & pUBI10::H2B-RFP & pUBI10::H2B-RFP & pUBI10::H2B-RFP & pUBI10::H2B-RFP & pPIN1::PIN1-GFP\\
+& pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & \ \\
+\ & \ & \ & \ & \ & \ & \ \\
+Growth & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator\\
+\cmidrule{2-7}
+& Seeds Sowed: 23.8.2012 & Seeds Sowed: 26.11.2012 & Seeds Sowed: 5.12.2012 & Seeds Sowed: 2.5.2013 & Seeds Sowed: 31.5.2013 & Seeds Sowed: 26.11.2013\\
+& 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates\\
+& 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01)\\
+& 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017)\\
+& 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433)\\
+& 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546)\\
+& Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions\\
+& Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-3 & Light Intensity = 120-140 $\mu$mol*m-2*s-4 & Light Intensity = 120-140 $\mu$mol*m-2*s-5 & Light Intensity = 120-140 $\mu$mol*m-2*s-6 & Light Intensity = 120-140 $\mu$mol*m-2*s-6\\
+& Light Cycle Day/Night = 16/8 & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night\\
+& Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C\\
+& Gravistimulation Prior To Recording = 8h 34min & Gravistimulation Prior To Recording = 14h 20min & Gravistimulation Prior To Recording = 15h 45min & Gravistimulation Prior To Recording = 8h 25min & Gravistimulation Prior To Recording = 7h 15min & Gravistimulation Prior To Recording = 12h 40min\\
+& 30.08.12, 7:50am - 16:00pm & 3.12.2012, 11:00pm - 9:00am (+1 Day) & 10.12.2012, 11:00pm - 9:00am (+1 Day) & 8.5.2013, 04:00am - 11:00am & 3.6.2013, 07:45am - 14:45pm & 3.12.2013, 00:00am - 07:30am\\
+& & & & & & \ \\
+Light sheet Imaging & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope\\
+\cmidrule{2-7}
+& Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium\\
+& 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01)\\
+& 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433)\\
+& Perfusion Speed = 0.47ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min\\
+& Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions\\
+& Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1\\
+& Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8\\
+& Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C\\
+& & & & & \ & \ \\
+& Microscopy & Microscopy & Microscopy & Microscopy & Microscopy & Microscopy\\
+\cmidrule{2-7}
+& Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data\\
+& Start Time = 30.8.2012, 16:24pm & Start Time = 4.12.2012, 1:20pm & Start Time = 11.12.2012, 14:45pm & Start Time = 8.5.2013, 12:25pm & Start Time = 3.6.2013, 15:00pm & Start Time = 3.12.2013, 12:40pm\\
+& Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min\\
+& Total Recording Time = 47h & Total Recording Time = 45h & Total Recording Time = 39h 30min & Total Recording Time = 50h 30min & Total Recording Time = 65h 20min & Total Recording Time = 42h 55min\\
+& Total Raw Data = 100 GB & Total Raw Data = 167 GB & Total Raw Data = 152 GB & Total Raw Data = 432 GB & Total Raw Data = 243 GB & Total Raw Data = 159 GB\\
+& Detection Lens & Detection Lens & Detection Lens & Detection Lens & Detection Lens & Detection Lens\\
+& Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W\\
+& Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens\\
+& Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16\\
+& Stack & Stack & Stack & Stack & Stack & Stack\\
+& Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233\\
+& Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645\\
+& Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m\\
+& Channels & Channels & Channels & Channels & Channels & Channels\\
+& Channel 1 & Channel 3 & Channel 4 & Channel 5 & Channel 6 & Channel 6\\
+& Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm\\
+& Laser Power = 0.16 mW & Laser Power = 0.18 mW & Laser Power = 0.12 mW & Laser Power = 0.42 mW & Laser Power = 0.42 mW & Laser Power = 0.02 mW (re-adjust to 0.35 mW)\\
+& Filter = 534/30 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50\\
+& Camera Integration Time = 75 ms & Camera Integration Time = 40 ms & Camera Integration Time = 75 ms & Camera Integration Time = 30 ms & Camera Integration Time = 30 ms & Camera Integration Time = 40 ms\\
+& Channel 2 & Channel 4 & Channel 5 & Channel 6 & Channel 7 & Channel 7\\
+& Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm\\
+& Laser Power = 0.32 mW & Laser Power = 0.4 mW & Laser Power = 0.21 mW & Laser Power = 0.21 mW & Laser Power = 0.6 mW & Laser Power = 0.02 mW\\
+& Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70\\
+& Camera Integration Time = 75 ms & Camera Integration Time = 40 ms & Camera Integration Time = 75 ms & Camera Integration Time = 30 ms & Camera Integration Time = 30 ms & Camera Integration Time = 40 ms\\
+& Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara\\
+& Binning & Binning & Binning & Binning & Binning & Binning\\
+& Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True\\
+& Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2\\
+& Format & Format & Format & Format & Format & Format\\
+& Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520) & Pixels = 1392 x 1040 (696 x 520)\\
+& Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14\\
+& Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m\\
+& Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1\\
+& \ & \ & \ & \ & \ & \ \\
+Post Processing & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift\\
+& Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z\\
+& 555 x 221 x 147 & 689 x 393 x 200 & 736 x 376 x 170 & 682 x 406 x 130 & 666 x 404 x 130 & 684 x 378 x 110\\
+\bottomrule
+\caption[XXXXX.]{\textbf{PLACEHOLDER.}
 	}
-	\label{tab:metadata}
-\end{sidewaystable}
+\label{tab:metadata}
+\end{longtable}
 %
 %
 \begin{table}
