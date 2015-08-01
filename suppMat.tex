@@ -150,6 +150,7 @@
 \setlength{\affilsep}{3em}
 \renewcommand\Authfont{\scshape}
 \renewcommand\Affilfont{\itshape\footnotesize}
+\date{\vspace{-2cm}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % begin of document
@@ -158,22 +159,10 @@
 \maketitle
 
 % depth in table of contents 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \renewcommand{\baselinestretch}{0.5}\normalsize
 \tableofcontents
 \renewcommand{\baselinestretch}{1}\normalsize
-
-%% list of figures included in the table of contents: 
-%\addcontentsline{toc}{section}{%
-% \numberline{}List of Figures}
-%\listoffigures
-%
-%% list of tables included in the table of contents: 
-%\addcontentsline{toc}{section}{%
-% \numberline{}List of Tables}
-%\listoftables
-
-\noindent
 
 \clearpage
 \section{Material and Methods}
@@ -185,81 +174,94 @@ The [\emph{pUBQ10::H2B-RFP / pUBQ10::YFP-PIP1;4 / pGATA23::nls-GUS-GFP}] reporte
 The \emph{pUBQ10::H2B-RFP }cassette was obtained by Gateway-mediated cloning of a stop-less Histone H2B (AT5G22880) cDNA cassette in a \emph{pUBQ10::\emph{Gateway-cassette}:RFP }destination vector \cite{Grefen:2010ho}.
 
 \subsubsection{Growth Conditions}
-Before imaging plants were grown vertically on 0.5X MS plates. The plates were prepared as follow: 2.66 g Murashige and Skoog medium (M0222.0050, LOT no. P08381.01, Duchefa, Haarlem, Netherlands), 0.97 g MES (2-(N-morpholino)ethanesulfonic acid buffer, M3671-50G, LOT no. 120M5433, Sigma-Aldrich) and 10 g Saccharose (4621.1, LOT no. 330160546, Carl Roth, Karlsruhe, Germany) were diluted in 1 L of sterile de-ionized water. The pH was adjusted to 5.8 using KOH. 15 g Phytagel were added to the bottle before autoclaving. Plates were poured once autoclaving was done. The seeds were surface sterilized by a (10 \% Sodiumhypochloride, 0.1 \% TRIS, in water) solution in a microtube for 10 min (shaker) and then rinsed five times with sterile water. Single seeds were sowed side by side on 0.5X MS plates with at least 1 cm space in between to facilitate sample preparation. Plates were grown for 5 to 7 days under long day conditions (16h/8 h day/night cycle) with 120-140 $\mu$mol/m\textsuperscript{2}/s amount of light, at 22$\degree $C.
+Before imaging plants were grown vertically on 0.5X MS plates. The plates were prepared as follow: 2.66 g Murashige and Skoog medium (M0222.0050, LOT no. P08381.01, Duchefa, Haarlem, Netherlands), 0.97 g MES (2-(N-morpholino)ethanesulfonic acid buffer, M3671-50G, LOT no. 120M5433, Sigma-Aldrich) and 10 g Saccharose (4621.1, LOT no. 330160546, Carl Roth, Karlsruhe, Germany) were diluted in 1 L of sterile de-ionized water. The pH was adjusted to 5.8 using KOH. 15 g Phytagel were added to the bottle before autoclaving. Plates were poured once autoclaving was done. The seeds were surface sterilized by a (10 \% Sodiumhypochloride, 0.1 \% TRIS, in water) solution in a microtube for 10 min (shaker) and then rinsed five times with sterile water. Single seeds were sowed side by side on 0.5X MS plates with at least 1 cm space in between to facilitate sample preparation. Plates were grown for 5 to 7 days under long day conditions (16h/8h day/night cycle) with 120-140 $\mu$mol/m\textsuperscript{2}/s amount of light, at 22$\degree $C.
 
 \subsection{Light Sheet Fluorescence Imaging}
 \subsubsection{Sample Preparation}
-Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip and then pushed carefully over the root until the capillary reached the leaves. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). A supplementary video illustrating the sample preparation procedure is available (see Supplemental movies \ref{sec:suppmovies}). A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$ L pipet tip glued into the lid of a 15 mL tube.
+Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip and then pushed carefully over the root until the capillary reached the leaves. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). A supplementary video illustrating the sample preparation procedure is available (see Supplemental movies \ref{sec:suppmovies}). A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$L pipet tip glued into the lid of a 15 mL tube.
 
 \subsubsection{Imaging}
-The plant is placed vertically in the 0.5X MS-filled chamber with the leaves in the air. The plant is inserted from above but is held from below. during imaging, the plant is illuminated by a flexible glass fiber (1/2 inch in diameter) that guide standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5MS medium and maintained at 23$\degree $C
+The plant was placed vertically in the 0.5X MS-filled chamber with the leaves in the air. It was inserted from above but held from below. During imaging the plant was illuminated by a flexible glass fiber (1/2 inch in diameter) that guided standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5MS medium and maintained at 23$\degree $C
 
-Two color channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excitedby a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 100 ms, the laser intensity was set between 0.12 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
+Two color channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 100 ms, the laser intensity was set between 0.12 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
 
 \subsubsection{Image Processing}
-Images were stored as 16-bit lossless Tagged Image File Format (TIFF). The complete four dimensional dataset ($x,y,z,t$) was loaded as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The virtual hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
-(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}). The plugin registers the time points using the phase correlation algorithm implemented based on the intensity of the membrane channel. The data set was then cropped to the region of the lateral root primordium along the x-, y- and z-directions. The 3D reconstruction of Figure 1B (main text) was performed with \textit{AMIRA} (\href{http://www.fei.com}{http://www.fei.com}).
+Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The complete four-dimensional dataset ($x,y,z,t$) was loaded as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). This hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
+(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}) which registers the time points using the phase correlation algorithm based on the intensity of the membrane channel. The dataset was then cropped to the region of the lateral root primordium along the x-, y- and z-directions. The 3D reconstruction in Figure 1B (main text) was performed with \textit{AMIRA} (\href{http://www.fei.com}{http://www.fei.com}).
 
 \clearpage
-\section{The Virtual Lateral Roots: Nuclei Segmentation, Tracking and Datasets Registration}
-
+\section{The Virtual Lateral Roots (VLR)}
 \subsection{Nuclei Segmentation and Tracking}
 \label{sec:segmentation}
 \noindent
-The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program called \textit{TrackGen}. This tool provides an interactive visual representation of the 3D datasets over time. The user can create a \textit{track} (or lineage) for each clicked nucleus defined by a unique identifier, its 3D position and time step as well as a list holding the identification numbers of its progenitor cells. In order to minimize the manual effort only two time frames are clicked for each non-dividing cell. The first time frame is right after the division in which the current cell is created (or the very first appearance for a founder cell). The second one is the last time step before the cell will divide (or the last time step analysed). The positions in between are then interpolated linearly. The segmentation and tracking were realized for the first 24--25 hours of the development and the resulting data was exported to a tabular format for further analysis. Figure~\ref{fig:allTrees} shows the cell lineages for all five datasets with colour-coded information of the occurring division types. The classification of these divisions are determined in section~\ref{sec:divisionTypes}.
+The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program called \textit{TrackGen}. This tool provides an interactive visual representation of the 3D datasets over time. The user can create a \textit{track} (or lineage) for each clicked nucleus defined by a unique identifier, its 3D position and time point as well as a list holding the identification numbers of its progenitor cells. In order to minimize the manual effort only two time frames are clicked for each non-dividing cell. The first time frame is right after the division in which the current cell is created (or the very first appearance of a founder cell). The second one is the last time point before the cell will divide (or the last time point analysed). The positions in between are interpolated linearly. The segmentation and tracking were realized for the first 24--25 hours of the development and the resulting data was exported to a tabular format for further analysis (see supporting datasets in Section~\ref{sec:datasets}). Figure~\ref{fig:allTrees} shows the cell lineages for all five datasets with colour-coded information of the occurring division types. The classification of these divisions are explained later in Section~\ref{sec:divisionTypes}.
 
 \subsection{Visualisation and Registration}
 \noindent
-The visualisation of the 3D datasets is realized in \textit{Mathematica} in which individual cells nuclei are rendered by spheres. We applied affine transformations (rotation, translation) in order to bring all datasets in a common Cartesian coordinate system and to analyse each dataset using three viewing types: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis), and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Figure~\ref{fig:alphaShapes} shows these views for the last time step of dataset $\# 130607$.
+The visualisation of the 3D datasets is realized in \textit{Mathematica} in which cell nuclei are rendered by colour-coded spheres. We applied individual affine transformations (rotation, translation) to each dataset in order to bring them all in a common Cartesian coordinate system using three viewing types: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis), and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Figure~\ref{fig:alphaShapes} shows these views for the last time point of dataset \#130607.
 
-In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus (sphere) in a file a unique colour (Figure~\ref{fig:trackingfounders}). In this context, we define the \textit{master cell file} as the one that contributes most of the cell mass and label it by \textbf{0}. In the side view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{1, 2, 3}).
+In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus (sphere) in a file a unique colour (see Figure 1D, main text). In this context, we define the \textit{master cell file} as the one that contributes most of the cell mass and label it by \textbf{0}. In the side view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{1, 2, 3}) (see Figure 1C, main text).
 
 \clearpage
 \section{Quantitative Analysis of the Virtual Lateral Roots}
 \subsection{Growth Rate}
-To estimate cellular growth rate and doubling time of each virtual lateral roots, we performed data fitting on the total number of cells for all datasets assuming an exponential growth model (Figure~\ref{fig:growthcurves}):
+To estimate cellular growth rate and doubling time of each VLR, we performed a data fitting on the total number of cells for all datasets assuming an exponential growth model (see Figure~\ref{fig:growthcurves}):
 \begin{equation}
-N(t)=N_0e^{kt}
-\end{equation} 
-where $N(t)$ is the number of cells at time point $t$, $N_0$ the number of cells at $t=0$ and $k$ the cellular growth rate. The fitting is based on a non-linear model fitting and is realized in \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}).
-The doubling time $T$ is computed as:
+N(t)=N_0e^{kt},
+\end{equation}
+where $N(t)$ is the number of cells at time point $t$, $N_0$ the number of cells at $t=0$ and $k$ the growth rate. This rate was determined by a \textit{Least Squares Fitting} using \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}) while the doubling time $T$ is computed as:
 \begin{equation}
 T=\frac{ln(2)}{k}
 \end{equation}
 
 \subsection{Geometric Measurements}
-We computed in Mathematica the height, width, length and volume as follow:
+We computed the height, width, length and volume of the VLR using \textit{Mathematica}:
 \begin{Itemize}
- \item The height is defined as distance between the lateral root primordium tip and the surface of the pericycle. In the virtual lateral roots, the height is the difference between the maximum and the minimum along the $z$-axis in the master cell file. For that we use the standardised data as described above.
- \item The width was calculated by taking the maximum distance between any two cell nuclei along the $y$-axis at 50\% of the height.
- \item The length of the lateral root primordium along the $x$-axis was estimated at 50\% of the height. 
- \item The volume of the lateral root primordium as estimated by the one of the convex hull encompassing all cells of the primordium.
+ \item The height is defined as the distance between the lateral root primordium tip and the surface of the pericycle. In the VLR, the height can be expressed as the difference between the maximum and the minimum positions of the cells located in the master cell file and given in radial view.
+ \item The width is determined as the maximum distance between any two cell nuclei in radial view at 50\% of the height. \TODO{why 50\% ? why not taking the maximum distance between any two cells?}
+ \item The length is computed as the maximum distance between any two cell nuclei in side view at 50\% of the height. \TODO{why 50\% ? why not taking the maximum distance between any two cells?}
+ \item The volume is given by the 3D convex hull encompassing all cells of the VLR.
 \end{Itemize} 
 
-\subsection{Cell divisions properties}
-For each dataset, we determine relevant properties of the cell divisions such as:
-\TODO{@Alexis: here should your analysis come using violin plots/ circle charts etc.}
+\subsection{Cell division properties}
+\noindent
+For all datasets we capture relevant properties for each daughter cell of a division event such as:
 
 \noindent
-\begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{4.5cm} X @{}}
+\begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{6.8cm} X @{}}
+\textbf{Time point:} &
+Time point of division event.\\
 \textbf{Cell cycle:} &
-\\
-\textbf{Angle between two consecutive divisions: }&
-\\
+Current cell cycle.\\
 \textbf{Interphase duration:}&
-\\
+Number of time points between two consecutive division events.\\
 \textbf{Direction of last division:} &
-\TODO{add figure}\\
+Direction vector of division orientation of parent cell  (see green vector in Figure~\ref{fig:divisionAngles}).\\
 \textbf{Direction of this division:} &
-\TODO{add figure}\\
-\textbf{Division angle:} &
-\\
+Direction vector of division orientation of current daughter cell  (see red vector in Figure~\ref{fig:divisionAngles}).\\
+\textbf{Angle between two consecutive divisions:}&
+Angle between the direction vector of the last and this division (see Figure~\ref{fig:divisionAngles}).\\
 \textbf{Division type:} &
-\\
+Type of division explained in Section~\ref{sec:divisionTypes}.\\
 \textbf{Cell layer:} &
-\\
+Layer value of current cell.\\
 \end{tabularx}
-Statistical analyses and plotting of the interphase duration (Figure 3C, main text and Figure~\ref{fig:mastertimediv}) and of the angle between two consecutive divisions (Figure 4C, 4D, 5C, 5F, 5I, 5K, 5P main text and Figure~\ref{fig:suppmodel}) were performed in \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
+%
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{overpic}[width=0.9\linewidth]{images/divisionAngles.pdf}
+		\end{overpic}
+\caption[Computation of division angles between two consecutive divisions.]
+{
+{\bf Computation of division angles between two consecutive divisions. Left:} The green vectors indicate the (n-1)-th division directions of two daughter cells. \textbf{Right:} The red vectors display the n-th division directions of four resulting daughter cells. For each new cell, an angle between two consecutive divisions is then given by one $\alpha_i, (i=1,\ldots,4)$.
+}
+	\label{fig:divisionAngles}
+	\end{center}
+\end{figure}
+%
+
+\noindent
+We performed statistical analyses and plottings of the interphase duration (Figure 3C, main text and Figure~\ref{fig:mastertimediv}) and of the division angle between two consecutive divisions (Figure 4C, 4D, 5C, 5F, 5I, 5K, 5P, main text and Figure~\ref{fig:suppmodel}) using \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
 
 
 \clearpage
@@ -280,7 +282,7 @@ We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to class
 	\end{center}
 \end{figure}
 %
-In a nutshell, for each time step, 3D surfaces are constructed using the set of cell positions. These surfaces are used to generate vertex/surface normals that are compared with the division orientations of dividing cells. Through this, each division type can be classified according to the current lateral root development. The surface is realized using an $\alpha$-shape which is a good approximation of the evolving dome-like structure of the lateral root (see Figure~\ref{fig:alphaShapes}).
+In a nutshell, for each time point, 3D surfaces are constructed using the set of cell positions. These surfaces are used to generate vertex/surface normals that are compared with the division orientations of dividing cells. Through this, each division type can be classified according to the current lateral root development. The surface is realized using an $\alpha$-shape which is a good approximation of the evolving dome-like structure of the lateral root (see Figure~\ref{fig:alphaShapes}).
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -288,13 +290,13 @@ In a nutshell, for each time step, 3D surfaces are constructed using the set of 
 		\end{overpic}
 \caption[Approximation of the lateral root using $\alpha$-shapes.]
 {
-{\bf Top:} Nuclei of last time step for dataset $\# 130607$ in front, side and radial view. {\bf Bottom:} Approximation of the lateral root using $\alpha$-shapes.
+{\bf Top:} Nuclei of last time point for dataset $\# 130607$ in front, side and radial view. {\bf Bottom:} Approximation of the lateral root using $\alpha$-shapes.
 }
 	\label{fig:alphaShapes}
 	\end{center}
 \end{figure}
 %
-However, when using a single surface to represent the whole virtual lateral root we only have the normal vectors for the outer cells of the surface. This means that for cells dividing in the interior, no normal information is given to be compared with the division orientations. For this reason, after a classified periclinal division, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to get normal information even of the cells dividing in the interior. The algorithm now performs at each time step several angle comparisons between division orientations and vertex/surface normals in order to classify the three division types. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}) which is written in C{}\verb!++! using \textit{OpenSceneGraph} (\href{http://www.openscenegraph.org/}{http://www.openscenegraph.org/}), \textit{Qt} (\href{http://www.qt.io/}{http://www.qt.io/}) and other useful libraries such as \textit{Boost} (\href{http://www.boost.org/}{http://www.boost.org/}) and \textit{CGAL} (\href{http://www.cgal.org/}{http://www.cgal.org/}). For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
+However, when using a single surface to represent the whole virtual lateral root we only have the normal vectors for the outer cells of the surface. This means that for cells dividing in the interior, no normal information is given to be compared with the division orientations. For this reason, after a classified periclinal division, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to get normal information even of the cells dividing in the interior. The algorithm now performs at each time point several angle comparisons between division orientations and vertex/surface normals in order to classify the three division types. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}) which is written in C{}\verb!++! using \textit{OpenSceneGraph} (\href{http://www.openscenegraph.org/}{http://www.openscenegraph.org/}), \textit{Qt} (\href{http://www.qt.io/}{http://www.qt.io/}) and other useful libraries such as \textit{Boost} (\href{http://www.boost.org/}{http://www.boost.org/}) and \textit{CGAL} (\href{http://www.cgal.org/}{http://www.cgal.org/}). For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -324,7 +326,7 @@ However, when using a single surface to represent the whole virtual lateral root
 \label{fig:cellLineage}
 \end{wrapfigure}
 %
-We colour-coded the nodes in the lineage tree representation based on the corresponding division type to further analyse the division behaviour among several datasets (see Figure~\ref{fig:cellLineage}). The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The ``bricks'' visualisation at the bottom of each tree allows a more adequate comparison of division sequences among several trees. The number of columns indicates the number of total leaf nodes while the rows in each column corresponds to the division type that each ``leaf cell'' has cycled through. For example, the outermost left leaf cell in the tree in Figure~\ref{fig:cellLineage} originated from an anticlinal, periclinal, anticlinal, periclinal and finally an anticlinal division. This sequence corresponds to the outermost left column of the bricks visualisation read from top to bottom. A visualisation of all cell lineages of all five datasets is given in Figure~\ref{fig:allTrees} and only the lineages located in the master cell files are illustrated in Figure~\ref{fig:allMasterTrees}.
+We colour-coded the nodes in the lineage tree representation based on the corresponding division type to further analyse the division behaviour among several datasets (see Figure~\ref{fig:cellLineage}). The left labels show the time points and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The ``bricks'' visualisation at the bottom of each tree allows a more adequate comparison of division sequences among several trees. The number of columns indicates the number of total leaf nodes while the rows in each column corresponds to the division type that each ``leaf cell'' has cycled through. For example, the outermost left leaf cell in the tree in Figure~\ref{fig:cellLineage} originated from an anticlinal, periclinal, anticlinal, periclinal and finally an anticlinal division. This sequence corresponds to the outermost left column of the bricks visualisation read from top to bottom. A visualisation of all cell lineages of all five datasets is given in Figure~\ref{fig:allTrees} and only the lineages located in the master cell files are illustrated in Figure~\ref{fig:allMasterTrees}.
 
 \subsubsection{Periclinal Division Sequences}
 \label{sec:treeDivisionSequence}
@@ -343,12 +345,12 @@ Periclinal divisions are responsible for the layer organisations in the lateral 
 	\end{center}
 \end{figure}
 %
-Through this, we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets. The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time steps. This spatial layer organisation is rendered along the number of time steps. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The division sequence trees for all datasets are shown in Figure~\ref{fig:treeDivisionSequences}. The visualisation of the lineage trees as well as the division sequence trees are done in \textit{scifer}.
+Through this, we are able to analyse the temporal layer organisation in a dataset and can compare it with other datasets. The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell performs a periclinal division, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}) with further layer generations in later time points. This spatial layer organisation is rendered along the number of time points. By this, we can easily detect when new layers are generated resulting in the identification of the high-order pattern of periclinal divisions for each dataset. The division sequence trees for all datasets are shown in Figure~\ref{fig:treeDivisionSequences}. The visualisation of the lineage trees as well as the division sequence trees are done in \textit{scifer}.
 
 \clearpage
 \section{Quantification and Visualisation of Deformation in the Virtual Lateral Root}
 \noindent
-The analysis of the temporal deformation information during the growth of the lateral root is inspired by the work of Graner~et~al.~\cite{graner_et_al_2008}. The idea is that the deformation can be computed using geometrical and topological properties of the underlying tissue. Since in our case we have a set of 3D cell nuclei for each time step (red nodes in Figure~\ref{fig:deformation}) we use this one to generate a triangulation (e.g. Delaunay triangulation) creating a surface that represents the tissue (see Figure~\ref{fig:deformation}). The deformation analysis can now be performed object- or spatial-oriented. This means that either the deformation is evaluated and illustrated for each cell or the total area of interest is subdivided into regions of equal sizes to measure the deformation within each of such a region. We consider the former case because we want to focus on individual cell changes. Besides, the number of cells are quite small at the beginning of our datasets so the total area of interest is not covered by all cells which makes an object-oriented analysis per cell more reasonable.
+The analysis of the temporal deformation information during the growth of the lateral root is inspired by the work of Graner~et~al.~\cite{graner_et_al_2008}. The idea is that the deformation can be computed using geometrical and topological properties of the underlying tissue. Since in our case we have a set of 3D cell nuclei for each time point (red nodes in Figure~\ref{fig:deformation}) we use this one to generate a triangulation (e.g. Delaunay triangulation) creating a surface that represents the tissue (see Figure~\ref{fig:deformation}). The deformation analysis can now be performed object- or spatial-oriented. This means that either the deformation is evaluated and illustrated for each cell or the total area of interest is subdivided into regions of equal sizes to measure the deformation within each of such a region. We consider the former case because we want to focus on individual cell changes. Besides, the number of cells are quite small at the beginning of our datasets so the total area of interest is not covered by all cells which makes an object-oriented analysis per cell more reasonable.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -393,7 +395,7 @@ M = \langle m \rangle = \langle l \otimes l \rangle =
 		\end{overpic}
 \caption[Deformation computation and representation.]
 {
-{\bf Left:} 2D example of \textcolor{blue}{conserved}, \textcolor{red}{appearing} and \textcolor{green}{disappearing} links between two time steps due two a cell division. {\bf Right:} Deformation is represented by the axes of an ellipse.
+{\bf Left:} 2D example of \textcolor{blue}{conserved}, \textcolor{red}{appearing} and \textcolor{green}{disappearing} links between two time points due two a cell division. {\bf Right:} Deformation is represented by the axes of an ellipse.
 }
 	\label{fig:ellipseDeformation}
 	\end{center}
@@ -401,7 +403,7 @@ M = \langle m \rangle = \langle l \otimes l \rangle =
 %
 
 \noindent
-The geometrical and topological terms are now computed by considering the variation of conserved, appearing and disappearing links between two time steps $t$ and $t + \Delta t$ (see Figure~\ref{fig:ellipseDeformation}, left). More precisely, the geometrical variation, denoted as $B$ is computed by averaging the amount of conserved links $N_c$ between two time steps~\cite{graner_et_al_2008}:
+The geometrical and topological terms are now computed by considering the variation of conserved, appearing and disappearing links between two time points $t$ and $t + \Delta t$ (see Figure~\ref{fig:ellipseDeformation}, left). More precisely, the geometrical variation, denoted as $B$ is computed by averaging the amount of conserved links $N_c$ between two time points~\cite{graner_et_al_2008}:
 \begin{equation}
 B = \frac{N_c}{N} \left\langle \frac{\Delta m}{\Delta t} \right\rangle = \frac{N_c}{N} \left\langle \frac{\Delta (l \otimes l) }{\Delta t} \right\rangle.
 \end{equation}
@@ -413,7 +415,7 @@ The topological variation $T$ takes the averaging of the $N_a$ appeared and $N_d
 \begin{equation}
 T = \frac{1}{\Delta t} \left( \frac{\Delta N_a}{N} \langle m_a \rangle - \frac{\Delta N_d}{N} \langle m_d \rangle \right).
 \end{equation}
-The total deformation for each cell is then given by $B+T$. This sum is a matrix for which the eigenvalues $\lambda_i$ are computed. The magnitudes of these eigenvalues are proportional to the axes lengths of an ellipsoid that represents the spatial 3D deformation of a cell between $t$ and $t + \Delta t$ (see Figure~\ref{fig:ellipseDeformation}, right for a 2D case). We compute the $B$ and $T$ terms for all 3D cell positions but we focus the visualisation on the 2D views using the side (along shoot/root axis), front (growth towards the observer) and radial views (transversal cut perpendicular to shoot/root axis). Because of these 2D projections we illustrate the deformations by ellipses instead of ellipsoids in 3D for a more reasonable analysis. Figure~\ref{fig:ellipseResults} shows ellipses indicating the longest deformations of two datasets for the variation right before the last time step.
+The total deformation for each cell is then given by $B+T$. This sum is a matrix for which the eigenvalues $\lambda_i$ are computed. The magnitudes of these eigenvalues are proportional to the axes lengths of an ellipsoid that represents the spatial 3D deformation of a cell between $t$ and $t + \Delta t$ (see Figure~\ref{fig:ellipseDeformation}, right for a 2D case). We compute the $B$ and $T$ terms for all 3D cell positions but we focus the visualisation on the 2D views using the side (along shoot/root axis), front (growth towards the observer) and radial views (transversal cut perpendicular to shoot/root axis). Because of these 2D projections we illustrate the deformations by ellipses instead of ellipsoids in 3D for a more reasonable analysis. Figure~\ref{fig:ellipseResults} shows ellipses indicating the longest deformations of two datasets for the variation right before the last time point.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -430,11 +432,11 @@ The total deformation for each cell is then given by $B+T$. This sum is a matrix
 
 \subsection{Averaging over datasets}
 \noindent
-The above evaluation allows us to analyse the deformation of individual cells between two time steps $t$ and $t + \Delta t$. Our intention is to analyse the averaged deformation of the virtual lateral root with respect to all five datasets. This means that we require a spatial and a temporal registration of all datasets in such a way that the combined deformation information (i.e.~the ellipses) can be evaluated.
+The above evaluation allows us to analyse the deformation of individual cells between two time points $t$ and $t + \Delta t$. Our intention is to analyse the averaged deformation of the virtual lateral root with respect to all five datasets. This means that we require a spatial and a temporal registration of all datasets in such a way that the combined deformation information (i.e.~the ellipses) can be evaluated.
 
-In order to apply a spatial registration, we compute the centre of mass, the principal components and the convex hull of the set of all 3D cell positions at the last time step. Our aim is that the convex hulls of different datasets should match optimally. Using this information each dataset is then initially translated to the origin (black node in Figure~\ref{fig:spatialRegistration}, top) according to the centre of mass and rotated by its associated principal components (arrows in Figure~\ref{fig:spatialRegistration}, top). Through this, we generate our three viewing types (front, side and radial) of the data which are almost similar among different lateral roots. Last refinements are done manually by slight affine transformations in such a way that the datasets fit to the base of the VLR with respect to the convex hulls (see Figure~\ref{fig:spatialRegistration}, bottom). This fitting represents an optimal basis for comparing different lateral roots developing from almost the same base position.
+In order to apply a spatial registration, we compute the centre of mass, the principal components and the convex hull of the set of all 3D cell positions at the last time point. Our aim is that the convex hulls of different datasets should match optimally. Using this information each dataset is then initially translated to the origin (black node in Figure~\ref{fig:spatialRegistration}, top) according to the centre of mass and rotated by its associated principal components (arrows in Figure~\ref{fig:spatialRegistration}, top). Through this, we generate our three viewing types (front, side and radial) of the data which are almost similar among different lateral roots. Last refinements are done manually by slight affine transformations in such a way that the datasets fit to the base of the VLR with respect to the convex hulls (see Figure~\ref{fig:spatialRegistration}, bottom). This fitting represents an optimal basis for comparing different lateral roots developing from almost the same base position.
 
-We perform a temporal registration based on the number of cells. For this purpose, the intersection set of the number of cells among all datasets for the first and last time steps are observed. So, the number of cells are in the range of $[10,176]$ for $\# 120830$, $[15,160]$ for $\# 121204$, $[18,260]$ for $\# 121211$, $[9,143]$ for $\# 130508$ and $[15,267]$ for $\# 130607$. Consequently, the intersection range is $[18, 143]$. With this, the time step size $\Delta t$ is actually the variation of number of cells depending on the total number of considered steps $S$:
+We perform a temporal registration based on the number of cells. For this purpose, the intersection set of the number of cells among all datasets for the first and last time points are observed. So, the number of cells are in the range of $[10,176]$ for $\# 120830$, $[15,160]$ for $\# 121204$, $[18,260]$ for $\# 121211$, $[9,143]$ for $\# 130508$ and $[15,267]$ for $\# 130607$. Consequently, the intersection range is $[18, 143]$. With this, the time point size $\Delta t$ is actually the variation of number of cells depending on the total number of considered steps $S$:
 \begin{equation}
 \Delta t = \frac{143 - 18}{S},
 \end{equation}
@@ -442,7 +444,7 @@ and the current number of cell $s(i)$ for each step $i$ is:
 \begin{equation}
 s(i) = \left\lfloor s_i + 0.5 \right\rfloor, \qquad s_i = s_{i-1} + \Delta t, \qquad s_0 = 18.
 \end{equation}
-The usage of the floor function performs a rounding of $s(i)$ to the nearest integer value because $\Delta t$ might be a float value. However, it cannot be guaranteed that $s(i)$ appears in each dataset because of several cell divisions at one time step. We solve this issue by determining the nearest smallest possible cell number with respect to the current $s(i)$.
+The usage of the floor function performs a rounding of $s(i)$ to the nearest integer value because $\Delta t$ might be a float value. However, it cannot be guaranteed that $s(i)$ appears in each dataset because of several cell divisions at one time point. We solve this issue by determining the nearest smallest possible cell number with respect to the current $s(i)$.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -482,7 +484,7 @@ Through this, each tile represents an averaged deformation that is represented b
 \end{figure}
 %
 
-We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time step ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}). \TODO{add the exact number of considered cells for each step to the movie description.}
+We perform this averaging for all three viewing types (front, side, radial). Figure 2B in the main manuscript shows the deformation result for the first, mid and last time point ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only one the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations according to the different viewing types. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increasing rate by $12.06$ cells per step. The deformation computation as well as the visualisation are realized using \textit{MATLAB} (\href{http://www.mathworks.com/products/matlab/}{http://www.mathworks.com/products/matlab/}). \TODO{add the exact number of considered cells for each step to the movie description.}
 
 \clearpage
 \section{Modelling}
@@ -506,11 +508,11 @@ In a nutshell, the simulation starts with a specific number and positioning of f
 
 \subsection{Model Surfaces}
 \noindent
-The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that the changing vertices of the surface influence the evolving cells of the model and their corresponding walls and junctions. We use two surface types to represent the structure of the VLR: Triangle meshes and B\'ezier surfaces. The first one is used to create a triangulation based on real nuclei positions in the dataset for each time step. Through this, we can generate a data-driven model that incorporates the deformation behaviour of the nuclei and are able to compare the result with the real-world datasets. The B\'ezier surface is used for a generalized model that allows an investigation of a common growth behaviour of the VLR. For this, we use non-deterministic division rules for each model, i.e.\ a random variation of the division line orientation which is explained below in section~\ref{sec:divisionRules}. By running such a slight random model with the same setting several times (e.g.\ 100) we can analyse its division behaviour based on statistically solid results.
+The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that the changing vertices of the surface influence the evolving cells of the model and their corresponding walls and junctions. We use two surface types to represent the structure of the VLR: Triangle meshes and B\'ezier surfaces. The first one is used to create a triangulation based on real nuclei positions in the dataset for each time point. Through this, we can generate a data-driven model that incorporates the deformation behaviour of the nuclei and are able to compare the result with the real-world datasets. The B\'ezier surface is used for a generalized model that allows an investigation of a common growth behaviour of the VLR. For this, we use non-deterministic division rules for each model, i.e.\ a random variation of the division line orientation which is explained below in section~\ref{sec:divisionRules}. By running such a slight random model with the same setting several times (e.g.\ 100) we can analyse its division behaviour based on statistically solid results.
 
 %\subsubsection{Triangle Mesh}
 %\noindent
-%For each real-world dataset, we create a set of 2D triangle meshes. This means that for each time step, we generate a triangulation based on the corresponding real nuclei positions located in the master cell file only because these are mainly responsible for the overall dome-like structure of the VLR. Through this, the triangulation captures the temporal displacement and growth behaviour of the nuclei which is then further used in the model to dictate the simulation and tissue growth (see Figure~\ref{fig:surfaceGeneration}). More precisely, the cells in the model consists of changing junctions that are affected by the triangle changes. If a junction $j$ of a cell is located within a specific triangle then $j$ is given uniquely by a convex combination $j = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3$ of the three triangle vertices $r_i$. The $\lambda_i$ $\left( \sum_{i=1}^{3} \lambda_i = 1, \lambda_i \geq 0 \; \forall i \right)$ are called the barycentric coordinates of $j$ with respect to the triangle. In the model itself, a lot of conversions between these barycentric and Cartesian coordinates occur to compute the changing cells.
+%For each real-world dataset, we create a set of 2D triangle meshes. This means that for each time point, we generate a triangulation based on the corresponding real nuclei positions located in the master cell file only because these are mainly responsible for the overall dome-like structure of the VLR. Through this, the triangulation captures the temporal displacement and growth behaviour of the nuclei which is then further used in the model to dictate the simulation and tissue growth (see Figure~\ref{fig:surfaceGeneration}). More precisely, the cells in the model consists of changing junctions that are affected by the triangle changes. If a junction $j$ of a cell is located within a specific triangle then $j$ is given uniquely by a convex combination $j = \lambda_1 r_1 + \lambda_2 r_2 + \lambda_3 r_3$ of the three triangle vertices $r_i$. The $\lambda_i$ $\left( \sum_{i=1}^{3} \lambda_i = 1, \lambda_i \geq 0 \; \forall i \right)$ are called the barycentric coordinates of $j$ with respect to the triangle. In the model itself, a lot of conversions between these barycentric and Cartesian coordinates occur to compute the changing cells.
 %%
 %\begin{figure}[htbp]
 %	\begin{center}
@@ -525,7 +527,7 @@ The choice of the underlying surface for the model fundamentally affects the dev
 %\end{figure}
 %%
 %
-%The triangulation can be either realized by a Delaunay triangulation or an $\alpha$-shape. Since we are only using the nuclei to construct the triangulation we require some additional information to of the VLR contour. Therefore, for each dataset, we manually generate a set of contour points to approximate the boundary of the VLR for the first (bottom left image in Figure~\ref{fig:surfaceGeneration}) and the last (bottom right image in Figure~\ref{fig:surfaceGeneration}) time step. We choose a constant number of 16 points such that the contour points for the time steps in between are interpolated linearly (see bottom mid image in Figure~\ref{fig:surfaceGeneration}).
+%The triangulation can be either realized by a Delaunay triangulation or an $\alpha$-shape. Since we are only using the nuclei to construct the triangulation we require some additional information to of the VLR contour. Therefore, for each dataset, we manually generate a set of contour points to approximate the boundary of the VLR for the first (bottom left image in Figure~\ref{fig:surfaceGeneration}) and the last (bottom right image in Figure~\ref{fig:surfaceGeneration}) time point. We choose a constant number of 16 points such that the contour points for the time points in between are interpolated linearly (see bottom mid image in Figure~\ref{fig:surfaceGeneration}).
 %%
 %\begin{figure}[htbp]
 %	\begin{center}
@@ -533,18 +535,18 @@ The choice of the underlying surface for the model fundamentally affects the dev
 %%			\putIndex{0}{0}{A.pdf}
 %%			\putIndex{52}{0}{B.pdf}
 %		\end{overpic}
-%\caption[Mapping of triangles and nuclei between subsequent time steps.]
+%\caption[Mapping of triangles and nuclei between subsequent time points.]
 %{
-%{\bf Mapping of triangles and nuclei between subsequent time steps.} Nuclei displacements only do not interfere the bijectivity requirement but cell divisions do result in more triangles.
+%{\bf Mapping of triangles and nuclei between subsequent time points.} Nuclei displacements only do not interfere the bijectivity requirement but cell divisions do result in more triangles.
 %}
 %	\label{fig:surfaceMapping}
 %	\end{center}
 %\end{figure}
 %%
 %
-%For the set of generated meshes, a bijective mapping of the triangles between time step $t$ and $t+1$ is required for the computation of arbitrary cell positions in between in the model. This means that each nuclei position in time step $t+1$ is uniquely assigned to a previous position in time step $t$ (top left in Figure~\ref{fig:surfaceMapping}). More precisely, our approach requires that we use the same triangulation (but with different nuclei positions) for subsequent time steps. However, cell divisions may result in more nuclei in the next time step and consequently in more triangles (top right in Figure~\ref{fig:surfaceMapping}) impairing the bijectivity. To overcome this issue, for each occurring cell division, the average position of the two daughter cells (grey nodes) is computed at the next time step and represents a single nuclei position (cyan node) that can be bijectively mapped to the previous dividing cell (green node). At time step $t+2$, the two triangles originally created at $t+1$ are considered and the next time step $t+3$ is checked again. In total, there are two triangle meshes for each pair of subsequent time steps that guarantee a bijective mapping which are between time step $t$ and $t+1$, as well as $t+2$ and $t+3$, respectively.
+%For the set of generated meshes, a bijective mapping of the triangles between time point $t$ and $t+1$ is required for the computation of arbitrary cell positions in between in the model. This means that each nuclei position in time point $t+1$ is uniquely assigned to a previous position in time point $t$ (top left in Figure~\ref{fig:surfaceMapping}). More precisely, our approach requires that we use the same triangulation (but with different nuclei positions) for subsequent time points. However, cell divisions may result in more nuclei in the next time point and consequently in more triangles (top right in Figure~\ref{fig:surfaceMapping}) impairing the bijectivity. To overcome this issue, for each occurring cell division, the average position of the two daughter cells (grey nodes) is computed at the next time point and represents a single nuclei position (cyan node) that can be bijectively mapped to the previous dividing cell (green node). At time point $t+2$, the two triangles originally created at $t+1$ are considered and the next time point $t+3$ is checked again. In total, there are two triangle meshes for each pair of subsequent time points that guarantee a bijective mapping which are between time point $t$ and $t+1$, as well as $t+2$ and $t+3$, respectively.
 %
-%The exchange of the different triangle meshes between $t+1$ and $t+2$ is realized by another approach. Consider the simplified model with three cells in Figure~\ref{fig:triangleExchange} and the inner junction $j$ in the model. At time step $t$, the position of $j$ is computed by its barycentric coordinates within the blue-rimmed triangle. When in the next time step the triangle mesh should have changed then it will be checked in which triangle $j$ is located now. Based on the position in the newly found blue-rimmed triangle, the new barycentric coordinates are computed. In further steps, either only a bijective mapping between two equal triangulations is needed or the same approach is applied facing a new triangle mesh. Note that at the beginning of the model, the setting of cells as well as their positions have to be defined manually. Based on these positions, the triangles are identified in which the junctions are located and the barycentric coordinates are computed.
+%The exchange of the different triangle meshes between $t+1$ and $t+2$ is realized by another approach. Consider the simplified model with three cells in Figure~\ref{fig:triangleExchange} and the inner junction $j$ in the model. At time point $t$, the position of $j$ is computed by its barycentric coordinates within the blue-rimmed triangle. When in the next time point the triangle mesh should have changed then it will be checked in which triangle $j$ is located now. Based on the position in the newly found blue-rimmed triangle, the new barycentric coordinates are computed. In further steps, either only a bijective mapping between two equal triangulations is needed or the same approach is applied facing a new triangle mesh. Note that at the beginning of the model, the setting of cells as well as their positions have to be defined manually. Based on these positions, the triangles are identified in which the junctions are located and the barycentric coordinates are computed.
 %%
 %\begin{figure}[htbp]
 %	\begin{center}
@@ -554,7 +556,7 @@ The choice of the underlying surface for the model fundamentally affects the dev
 %		\end{overpic}
 %\caption[Transition between two different triangle meshes.]
 %{
-%{\bf Transition between two different triangle meshes.} For each junction position $j$, the triangle of the underlying surface has to be identified in which $j$ is located at time step $t+1$. The red nodes indicate the nuclei while the black ones denote the contour points.
+%{\bf Transition between two different triangle meshes.} For each junction position $j$, the triangle of the underlying surface has to be identified in which $j$ is located at time point $t+1$. The red nodes indicate the nuclei while the black ones denote the contour points.
 %}
 %	\label{fig:triangleExchange}
 %	\end{center}
@@ -566,7 +568,7 @@ For this idealized model, we use a set of B\'ezier surfaces to represent the smo
 \begin{equation}
 P(u, v) = \sum_{i=0}^{n} \sum_{j=0}^{m} B_{i}^{n} (u) \; B_{j}^{m} (v) \; c_{i,j}, \qquad B_{i}^{n} (u) = \binom{n}{i} u^i (1-u)^{n-i}.
 \end{equation}
-As a consequence, given only an initial surface $S_{init}$ and a final B\'ezier surface $S_{final}$ to describe the first and the last time step of the model, the surface at each other time step in between is computed by a linear interpolation of the control points $a_{i,j} \in S_{init}$ and $b_{i,j} \in S_{final}$:
+As a consequence, given only an initial surface $S_{init}$ and a final B\'ezier surface $S_{final}$ to describe the first and the last time point of the model, the surface at each other time point in between is computed by a linear interpolation of the control points $a_{i,j} \in S_{init}$ and $b_{i,j} \in S_{final}$:
 \begin{equation}
 c_{i,j} = (1-t) \cdot a_{i,j} + t \cdot b_{i,j}, \qquad \forall i, j \in [0, n], [0, m],
 \end{equation}
@@ -741,7 +743,7 @@ We can run several samples of the model using division rules that include a rand
 	\end{center}
 \end{figure}
 %
-For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time steps by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
+For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequence only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and is coloured by red or green. The rectangle is green if in more than $50 \%$ of the model samples the upper layer occurred first with respect to the lower one else it is red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison is not possible in a model when only one pair of layers is generated or none at all.
 
 \subsubsection{Smoother Cell Contours}
 \noindent
@@ -1015,7 +1017,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=1.\linewidth]{images/DatasetsTrackingFounders_compressed.pdf}
 	\end{overpic}
 \caption[Five virtual lateral root primordia.]
-{{\bf Five virtual lateral root primordia.} For each indicated datasets, the spatial distribution of cell nuclei is represented. The first and last time point segmented as well as the one corresponding to 142 cells primordia are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 2C (main text). Links to movies of each datasets are listed in~\ref{sec:suppmovies}.}
+{{\bf Five virtual lateral root primordia.} For each indicated datasets, the spatial distribution of cell nuclei is represented. The first and last time point segmented as well as the one corresponding to 142 cells primordia are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 2C (main text) \TODO{NO, it is not! One of the figures need to be updated!}. Links to movies of each datasets are listed in~\ref{sec:suppmovies}.}
 	\label{fig:trackingfounders}
 	\end{center}
 \end{figure}
@@ -1028,7 +1030,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 		\end{overpic}
 \caption[All cell lineages located in the master cell file of the five wild type datasets and the aurora mutant.]
 {
-{\bf All cell lineages located in the master cell file of the five wild type datasets and the aurora mutant.} The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}.
+{\bf All cell lineages located in the master cell file of the five wild type datasets and the aurora mutant.} The left labels show the time points and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}.
 }
 	\label{fig:allMasterTrees}
 	\end{center}
@@ -1042,7 +1044,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 		\end{overpic}
 \caption[All cell lineages of the five wild type datasets and the aurora mutant.]
 {
-{\bf All cell lineages of the five wild type datasets and the aurora mutant.} The left labels show the time steps and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The bricks visualisation at the bottom of each tree allows a comparison of division sequences among several trees.
+{\bf All cell lineages of the five wild type datasets and the aurora mutant.} The left labels show the time points and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The bricks visualisation at the bottom of each tree allows a comparison of division sequences among several trees.
 }
 	\label{fig:allTrees}
 	\end{center}
@@ -1067,7 +1069,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 	\begin{overpic}[width=1.\linewidth]{images/Growth-Rate-Curves.pdf}
 	\end{overpic}
 \caption[Exponential growth profile of the lateral root primordia.]
-{{\bf Exponential growth profile of thelateral root primordia.} For each indicated virtual lateral root, the nuclei count is plotted as a function of time since gravistimulation. The red line represents the fitted exponential curve. The fitted growth factor and doubling time (in 5mins time steps), are indicated.}
+{{\bf Exponential growth profile of thelateral root primordia.} For each indicated virtual lateral root, the nuclei count is plotted as a function of time since gravistimulation. The red line represents the fitted exponential curve. The fitted growth factor and doubling time (in 5mins time points), are indicated.}
 	\label{fig:growthcurves}
 	\end{center}
 \end{figure}
@@ -1202,6 +1204,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13 &&
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \subsection{Supporting Datasets}
+\label{sec:datasets}
 \noindent
 In this section, we briefly explain the file formatting of the generated and analysed VLR files stored in the \textit{*.csv} format. In total, there are five wild type datasets ($\#120830$WT.csv, $\#121204$WT.csv, $\#121211$WT.csv, $\#130508$WT.csv, $\#130607$WT.csv) and the aurora mutant (auroraMutant.csv). As already explained in section~\ref{sec:segmentation}, for each cell, we only store the position of the first and the last frame before it divides. This means that for each cell a pair of lines is stored referring to the first and last tracked frame. In the program, the positions in between are interpolated linearly. All files share the same header information which are explained below:
 
@@ -1216,7 +1219,7 @@ Dimension of the raw dataset.\\
 \textbf{Id:} &
 The unique ID for each cell nuclei.\\
 \textbf{X, Y, Z, T:} &
-The 3D positions and the time step of the cell.\\
+The 3D positions and the time point of the cell.\\
 \textbf{Precursors:} &
 The sorted list of precursor IDs to generate the tracking information.\\
 \textbf{Lineage:} &
@@ -1226,7 +1229,7 @@ The cell file value which is determined manually.\\
 \textbf{Layer:} &
 The unique layer value according to performed periclinal divisions.\\
 \textbf{DivType:} &
-The type of division of the cell: Anticlinal $\widehat{=} \; 0$, periclinal $\widehat{=} \; 1$, radial $\widehat{=} \; 2$. For the first pair of a cell description and the last analysed time step, ``-'' is inserted.\\
+The type of division of the cell: Anticlinal $\widehat{=} \; 0$, periclinal $\widehat{=} \; 1$, radial $\widehat{=} \; 2$. For the first pair of a cell description and the last analysed time point, ``-'' is inserted.\\
 \end{tabularx}
 
 \clearpage
