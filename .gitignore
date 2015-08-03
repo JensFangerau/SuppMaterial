@@ -9,3 +9,5 @@ suppMat.pdf
 *.gz
 *.toc
 *.lb
+*.lof
+*.lot
