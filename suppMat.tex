@@ -266,7 +266,7 @@ Layer value of current cell.\\
 %
 
 \noindent
-We performed statistical analyses and plottings of the interphase duration (Figure 3C, main text and Figure~\ref{fig:mastertimediv}) and of the division angle between two consecutive divisions (Figure 4C, 4D, 5C, 5F, 5I, 5K, 5P, main text and Figure~\ref{fig:suppmodel}) using \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
+We performed statistical analyses and plottings of the interphase duration (Figure 3C, main text and Figure~\ref{fig:mastertimediv}) and of the division angle between two consecutive divisions (Figure 4C-D, I and Figure 5C, F, I, L, O in main text using \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
 
 \clearpage
 \section{Automatic Classification of Cell Divisions in the VLR}
@@ -704,7 +704,7 @@ We check if the VLR growth could be responsible for the emergence of the high-or
 
 \subsubsection{Parameter Setting}
 \noindent
-For each model scenario, we perform $100$ simulations with $500$ steps to test how stable the model and therefore the division results are based on the randomized variations of the division rules. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is chosen in such a way that at the end approximately $64$ cells are generated. This value originates from the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+45+82)/5 \approx 64$). Table~\ref{tab:modelParameters} lists all area ratios, average numbers of cells, anticlinal and periclinal divisions for each model scenario.
+For each model scenario, we perform $100$ simulations with $500$ steps to test how stable the model and therefore the division results are based on the randomized variations of the division rules. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is chosen in such a way that at the end approximately $64$ cells are generated. This value originates from the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+46+82)/5 \approx 64$). Table~\ref{tab:modelParameters} lists all area ratios, average numbers of cells, anticlinal and periclinal divisions for each model scenario.
 
 \subsection{Model Modifications}
 We apply some modifications to the model that affect the resulting tissue and cells in order to better approximate a real-world behaviour.
@@ -726,7 +726,7 @@ In the model, a total random configuration of cell division axes may result in i
 \end{figure}
 %
 
-\subsubsection{Computation of Centre of Mass.}
+\subsubsection{Computation of Centre of Mass}
 \noindent
 Note that for all division rules the division axis always passes through the centre of mass. However, in later model steps, more and more cells are created that share several junctions (see Figure~\ref{fig:levelOfDetail}, left).
 %
@@ -742,7 +742,7 @@ Note that for all division rules the division axis always passes through the cen
 	\end{center}
 \end{figure}
 %
-Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (cyan node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division axis that also does not preserve equal areas of daughter cells. In order to solve this issue, we perform a \textit{level of detail} of cell walls using the \textit{edge criterion} in such a way that only these junctions are preserved that mainly capture the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four remaining junctions (see Figure~\ref{fig:levelOfDetail}, right) while preserving the overall shape of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}. Note that we apply this level of detail only for the computation of the centre of mass. We do not remove any junctions of cells in the model itself.
+Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (cyan node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division axis that also does not preserve equal areas of daughter cells. In order to solve this issue, we perform a \textit{level of detail} of cell walls using the \textit{edge criterion}~\cite{jenks_1989} in such a way that only these junctions are preserved that mainly capture the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four remaining junctions (see Figure~\ref{fig:levelOfDetail}, right) while preserving the overall shape of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}. Note that we apply this level of detail only for the computation of the centre of mass. We do not remove any junctions of cells in the model itself.
 
 \subsubsection{Smoothness of Model Surface}
 \noindent
@@ -784,8 +784,9 @@ We realize the implementation of the 2D model using \textit{OpenGL} (\href{https
 	\end{center}
 \end{figure}
 %
-The first representation shows the cell contour information within the evolving tissue. Each cell is coloured by its corresponding layer value. The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells.
+The first representation shows the cell contour information within the evolving tissue. Each cell is coloured by its corresponding layer value. The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells. Figure~\ref{fig:visumodel} shows the visualisations for the last model step of the four model scenarios.
 
+\clearpage
 \subsubsection{Division Analysis}
 \noindent
 We run several simulations of one model using division rules with randomized variation, each resulting in one division sequence tree as explained in Section~\ref{sec:treeDivisionSequence}. However, we want to visually check how often and where the high-order pattern of periclinal divisions is preserved for all simulations. This allows us to use statistically solid model results to compare them with the real datasets.
@@ -828,7 +829,7 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 	\begin{center}
 		\begin{tabular}[h]{@{}lccccccc@{}}
 		\toprule
-		Event & $\#120830$ & $\#121204$ & $\#121211$ & $\#130508$ & $\#130607$ & Average & SD\\
+		Event & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & Average & SD\\
 		\midrule
 		1\textsuperscript{st} anticlinal division & 10 & 11 & 11 & 9 & 15 & 11 & 2\\
 		1\textsuperscript{st} periclinal division & 22 & 25 & 30 & 16 & 28 & 24 & 5\\
@@ -838,7 +839,7 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 		\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption[Number of cells in developmental events for all datasets.]{\textbf{Number of cells in developmental events for all datasets.}
+	\caption[Number of cells in developmental events for all datasets.]{\textbf{Number of cells in developmental events for all datasets with average and standard deviation (SD) values.}
 	}
 	\label{tab:developmentalStages}
 \end{table}
@@ -970,42 +971,63 @@ Post Processing & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift 
 \clearpage
 %
 \begin{table}\centering
-\begin{tabular}{@{}lcccccc@{}}\toprule
-& \multicolumn{5}{c}{Idealized models}\\
-\cmidrule{2-6}
-& BD & D & PDG & R & RE\\ \midrule
-\textbf{Two founder cells with equal sizes: (\textit{i}) in Section~\ref{sec:founderCells}}\\
-Area ratio & 0.320 & 0.300 & 0.300 & 0.308 & 0.308\\
-Average $\#$ Cells & 59.8 & 64.0 & 68.8 & 65.9 & 66.4\\
-Average $\#$ AD & 19.6 & 27.0 & 6.11 & 30.6 & 34.0\\
-Average $\#$ PD & 38.1 & 35.0 & 60.7 & 33.2 & 30.3\\
-\textbf{First asymmetric anticlinal division: (\textit{ii}) in Section~\ref{sec:founderCells}}\\
-Area Ratio & 0.420 & 0.445 & 0.445 & 0.450 & 0.450\\
-Average $\#$ Cells & 66.6 & 63.6 & 62.5 & 58.3 & 61.9\\
-Average $\#$ AD & 18.3 & 26.0 & 3.98 & 28.8 & 34.1\\
-Average $\#$ PD & 46.3 & 35.6 & 56.5 & 27.5 & 25.8\\
-\textbf{Second symmetric periclinal division: (\textit{iii}) in Section~\ref{sec:founderCells}}\\
-Area Ratio & 0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
-Average $\#$ Cells & 62.6 & 64.5 & 60.2 & 61.2 & 65.3\\
-Average $\#$ AD & 20.3 & 26.0 & 4.08 & 29.9 & 42.2\\
-Average $\#$ PD & 40.2 & 36.5 & 54.1 & 29.2 & 21.1\\
-\textbf{Second symmetric anticlinal division: (\textit{iv}) in Section~\ref{sec:founderCells}}\\
-Area Ratio & 0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
-Average $\#$ Cells & 62.5 & 66.2 & 72.9 & 59.5 & 65.8\\
-Average $\#$ AD & 18.0 & 36.6 & 4.24 & 29.9 & 25.5\\
-Average $\#$ PD & 42.4 & 27.5 & 66.7 & 27.6 & 38.3\\
-\textbf{Real Data}\\
-$\#$ Cells & 64 & 49 & 81 & 45 & 82\\
-$\#$ AD & 31 & 21 & 25 & 18 & 27\\
-$\#$ PD & 23 & 19 & 36 & 19 & 39\\
-$\#$ RD & 8 & 7 & 15 & 7 & 13\\
+\begin{tabular}{@{}lccccc@{}}\toprule
+& Area ratio & Average \#Cells & Average \#AD & Average \#PD & Average \#RD\\ \midrule
+\textbf{Model data}\\
+Geometric & 0.320 & 59.8 & 19.6 & 38.1 & -\\
+Random & 0.308 & 65.9 & 30.6 & 33.2 & -\\
+1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7 & -\\
+Basal growth & 0.420 & 64.9 & 18.1 & 44.7 & -\\
+\textbf{Real data}\\
+\#120830 & - & 64 & 31 & 23 & 8\\
+\#121204 & - & 49 & 17 & 24 & 6\\
+\#121211 & - & 81 & 25 & 36 & 15\\
+\#130508 & - & 46 & 18 & 19 & 7\\
+\#130607 & - & 82 & 26 & 40 & 13\\
+Aurora mutant & - & 129 & 56 & 50 & 21\\
 \bottomrule
 \end{tabular}
-	\caption[Parameters for idealized models.]{\textbf{Parameters for idealized models.} The table lists the average number of cells, anticlinal (AD) and periclinal divisions (PD) for each division model setting (see Section~\ref{sec:divisionRules}) and scenario (see Section~\ref{sec:founderCells}) performing 100 runs. At the bottom, the number of cells and divisions are given for the real datasets.
-	\TODO{update values with respect to models in main text}
+	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD), periclinal (PD) and radial (RD) divisions for each of the four model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset. \TODO{update basal growth when using NH: area ratio impair NH: 0.3}
 	}
 	\label{tab:modelParameters}
 \end{table}
+%\begin{table}\centering
+%\begin{tabular}{@{}lcccccc@{}}\toprule
+%& \multicolumn{5}{c}{Idealized models}\\
+%\cmidrule{2-6}
+%& BD & D & PDG & R & RE\\ \midrule
+%\textbf{Two founder cells with equal sizes: (\textit{i}) in Section~\ref{sec:founderCells}}\\
+%Area ratio & 0.320 & 0.300 & 0.300 & 0.308 & 0.308\\
+%Average $\#$ Cells & 59.8 & 64.0 & 68.8 & 65.9 & 66.4\\
+%Average $\#$ AD & 19.6 & 27.0 & 6.11 & 30.6 & 34.0\\
+%Average $\#$ PD & 38.1 & 35.0 & 60.7 & 33.2 & 30.3\\
+%\textbf{First asymmetric anticlinal division: (\textit{ii}) in Section~\ref{sec:founderCells}}\\
+%Area Ratio & 0.420 & 0.445 & 0.445 & 0.450 & 0.450\\
+%Average $\#$ Cells & 66.6 & 63.6 & 62.5 & 58.3 & 61.9\\
+%Average $\#$ AD & 18.3 & 26.0 & 3.98 & 28.8 & 34.1\\
+%Average $\#$ PD & 46.3 & 35.6 & 56.5 & 27.5 & 25.8\\
+%\textbf{Second symmetric periclinal division: (\textit{iii}) in Section~\ref{sec:founderCells}}\\
+%Area Ratio & 0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
+%Average $\#$ Cells & 62.6 & 64.5 & 60.2 & 61.2 & 65.3\\
+%Average $\#$ AD & 20.3 & 26.0 & 4.08 & 29.9 & 42.2\\
+%Average $\#$ PD & 40.2 & 36.5 & 54.1 & 29.2 & 21.1\\
+%\textbf{Second symmetric anticlinal division: (\textit{iv}) in Section~\ref{sec:founderCells}}\\
+%Area Ratio & 0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
+%Average $\#$ Cells & 62.5 & 66.2 & 72.9 & 59.5 & 65.8\\
+%Average $\#$ AD & 18.0 & 36.6 & 4.24 & 29.9 & 25.5\\
+%Average $\#$ PD & 42.4 & 27.5 & 66.7 & 27.6 & 38.3\\
+%\textbf{Real Data}\\
+%$\#$ Cells & 64 & 49 & 81 & 45 & 82\\
+%$\#$ AD & 31 & 21 & 25 & 18 & 27\\
+%$\#$ PD & 23 & 19 & 36 & 19 & 39\\
+%$\#$ RD & 8 & 7 & 15 & 7 & 13\\
+%\bottomrule
+%\end{tabular}
+%	\caption[Parameters for idealized models.]{\textbf{Parameters for idealized models.} The table lists the average number of cells, anticlinal (AD) and periclinal divisions (PD) for each division model setting (see Section~\ref{sec:divisionRules}) and scenario (see Section~\ref{sec:founderCells}) performing 100 runs. At the bottom, the number of cells and divisions are given for the real datasets.
+%	\TODO{update values with respect to models in main text}
+%	}
+%	\label{tab:modelParameters}
+%\end{table}
 
 % Old table with data-driven models for having the parameters
 %\begin{table}\centering
@@ -1174,7 +1196,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13\\
 %
 \begin{figure}[htbp]
 \centering
-	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02.pdf}
+	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
 	\end{overpic}
 \caption[Geometry and volume measurements.]
 {{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
@@ -1255,7 +1277,7 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13\\
 %
 \begin{figure}[htbp]
 \centering
-	\begin{overpic}[width=0.65\linewidth]{images/LRP-auroraRAW.pdf}
+	\begin{overpic}[width=0.7\linewidth]{images/LRP-auroraRAW_compressed.pdf}
 	\end{overpic}
 \caption[Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant. ]
 {{\bf Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant. } Single slice of the master cell file in dataset \#131203 at indicated time points. Raw data on the left and a sketch of the plasmamembrane and nuclei on the right. (A-C) The cell divided without building a cell wall. (D-F) Both daughter cells divided periclinal and their cell walls connected in the center creating two binucleated cells. (G) The next cell divisions appear more or less arbitrarily. Scale bar: 20 $\mu$m.}
@@ -1278,8 +1300,8 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13\\
 \centering
 	\begin{overpic}[width=0.95\linewidth]{images/Model_visu.pdf}
 	\end{overpic}
-\caption[Alternative visualisation of the model results.]
-{{\bf Alternative visualisation of the model results.} For each indicated model (corresponding to Figure 5 in the main text), the result of the models at the end of the simulation are represented. Three types of visualisation are used: cell outlines (top), nuclei (middle) and layers (bottom). Colours indicate the layers as illustrated in Figure 2D (main text).
+\caption[Alternative visualisations of the model results.]
+{{\bf Alternative visualisations of the model results.} For each indicated model (corresponding to Figure 5 in the main text), the result of the models at the end of the simulation are represented. Three types of visualisation are used: cell outlines (top), nuclei (middle) and layers (bottom). Colours indicate the layers as illustrated in Figure 2D (main text).
 }
 \label{fig:visumodel}
 \end{figure}
@@ -1324,11 +1346,12 @@ $\#$ RD & 8 & 7 & 15 & 7 & 13\\
     \item Dataset \#121204 \href{http://youtu.be/Bd_UgUVyzrM}{\textcolor{blue}{[LINK]}}.
     \item Dataset \#121211 \href{http://youtu.be/NOouEVqpGj8}{\textcolor{blue}{[LINK]}}.
     \item Dataset \#130508 \href{http://youtu.be/EajarNlRvtA}{\textcolor{blue}{[LINK]}}.
-  \end{Itemize}		
-  \item Model of lateral root formation, \emph{Geometric} model, corresponding to Figure 5A (main text) \href{https://youtu.be/GLUKCE4nN3A}{\textcolor{blue}{[LINK]}}.
-    \item Model of lateral root formation, \emph{Geometric plus asymmetric} model, corresponding to Figure 5D (main text) \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}.
+  \end{Itemize}
+  \TODO{@Alexis: update model movies such that only the four models are shown: replace ``Geometric plus asymmetric'' by ``1st random then geometric''}
+  \item Model of lateral root formation, \emph{Geometric} model, corresponding to Figure 5D (main text) \href{https://youtu.be/GLUKCE4nN3A}{\textcolor{blue}{[LINK]}}.
   \item Model of lateral root formation, \emph{Random} model, corresponding to Figure 5G (main text) \href{https://youtu.be/V9xkyPfRQeM}{\textcolor{blue}{[LINK]}}.
-  \item Model of lateral root formation, \emph{Basal growth} model, corresponding to Figure 5N (main text) \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}.
+  \item Model of lateral root formation, \emph{Geometric plus asymmetric} model, corresponding to Figure 5J (main text) \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}.
+  \item Model of lateral root formation, \emph{Basal growth} model, corresponding to Figure 5M (main text) \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}.
 
   \item Time lapse recording of the \emph{aur1-2 aur2-2} double mutant, dataset \#131203. Corresponds to Figure~\ref{fig:aurora} \href{http://youtu.be/y8b-0J4lPHg}{\textcolor{blue}{[LINK]}}.
   \item Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant \href{http://youtu.be/kkQZub-puVI}{\textcolor{blue}{[LINK]}}.
