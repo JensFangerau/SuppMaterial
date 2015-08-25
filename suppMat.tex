@@ -184,23 +184,23 @@ Before imaging plants were grown vertically on 0.5X MS plates. The plates were p
 
 \subsection{Light Sheet Fluorescence Imaging}
 \subsubsection{Sample Preparation}
-Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip and then pushed carefully over the root until the capillary reached the leaves. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). A supplementary video illustrating the sample preparation procedure is available (see Supplemental movies \ref{sec:suppmovies}). A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$L pipet tip glued into the lid of a 15 mL tube.
+Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip, slid carefully over the root until the capillary reached the leaves and then lifted from the plate. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). A supplementary video illustrating the sample preparation procedure is available (see Supplemental movies \ref{sec:suppmovies}). A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$L pipet tip glued into the lid of a 15 mL tube.
 
 \subsubsection{Imaging}
 The plant was placed vertically in the 0.5X MS-filled chamber with the leaves in the air. It was inserted from above but held from below. During imaging the plant was illuminated by a flexible glass fiber (1/2 inch in diameter) that guided standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5X MS medium and maintained at 23$\degree $C.
 
-Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 100 ms, the laser intensity was set between 0.12 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
+Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 75 ms, the laser intensity was set between 0.02 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
 
 \subsubsection{Image Processing}
 Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The complete four-dimensional dataset ($x,y,z,t$) was loaded in \textit{Fiji} (\href{http://fiji.sc/Fiji}{http://fiji.sc/Fiji}) as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
-(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}) which registers the time points using the phase correlation algorithm based on the intensity of the membrane channel. The dataset was then cropped to the region containing the lateral root primordium along the x-, y- and z-directions. The three-dimensional (3D) reconstruction in Figure 1B (main text) was performed with \textit{AMIRA} (\href{http://www.fei.com}{http://www.fei.com}).
+(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}) which registers the time points using the phase correlation algorithm based on the intensity of the membrane channel. The dataset was then cropped to the region containing the lateral root primordium along the x-, y- and z-directions. The three-dimensional (3D) reconstruction in Figure 1B (main text) was performed with \textit{Arivis} (\href{http://www.arivis.com}{http://www.arivis.com}).
 
 \clearpage
 \section{The Virtual Lateral Roots (VLR)}
 \subsection{Nuclei Segmentation and Tracking}
 \label{sec:segmentation}
 \noindent
-The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program. This tool provides an interactive visual representation of the 3D datasets over time. The user can manually track the spatial position and lineage of individual cell nuclei. For each marked cell nucleus the program stores a unique identifier, the spatial position, the time point and a list holding the identification numbers of its parent cells. In order to minimize the manual effort the cell nuclei are only marked at two time frames: right after the division in which the cell is born (or the very first appearance of a founder cell) and right before the cell divides (or the last time point analysed). The positions in between are interpolated linearly. Segmentation and tracking were realized for the first 24--25 hours of lateral root development and the resulting data was exported to a file in tabular format for further data processing and analysis (see supporting datasets in Section~\ref{sec:datasets}). We thereby created a total of five virtual lateral root (VLR) datasets that store all information about cell nuclei positions, lineages and cell divisions. Figure~\ref{fig:allTrees} shows the reconstructed cell lineage trees for all five datasets with nodes coloured according to the underlying division types. The classification of division types is explained in Section~\ref{sec:divisionTypes}.
+The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program. This tool provides an interactive visual representation of the 3D datasets over time. The user can manually track the spatial position and lineage of individual cell nuclei. For each marked cell nucleus the program stores a unique identifier, the spatial position, the time point and a list holding the identification numbers of its parent cells. Cell nuclei are marked at two time points: right after the division in which the cell is born (or the very first appearance of a founder cell) and right before the cell divides (or the last time point analysed). The positions in between are interpolated linearly. Segmentation and tracking were realized for the first 24 hours of lateral root development and the resulting data was exported to a file in tabular format for further data processing and analysis (see supporting datasets in Section~\ref{sec:datasets}). We thereby created a total of five virtual lateral root (VLR) datasets that store all information about cell nuclei positions, lineages and cell divisions. Figure~\ref{fig:allTrees} shows the reconstructed cell lineage trees for all five datasets with nodes coloured according to the underlying division types. The classification of division types is explained in Section~\ref{sec:divisionTypes}.
 
 In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in a file a unique colour (see Figure 1D, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \TODO{@Alexis: put reference here about the article that refers to the swelling (?)}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1C, main text). The cell file assignment for each cell nucleus is added to the VLR datasets.
 
@@ -305,7 +305,7 @@ We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to class
 	\end{center}
 \end{figure}
 %
-In a nutshell, 3D surfaces are constructed using the set of cell positions for each time point. These surfaces are used to generate vertex and surface normal vectors that are compared with the division directions of all cells dividing at that time point. More precisely, the angle between the normal and the direction vector for each division is measured. Through this, each cell division can be classified as either anticlinal, periclinal or radial. The surfaces are generated using $\alpha$-shapes which are a good approximation of the evolving dome-shaped lateral root (see Figure~\ref{fig:alphaShapes}, bottom).
+3D surfaces are constructed using the set of cell positions for each time point. These surfaces are used to generate vertex and surface normal vectors that are compared with the division directions of all cells dividing at that time point. More precisely, the angle between the normal and the direction vector for each division is measured. Through this, each cell division can be classified as either anticlinal, periclinal or radial. The surfaces are generated using $\alpha$-shapes which are a good approximation of the evolving dome-shaped lateral root (see Figure~\ref{fig:alphaShapes}, bottom).
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -319,7 +319,7 @@ In a nutshell, 3D surfaces are constructed using the set of cell positions for e
 	\end{center}
 \end{figure}
 %
-However, when using a single surface to represent the whole VLR we can only derive normal vectors for the cells on the surface. This means that for cells dividing in the interior of the lateral root, no suitable normal vectors can be retrieved to classify the division orientations. For this reason, after a division classified as periclinal, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to obtain normal vectors even for cells dividing in the interior. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}) which is written in C{}\verb!++! using \textit{OpenSceneGraph} (\href{http://www.openscenegraph.org/}{http://www.openscenegraph.org/}), \textit{Qt} (\href{http://www.qt.io/}{http://www.qt.io/}) and other useful libraries such as \textit{Boost} (\href{http://www.boost.org/}{http://www.boost.org/}) and \textit{CGAL} (\href{http://www.cgal.org/}{http://www.cgal.org/}). The algorithm is capable of classifying most of the cell divisions correctly. We manually verified the classification and corrected it whenever necessary. The cell division type for each cell nucleus is added to the VLR datasets. For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
+However, when using a single surface to represent the whole VLR we can only derive normal vectors for the cells on the surface. This means that for cells dividing in the interior of the lateral root, no suitable normal vectors can be retrieved to classify the division orientations. For this reason, after a division classified as periclinal, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to obtain normal vectors even for cells dividing in the interior. The algorithm is capable of classifying most of the cell divisions correctly. We manually verified the classification and corrected it whenever necessary. The cell division type for each cell nucleus is added to the VLR datasets. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}). For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -334,42 +334,37 @@ However, when using a single surface to represent the whole VLR we can only deri
 \end{figure}
 %
 
-\subsection{Visual Analysis of Division Behaviour}
-\subsubsection{Colour-coded Cell Lineages}
-\noindent
-%
-\begin{wrapfigure}{r}{0.23\textwidth}
-\vspace{-20pt}
-	\begin{center}
-	\includegraphics[width=0.18\textwidth]{images/cellLineage.pdf}
-	\end{center}
-\vspace{-20pt}
-\caption[]{\bf Lineage tree.}
-\vspace{-10pt}
-\label{fig:cellLineage}
-\end{wrapfigure}
-%
-We colour-coded the nodes in the lineage tree representation based on the corresponding division type to further analyse the division behaviour between several datasets (see Figure~\ref{fig:cellLineage}). Labels on the left show the time points and an additional label at the top of each tree displays the total number of divisions. The colour of the nodes indicates the division type: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The ``bricks'' visualisation at the bottom of the tree allows a more adequate comparison of division sequences between different trees. Each column represents the division sequence of a cell in the last segmented time point. The number of columns corresponds to the total number of cells at the last segmented time point, whereas the number of rows indicates the total number of division rounds. For example, the leftmost leaf cell in the tree in Figure~\ref{fig:cellLineage} followed the division sequence anticlinal, periclinal, anticlinal, periclinal and finally an anticlinal division. Figure~\ref{fig:allTrees} shows all cell lineages of all five datasets and Figure~\ref{fig:allMasterTrees} illustrates only the lineages located in the master cell files.
-
-\clearpage
-\subsubsection{Periclinal Division Sequences}
-\label{sec:treeDivisionSequence}
-\noindent
-Periclinal divisions are responsible for the layered organisations in the lateral root. We generated a division sequence tree to mainly focus on these periclinal divisions.
-%
-\begin{figure}[htbp]
-	\begin{center}
-		\begin{overpic}[width=1.0\linewidth]{images/treeDivisionSequenceSample.pdf}
-		\end{overpic}
-\caption[]
-{
-{\bf Division sequence trees along the number of time points (left) and number of cells (right) for dataset \#120830.}
-}
-	\label{fig:treeDivisionSequenceSample}
-	\end{center}
-\end{figure}
-%
-This tree allows the analysis of the temporal layer organisation and a comparison with other datasets. The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell divides periclinally, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}). This spatial layer organisation is rendered along the number of time points (see Figure~\ref{fig:treeDivisionSequenceSample}, left) and the number of cells (see Figure~\ref{fig:treeDivisionSequenceSample}, right). Through this, we can easily detect when new layers are generated. The assigned layer is added to the VLR datasets. The division sequence trees for all datasets are shown in Figure~\ref{fig:treeDivisionSequences}. The visualisation of the lineage trees as well as the division sequence trees are done in \textit{scifer}.
+%\subsection{Visual Analysis of Division Behaviour}
+%\subsubsection{Colour-coded Cell Lineages}
+%\noindent
+%%
+%\begin{wrapfigure}{r}{0.23\textwidth}
+%\vspace{-20pt}
+%	\begin{center}
+%	\includegraphics[width=0.18\textwidth]{images/cellLineage.pdf}
+%	\end{center}
+%\vspace{-20pt}
+%\caption[]{\bf Lineage tree.}
+%\vspace{-10pt}
+%\label{fig:cellLineage}
+%\end{wrapfigure}
+%%
+%\subsubsection{Periclinal Division Sequences}
+%\label{sec:treeDivisionSequence}
+%\noindent
+%%
+%\begin{figure}[htbp]
+%	\begin{center}
+%		\begin{overpic}[width=1.0\linewidth]{images/treeDivisionSequenceSample.pdf}
+%		\end{overpic}
+%\caption[]
+%{
+%{\bf Division sequence trees along the number of time points (left) and number of cells (right) for dataset \#120830.}
+%}
+%	\label{fig:treeDivisionSequenceSample}
+%	\end{center}
+%\end{figure}
+%%
 
 \clearpage
 \section{Quantification and Visualisation of Lateral Root Deformation}
@@ -497,7 +492,7 @@ We perform this averaging for all three views (front, side, radial). Figure 2B i
 \clearpage
 \section{Modelling of a Lateral Root Formation}
 \noindent
-We use a non-mechanical 2D vertex-based model for lateral root development. The evolving 2D tissue of the model is described by a graph, i.e.~an abstract structure in which a set of vertices is connected by a set of edges. In this context, an edge denotes a cell wall and a vertex corresponds to a junction that forms the point of contact between at least two cell walls~\cite{prusinkiewicz_lindenmayer_1990, prusinkiewicz_runions_2012}. As a consequence, the complete topology of all cells in the model (such as neighbourhood information) can be accessed via a graph rotation system~\cite{edmonds_1960}.
+We use a non-mechanical 2D vertex-based model for lateral root development. The evolving 2D tissue of the model is described by a graph, i.e.~an abstract structure in which a set of vertices is connected by a set of edges. In this context, an edge denotes a cell wall and a vertex corresponds to a junction that forms the point of contact between at least two cell walls~\cite{prusinkiewicz_lindenmayer_1990, prusinkiewicz_runions_2012}. As a consequence, the complete topology of all cells in the model (such as neighbourhood information) can be accessed via a graph rotation system~\cite{edmonds_1960}. We realize the implementation of the 2D model using \textit{OpenGL} (\href{https://www.opengl.org/}{https://www.opengl.org/}) and the \textit{VV} (Vertex-Vertex) programming language~\cite{smith_et_al_2004, smith_2006} which is embedded in a C{}\verb!++! programming environment.
 
 %L-systems or also called Lindenmayer~Systems~\cite{lindenmayer_1968, prusinkiewicz_lindenmayer_1990}. The L-system is a language that consists of a set of strings based on predefined rules. More precisely, it consists of an axiom, the starting point of the system, and a set of production rules. The growth of a dynamic structure is realized by applying these rules to the axiom in which the resulting string is again in the language of the used system. Through this, the growth can be described by an infinite set of strings that 'steers' the growth behaviour. L-systems are commonly used to model plant growths as well as to generate fractals such as the Sierpinski triangle, for example.
 
@@ -622,7 +617,7 @@ In the model, time point and axis orientation of each division have to be determ
 
 \subsubsection{Time Point of Division}
 \noindent
-For each cell, the initial area of the cell right after its birth is computed. At each time point of the model simulation, the area of each cell is computed and compared with its initial area. If the cell's area exceeds the initial area by a certain amount a division event will occur. This amount is determined by setting an \textit{area ratio} and an \textit{area threshold}. The ratio defines the maximal percentage increase of a cell before it should divide. For example, a ratio of $0.5$ denotes that the cell will divide if its initial size has increased by at least $50\%$. However, only using this ratio would result in cell areas that converge to zero in later steps because the percentage ratio above would result in smaller cells over time. For this reason, the area threshold is used as a barrier to guarantee a minimum area for each cell before it divides.
+At each time point of the model simulation, the area of each cell is computed and compared with its initial area. If the cell's area exceeds the initial area by a certain amount a division event will occur. This amount is determined by setting an \textit{area ratio} and an \textit{area threshold}. The ratio defines the maximal percentage increase of a cell before it should divide. For example, a ratio of $0.5$ denotes that the cell will divide if its initial size has increased by at least $50\%$. However, only using this ratio would result in cell areas that converge to zero in later steps because the percentage ratio above would result in smaller cells over time. For this reason, the area threshold is used as a barrier to guarantee a minimum area for each cell before it divides.
 
 \subsubsection{Orientation of Division Axis}
 \label{sec:divisionRules}
@@ -707,7 +702,7 @@ Model 4 is designed to check whether the lateral root growth itself is responsib
 
 \subsubsection{Model Simulation}
 \noindent
-For each model scenario, we perform $100$ simulations with $500$ steps to test how stable the model and therefore the division results are based on the randomised variations of the division rules. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is chosen in such a way that at the end approximately $64$ cells are generated. This value originates from the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+46+82)/5 \approx 64$). Table~\ref{tab:modelParameters} lists all area ratios, average numbers of cells, anticlinal and periclinal divisions for each model scenario.
+For each model scenario, we perform $100$ simulations with $500$ model steps (time points) to test how stable the model and therefore the division results are based on the randomised variations of the division rules. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is chosen in such a way that at the end approximately $64$ cells are generated. This value originates from the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+46+82)/5 \approx 64$). Table~\ref{tab:modelParameters} lists all area ratios, average numbers of cells, anticlinal and periclinal divisions for each model scenario.
 
 \subsection{Model Modifications}
 We apply some modifications to the model that affect the resulting tissue and cells in order to better approximate a real-world behaviour.
@@ -765,34 +760,33 @@ One initial cell consists of four junctions defining a rectangular cell shape wi
 %
 For example, consider the first B\'ezier surface with two cells at the first model step resulting in six junctions (two are shared by the cells) with their corresponding parametric coordinates (see Figure~\ref{fig:subdivision}, top left). In a later model step, the tissue will start to grow evolving into the dome-like structure (see Figure~\ref{fig:subdivision}, top right). However, only the junction with the parametric coordinate $(u=\nicefrac{1}{2}, v=1)$ will move upwards based on the underlying B\'ezier surface creating a triangle-shaped tissue. In order to better embed the underlying surface into the model, additional inner junctions (cyan nodes in Figure~\ref{fig:subdivision}, bottom left) are created that result in a much smoother surface of the model (see Figure~\ref{fig:subdivision}, bottom right). This smoothness is defined by a user-chosen subdivision level which is $4$ in all our models and yields $2^{4-1} - 1 = 7$ additional inner junctions.
 
-\subsection{Visual Analysis}
-\subsubsection{Visualisation of the Model}
-\noindent
-We realize the implementation of the 2D model using \textit{OpenGL} (\href{https://www.opengl.org/}{https://www.opengl.org/}) and the \textit{VV} (Vertex-Vertex) programming language~\cite{smith_et_al_2004, smith_2006} which is embedded in a C{}\verb!++! programming environment. For a visual analysis, we generate three different representations of the evolving cells in the VLR: Illustration of
-\begin{inparaenum}[(\itshape i\upshape)]
-\item all cell contours (see Figure~\ref{fig:modelVisualisation}, left),
-\item cells as spheres (see Figure~\ref{fig:modelVisualisation}, mid) and
-\item adjacent cell layers (see Figure~\ref{fig:modelVisualisation}, right).
-\end{inparaenum}
-%
-\begin{figure}[htbp]
-	\begin{center}
-		\begin{overpic}[width=1.\linewidth]{images/modelVisualisation.pdf}
-		\end{overpic}
-\caption[]
-{
-{\bf Representation of evolving cells in model.} The model result can be illustrated by cell contours, cell spheres or by cell layers.
-}
-	\label{fig:modelVisualisation}
-	\end{center}
-\end{figure}
-%
-The first representation shows the cell contour information within the evolving tissue. Each cell is coloured by its corresponding layer value. The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells. Figure~\ref{fig:visumodel} shows the visualisations for the last model step of the four model scenarios.
+%\subsection{Visual Analysis}
+%\subsubsection{Visualisation of the Model}
+%\noindent
+%We realize the implementation of the 2D model using \textit{OpenGL} (\href{https://www.opengl.org/}{https://www.opengl.org/}) and the \textit{VV} (Vertex-Vertex) programming language~\cite{smith_et_al_2004, smith_2006} which is embedded in a C{}\verb!++! programming environment. For a visual analysis, we generate three different representations of the evolving cells in the VLR: Illustration of
+%\begin{inparaenum}[(\itshape i\upshape)]
+%\item all cell contours (see Figure~\ref{fig:modelVisualisation}, left),
+%\item cells as spheres (see Figure~\ref{fig:modelVisualisation}, mid) and
+%\item adjacent cell layers (see Figure~\ref{fig:modelVisualisation}, right).
+%\end{inparaenum}
+%%
+%\begin{figure}[htbp]
+%	\begin{center}
+%		\begin{overpic}[width=1.\linewidth]{images/modelVisualisation.pdf}
+%		\end{overpic}
+%\caption[]
+%{
+%{\bf Representation of evolving cells in model.} The model result can be illustrated by cell contours, cell spheres or by cell layers.
+%}
+%	\label{fig:modelVisualisation}
+%	\end{center}
+%\end{figure}
+%%
+%The first representation shows the cell contour information within the evolving tissue. Each cell is coloured by its corresponding layer value. The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells. Figure~\ref{fig:visumodel} shows the visualisations for the last model step of the four model scenarios.
 
-\clearpage
-\subsubsection{Division Analysis}
+\subsection{Visual Division Analysis}
 \noindent
-We run several simulations of one model using division rules with randomized variation, each resulting in one division sequence tree as explained in Section~\ref{sec:treeDivisionSequence}. Multiple simulation runs of each model allow us to use statistically solid model results and to compare them with the VLR datasets.
+We run several simulations of one model using division rules with randomized variation, each resulting in one division sequence tree as shown in Figure~\ref{fig:treeDivisionSequencesCells}. Multiple simulation runs of each model allow us to use statistically solid model results and to compare them with the VLR datasets.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -892,11 +886,11 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 	\miniscule
 \begin{longtable}{@{} l l l l l l l @{}}
 \toprule
-Dataset & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & \#131203\\
+Dataset & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & Aurora mutant\\
 \midrule
 Specimen & \textit{\textit{Arabidopsis thaliana}}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0
 aur1-2 aur2-2 double mutant\\
-Reporters & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pGATA23::GUS-GFP-NLS & pUBQ10::H2B-RFP\\
+Reporters & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pUBQ10::H2B-RFP\\
 & pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pPIN1::PIN1-GFP\\
 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & \ \\
 \ & \ & \ & \ & \ & \ & \ \\
@@ -1134,7 +1128,7 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
 	\end{overpic}
 \caption[Time lapse recordings of five lateral root primordia.]
-{{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::GUS-GFP-NLS} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
+{{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::nls-GUS-GFP} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
 	\label{fig:alldatasets}
 \end{figure}
 %
@@ -1152,11 +1146,11 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 %
 \begin{figure}[htbp]
 \centering
-		\begin{overpic}[width=.95\linewidth]{images/allMasterTrees.pdf}
+		\begin{overpic}[width=.85\linewidth]{images/allMasterTrees.pdf}
 		\end{overpic}
 \caption[All cell lineages located in the master cell file of the five wild type datasets and the \emph{aurora} mutant.]
 {
-{\bf All cell lineages located in the master cell file of the five wild type datasets and the \emph{aurora} mutant.} The left labels show the time points and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}.
+{\bf All cell lineages located in the master cell file of the five wild type datasets and the \emph{aurora} mutant.} The nodes are colour-coded based on the corresponding division type: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. Labels on the left show the time points and top labels display the total number of divisions. The ``bricks'' visualisation at the bottom of each tree allows a comparison of division sequences between different trees. Each column represents the division sequence of a cell in the last segmented time point. The number of columns corresponds to the total number of cells at the last segmented time point, whereas the number of rows indicates the total number of division rounds (e.g. the leftmost leaf cell in the top left tree followed the division sequence anticlinal, periclinal, anticlinal, periclinal and anticlinal). The visualisation is done in \textit{scifer}.
 }
 	\label{fig:allMasterTrees}
 \end{figure}
@@ -1169,7 +1163,7 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 		\end{overpic}
 \caption[All cell lineages of the five wild type datasets and the \emph{aurora} mutant.]
 {
-{\bf All cell lineages of the five wild type datasets and the \emph{aurora} mutant.} The left labels show the time points and an additional one at the top of each tree displays the total number of divisions. The colour of the nodes indicates the kind of division: \textcolor{red}{anticlinal}, \textcolor{green}{periclinal} and \textcolor{blue}{radial}. The bricks visualisation at the bottom of each tree allows a comparison of division sequences among several trees.
+{\bf All cell lineages of the five wild type datasets and the \emph{aurora} mutant.} The colouring, label and ``bricks'' are explained in Figure~\ref{fig:allMasterTrees}.
 }
 	\label{fig:allTrees}
 \end{sidewaysfigure}
@@ -1192,7 +1186,7 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\begin{overpic}[width=1.\linewidth]{images/Growth-Rate-Curves.pdf}
 	\end{overpic}
 \caption[Exponential growth profile of the lateral root primordia.]
-{{\bf Exponential growth profile of the lateral root primordia.} For each indicated VLR, the nuclei count is plotted (blue curve) as a function of time since gravistimulation with additional information about the growth factor (k) and doubling time (T) (in 5mins time points). The red dashed line represents the fitted exponential curve.}
+{{\bf Exponential growth profile of the lateral root primordia.} For each indicated VLR, the number of nuclei is plotted (blue curve) as a function of time points since gravistimulation (k: growth factor, T: doubling time). The red dashed line represents the fitted exponential curve.}
 	\label{fig:growthcurves}
 \end{figure}
 %
@@ -1203,21 +1197,9 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
 	\end{overpic}
 \caption[Geometry and volume measurements.]
-{{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
+{{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of VLR dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
 	\label{fig:VLWR}
 \end{figure}
-%
-\clearpage
-%
-\begin{sidewaysfigure}
-\centering
-		\begin{overpic}[width=1.\linewidth]{images/treeDivisionSequences.pdf}
-		\end{overpic}
-\caption[Division sequence trees for all five wild type datasets and the \emph{aurora} mutant based on the number of time steps.]
-{
-{\bf Division sequence trees for all five wild type datasets and the \emph{aurora} mutant based on the number of time steps.} The x-axis corresponds to the number of time steps. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions. Links to movies depicting layer formations for each dataset are listed in Section~\ref{sec:suppmovies}.}
-	\label{fig:treeDivisionSequences}
-\end{sidewaysfigure}
 %
 \clearpage
 %
@@ -1227,8 +1209,21 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 		\end{overpic}
 \caption[Division sequence trees for all five wild type datasets and the \emph{aurora} mutant based on the number of cells.]
 {
-{\bf Division sequence trees for all five wild type datasets and the \emph{aurora} mutant based on the number of cells.} The x-axis corresponds to the number of cells. The colours are uniquely assigned to each type of layering which is given by a sequence of the divisions. Links to movies depicting layer formations for each dataset are listed in Section~\ref{sec:suppmovies}.}
+{\bf Division sequence trees for all five wild type datasets and the \emph{aurora} mutant based on the number of cells.} The layer assignment is given by a unique sequence (colour) and each dataset starts in a single layer (\textbf{0}). When a cell divides periclinally, its daughter cells are assigned to an outer (initially \textbf{01}) and an inner layer (initially \textbf{02}). The visualisation is done in \textit{scifer}. Links to movies depicting layer formations for each dataset are listed in Section~\ref{sec:suppmovies}.}
 	\label{fig:treeDivisionSequencesCells}
+\end{sidewaysfigure}
+%
+\clearpage
+%
+\begin{sidewaysfigure}
+\centering
+		\begin{overpic}[width=1.\linewidth]{images/treeDivisionSequences.pdf}
+		\end{overpic}
+\caption[Division sequence trees for all five wild type datasets and the \emph{aurora} mutant based on the number of time steps.]
+{
+{\bf Division sequence trees for all five wild type datasets and the \emph{aurora} mutant based on the number of time steps.} The layout and colouring are explained in Figure~\ref{fig:treeDivisionSequencesCells}.
+}
+	\label{fig:treeDivisionSequences}
 \end{sidewaysfigure}
 %
 \clearpage
@@ -1251,7 +1246,7 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\begin{overpic}[width=.88\linewidth]{images/MasterCellFile_time_of_divisions.pdf}
 	\end{overpic}
 \caption[Timing of each division per cell file.]
-{{\bf Timing of each division per cell file.} For each indicated round of division (sub panels cycle 1$, \ldots$ Cycle 6), each cell division is plotted according to its cell file location and its time of occurrence (in 5mins time points). The dashed box indicates the master cell file. \TODO{@Alexis: why do we consider time points and not number of cells? Only one dataset or all of them? Maybe use another layout: see Daniels version.}
+{{\bf Timing of each division per cell file.} For each indicated round of division (sub panels cycle 1$, \ldots$ Cycle 6), each cell division is plotted according to its cell file location and its time of occurrence (in 5mins time points). The dashed box indicates the master cell file. \TODO{@Alexis: why do we consider time points and not number of cells? Only one dataset or all of them? What are the small orange lines? Maybe use another layout: see Daniels version.}
 }
 	\label{fig:mastertimediv}
 \end{figure}
@@ -1262,8 +1257,8 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 \centering
 	\begin{overpic}[width=0.5\linewidth]{images/Founders_and_endodermis_compressed.pdf}
 	\end{overpic}
-\caption[Correlation between endoderm cells disposition and first dividing founder.]
-{{\bf Correlation between endoderm cells disposition and first dividing founder.} (A) First time point of the membrane channel in the front view. (B) A sketch of the position of the cell boundaries. Cells in the master cell file are coloured in light and dark green, respectively. The cells in the two flanking cell files are coloured in yellow or orange while the other cell files are given in grey. The white-magenta dashed line represents the contours of the overlaying endodermis cells. The blue arrowhead indicates the first founder to divide.}
+\caption[Correlation between the topology of endodermis cells and most contributing founders.]
+{{\bf Correlation between the topology of endodermis cells and most contributing founders.} (A) First time point of the membrane channel in the front view. (B) A sketch of the position of the cell boundaries. Cells in the master cell file are coloured in light and dark green, respectively. The cells in the two flanking cell files are coloured in yellow or orange while the other cell files are given in grey. The white-magenta dashed line represents the contours of the overlaying endodermis cells. The blue arrowhead indicates the founder contributing most to the primordium.}
 	\label{fig:foundersendo}
 \end{figure}
 %
@@ -1318,7 +1313,7 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\begin{overpic}[width=0.95\linewidth]{images/Model_visu.pdf}
 	\end{overpic}
 \caption[Alternative visualisations of the model results.]
-{{\bf Alternative visualisations of the model results.} For each indicated model (corresponding to Figure 5 in the main text), the result of the models at the end of the simulation are represented. Three types of visualisation are used: cell outlines (top), nuclei (middle) and layers (bottom). Colours indicate the layers as illustrated in Figure 2D (main text).
+{{\bf Alternative visualisations of the model results.} For each model scenario (see Section~\ref{sec:modelScenarios}), the models at the end of the simulation are represented. Three types of visualisation are used: cell contours (top), nuclei (middle) and adjacent cell layers (bottom). Colours indicate the layers as illustrated in Figure 2D (main text). The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells.
 }
 \label{fig:visumodel}
 \end{figure}
