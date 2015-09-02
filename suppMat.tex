@@ -273,7 +273,7 @@ Type of division, i.e. anticlinal, periclinal or radial (see Section~\ref{sec:di
 %
 \begin{figure}[htbp]
 	\begin{center}
-		\begin{overpic}[width=0.9\linewidth]{images/divisionAngles.pdf}
+		\begin{overpic}[width=0.7\linewidth]{images/divisionAngles.pdf}
 		\end{overpic}
 \caption[]
 {
@@ -305,7 +305,7 @@ We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to class
 	\end{center}
 \end{figure}
 %
-3D surfaces are constructed using the set of cell positions for each time point. These surfaces are used to generate vertex and surface normal vectors that are compared with the division directions of all cells dividing at that time point. More precisely, the angle between the normal and the direction vector for each division is measured. Through this, each cell division can be classified as either anticlinal, periclinal or radial. The surfaces are generated using $\alpha$-shapes which are a good approximation of the evolving dome-shaped lateral root (see Figure~\ref{fig:alphaShapes}, bottom).
+3D surfaces are constructed using the set of cell positions for each time point. These surfaces are used to generate vertex and surface normal vectors that are compared with the division directions of all cells dividing at that time point. More precisely, the angle between the normal and the direction vector for each division is measured. Through this, each cell division can be classified as either anticlinal, periclinal or radial. The surfaces are generated using $\alpha$-shapes which are a good approximation of the evolving dome-shaped lateral root (see Figure~\ref{fig:alphaShapes}, bottom). The value for $\alpha$ is chosen in such a way that the $\alpha$-shape has only one connected component, i.e. any two points are connected to each other.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -319,7 +319,7 @@ We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to class
 	\end{center}
 \end{figure}
 %
-However, when using a single surface to represent the whole VLR we can only derive normal vectors for the cells on the surface. This means that for cells dividing in the interior of the lateral root, no suitable normal vectors can be retrieved to classify the division orientations. For this reason, after a division classified as periclinal, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to obtain normal vectors even for cells dividing in the interior. The algorithm is capable of classifying most of the cell divisions correctly. We manually verified the classification and corrected it whenever necessary. The cell division type for each cell nucleus is added to the VLR datasets. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}). For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
+However, when using a single surface to represent the whole VLR we can only derive normal vectors for the cells on the surface. This means that for cells dividing in the interior of the lateral root, no suitable normal vectors can be retrieved to classify the division orientations. For this reason, after a division classified as periclinal, the ``outer'' daughter cell is assigned to a new $\alpha$-shape with a new colouring (see Figure~\ref{fig:newSurfaceGeneration}). By generating new surfaces with this approach we are able to obtain normal vectors even for almost all cells dividing in the interior. For the remaining cells within a surface, the normal is determined by the closest surface normal in terms of the closest Euclidean distance between the cell position and a surface. The algorithm is capable of classifying most of the cell divisions correctly. We manually verified the classification and corrected it whenever necessary. The cell division type for each cell nucleus is added to the VLR datasets. The method is implemented in a visualisation software called \textit{scifer} (\href{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}{http://www.iwr.uni-heidelberg.de/groups/CoVis/software.php}). For a more detailed description of the algorithm and a performance analysis we refer the reader to the thesis of Fangerau~\cite[chapter 4]{FangerauDiss_2015}.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -499,13 +499,13 @@ We use a non-mechanical 2D vertex-based model for lateral root development. The 
 We use a 2D model for two main reasons. First, we focus our analysis on the cells located in the master cell file of the VLR. These cells contribute most to the growth of the VLR and feature the property that they are mostly located within a plane in 3D. Thus, their 3D locations can be projected onto a 2D plane in side view without (too much) loss of information. Second, such a model is much easier to describe than a 3D model which significantly reduces the complexity and therefore simplifies the analysis. Our intention is the creation of an idealised model based on simple rules that allows a comparison to the VLR datasets.
 
 \noindent
-Our model requires the application of a underlying \textbf{model surface} that represents the developing lateral root. Furthermore, the positioning and the number of \textbf{founder cells} that contribute to the development have to be determined. Additionally, the \textbf{rules for cell division events} have to be defined, i.e.~the type and time point of a division event. In a nutshell, the simulation starts with a predefined number and positioning of founder cells and develops over time based on the underlying surface structure. During the simulation, the model surface and the cells within grow and increase in area. According to the chosen division properties, a cell divides if it exceeds a specific area threshold or area ratio with respect to its initial size right after its birth. Through this, we generate a convenient model representing the growth of the lateral root.
+Our model requires the application of a underlying \textbf{model surface} that represents the developing lateral root. Furthermore, the positioning and the number of \textbf{founder cells} that contribute to the development have to be determined. Additionally, the \textbf{rules for cell division events} have to be defined, i.e.~the type and time point of a division event. The simulation starts with a predefined number and positioning of founder cells and develops over time based on the underlying surface structure. During the simulation, the model surface and the cells within grow and increase in area. According to the chosen division properties, a cell divides if it exceeds a specific area threshold or area ratio with respect to its initial size right after its birth. Through this, we generate a convenient model representing the growth of the lateral root.
 
 In the next sections, we will describe the underlying model surface and the settings for the initial founder cells and divisions. Afterwards, we explain the different model scenarios addressed in the main text.
 
 \subsection{Model Surface}
 \noindent
-The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that a change of vertex positions on the surface influences the walls and junctions of all cells in the model. In our case, we use \textit{B\'ezier surfaces} to create an idealised model that allows the investigation of a common growth behaviour of the lateral root.
+The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that a change of vertex positions on the surface influences the walls and junctions of all cells in the model. In our case, we use \textit{B\'ezier surfaces} to create an idealised model that allows the investigation of a common growth behaviour of the lateral root~\cite[supplement]{smith_bayer_2004}.
 %The first one is used to create a triangulation based on real nuclei positions in the dataset for each time point. Through this, we can generate a data-driven model that incorporates the deformation behaviour of the nuclei and are able to compare the result with the real-world datasets.
 %\subsubsection{Triangle Mesh}
 %\noindent
@@ -734,13 +734,17 @@ Note that for all division rules the division axis always passes through the cen
 		\end{overpic}
 \caption[]
 {
-{\bf Modified computation of centre of mass. Left:} The centre of mass of cells with several junctions may not yield a ``real'' centre of the cell. \textbf{Right:} Using a level of detail approach yields few junctions preserving the shape of the cell.
+{\bf Modified computation of centre of mass. Left:} The centre of mass of cells with several junctions may not yield a ``real'' centre of the cell. \textbf{Right:} A triangle fan is generated to compute a more adequate centre of the cell (green node) using the triangle centres of mass (blue nodes) and their areas.
 }
 	\label{fig:levelOfDetail}
 	\end{center}
 \end{figure}
 %
-Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (cyan node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division axis that also does not preserve equal areas of daughter cells. In order to solve this issue, we perform a \textit{level of detail} of cell walls using the \textit{edge criterion}~\cite{jenks_1989} in such a way that only these junctions are preserved that mainly capture the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four remaining junctions (see Figure~\ref{fig:levelOfDetail}, right) while preserving the overall shape of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}. Note that we apply this level of detail only for the computation of the centre of mass. We do not remove any junctions of cells in the model itself.
+Consequently, a cell consists of more junctions and the computed centre of mass will be located near the mass of junctions (cyan node in Figure~\ref{fig:levelOfDetail}, left). This may result in an implausible division axis that also does not preserve equal areas of daughter cells. In order to solve this issue, we generate a triangle fan with one central vertex given by the initial centre of mass (see Figure~\ref{fig:levelOfDetail}, right). We then compute the areas $A_i$ and centres of mass $c_i$ of all triangles $i \in [1,n]$ and use this information to get a more adequate centre of the cell with respect to the total area $A$ of the cell:
+\begin{equation}
+c = \sum_{i=1}^{n} \left( c_i \cdot \frac{A_i}{A} \right).
+\end{equation}
+%perform a \textit{level of detail} of cell walls using the \textit{edge criterion}~\cite{jenks_1989} in such a way that only these junctions are preserved that mainly capture the shape of the cell. For example, the cell in Figure~\ref{fig:levelOfDetail} has seven junctions. Performing a level of detail results in a simplified cell shape that only has four remaining junctions (see Figure~\ref{fig:levelOfDetail}, right) while preserving the overall shape of the cell. The centre of mass is then computed based on these remaining junctions. A detailed description of the algorithm can be found in \cite[p.\ 59--60]{FangerauDiss_2015}. Note that we apply this level of detail only for the computation of the centre of mass. We do not remove any junctions of cells in the model itself.
 
 \subsubsection{Smoothness of Model Surface}
 \noindent
