@@ -139,18 +139,20 @@
 
 \title{\Large
 \textbf{Supplemental Material}\\[1em]
-\textsc{Cell lineages analysis of lateral root formation reveals the non-stereotyped yet robust nature of post-embryonic organ morphogenesis in plants}}
-\author[1,2]{Daniel von Wangenheim}
+\textsc{Quantitative analysis and modelling of lateral root formation reveals the rules and self-organising properties of post-embryonic organ morphogenesis}}
+\author[1,2,5]{Daniel von Wangenheim}
 \author[2,3]{Jens Fangerau\thanks{Contributed equally.}}
 \author[1]{Alexander Schmitz\samethanks}
 \author[4]{Richard Smith}
 \author[3]{Heike Leitte}
-\author[1]{Ernst H. K. Stelzer\thanks{Corresponding authors. E-mail: \href{ernst.stelzer@physikalischebiologie.de}{ernst.stelzer@physikalischebiologie.de} (E.H.K.S) and \href{alexis.maizel@cos.uni-heidelberg.de}{alexis.maizel@cos.uni-heidelberg.de} (A.M.).}}
+\author[1]{Ernst H. K. Stelzer\thanks{Corresponding authors. E-mail: \href{alexis.maizel@cos.uni-heidelberg.de}{alexis.maizel@cos.uni-heidelberg.de} and (A.M.) \href{ernst.stelzer@physikalischebiologie.de}{ernst.stelzer@physikalischebiologie.de} (E.H.K.S).}}
 \author[2]{Alexis Maizel\samethanks}
 \affil[1]{Buchmann Institute for Molecular Life Sciences, Goethe University Frankfurt, D-60438 Frankfurt Am Main, Germany.}
 \affil[2]{Centre for Organismal Studies, Heidelberg University, D-69120 Heidelberg, Germany.}
 \affil[3]{Interdisciplinary Center for Scientific Computing, Heidelberg University, D-69120 Heidelberg, Germany.}
-\affil[4]{Max Planck Institue for Plant Breeding Research, D-50829 Cologne, Germany.}
+\affil[4]{Department of Comparative Development and Genetics, Max Planck Institute of Plant Breeding Research, D-50829 Cologne, Germany.}
+\affil[5]{Present address: Developmental and Cell Biology of Plants, Institute of Science and Technology Austria, 3400 Klosterneuburg, Austria.}
+
 
 \renewcommand\Authands{ and }
 \setlength{\affilsep}{3em}
@@ -189,7 +191,7 @@ Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germ
 \subsubsection{Imaging}
 The plant was placed vertically in the 0.5X MS-filled chamber with the leaves in the air. It was inserted from above but held from below. During imaging the plant was illuminated by a flexible glass fiber (1/2 inch in diameter) that guided standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5X MS medium and maintained at 23$\degree $C.
 
-Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 75 ms, the laser intensity was set between 0.02 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
+Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 75 ms, the laser intensity was set between 0.02 mW and 0.6 mW depending on the respective fluorescence intensity. Each time point was acquired within 40 seconds and consists of 466 images (233 z-planes, 2 channels) resulting in 768 time points and up to 357888 images. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
 
 \subsubsection{Image Processing}
 Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The complete four-dimensional dataset ($x,y,z,t$) was loaded in \textit{Fiji} (\href{http://fiji.sc/Fiji}{http://fiji.sc/Fiji}) as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
