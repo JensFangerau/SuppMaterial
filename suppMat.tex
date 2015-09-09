@@ -204,7 +204,7 @@ Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The compl
 \noindent
 The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program. This tool provides an interactive visual representation of the 3D datasets over time. The user can manually track the spatial position and lineage of individual cell nuclei. For each marked cell nucleus the program stores a unique identifier, the spatial position, the time point and a list holding the identification numbers of its parent cells. Cell nuclei are marked at two time points: right after the division in which the cell is born (or the very first appearance of a founder cell) and right before the cell divides (or the last time point analysed). The positions in between are interpolated linearly. Segmentation and tracking were realized for the first 24 hours of lateral root development and the resulting data was exported to a file in tabular format for further data processing and analysis (see supporting datasets in Section~\ref{sec:datasets}). We thereby created a total of five virtual lateral root (VLR) datasets that store all information about cell nuclei positions, lineages and cell divisions. Figure~\ref{fig:allTrees} shows the reconstructed cell lineage trees for all five datasets with nodes coloured according to the underlying division types. The classification of division types is explained in Section~\ref{sec:divisionTypes}.
 
-In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in a file a unique colour (see Figure 1D, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \TODO{@Alexis: put reference here about the article that refers to the swelling (?)}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1C, main text). The cell file assignment for each cell nucleus is added to the VLR datasets.
+In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in a file a unique colour (see Figure 1D, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \cite{Vermeer:2014fl}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1C, main text). The cell file assignment for each cell nucleus is added to the VLR datasets.
 
 \subsection{Registration of Datasets}
 \label{sec:registration}
@@ -837,7 +837,7 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 		1\textsuperscript{st} anticlinal division & 10 & 11 & 11 & 9 & 15 & 11 & 2\\
 		1\textsuperscript{st} periclinal division & 22 & 25 & 30 & 16 & 28 & 24 & 5\\
 		2\textsuperscript{nd} periclinal division & 58 & 51 & 64 & 50 & 56 & 56 & 6\\
-		1\textsuperscript{st} radial division & 36 & 62 & 106 & 55 & 97 & 71 & 39\\
+%		1\textsuperscript{st} radial division & 36 & 62 & 106 & 55 & 97 & 71 & 39\\
 		Emergence & - & 155 & 208 & - & 173 & 179 & 27\\
 		\bottomrule
 		\end{tabular}
@@ -1109,11 +1109,11 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 %
 \begin{figure}[H]
 \centering
-	\begin{overpic}[width=1.\linewidth]{images/mDSLM_specimen_qc_compressed.pdf}
+	\begin{overpic}[width=1.\linewidth]{images/mDSLM_specimen_qc_v2.pdf}
 	\end{overpic}
-\caption[Arabidopsis in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).]
-{{\bf Arabidopsis in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).} 
-(A) Perspective sketch of the plant specimen holder in front of the two objective lenses. Only the fluorophores in a thin planar volume that overlaps with the focal plane of the detection objective lens are excited. Thus, fluorophores outside this volume do not blur the image and are not subjected to photo bleaching. (B, E) The central components of the mDSLM are mounted on a plate. All optical components are inside a single aluminium block. Four motors below the specimen chamber move and rotate the plant. The filter wheel is uncoupled from the aluminium block. Images are captured with cameras from either Andor Clara or Andor Neo. A flexible optical glass fiber guides the light coming from a small fluorescent lamp above the plant in the microscope specimen chamber. (C) Top view of the specimen chamber. (D, F) Side-view into the chamber with the root in front of the detection lens. The plant grows in an upright position. While the leaves remain in the air, the root system is perfused with a liquid medium. (G) Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish seven weeks after the imaging acquisition. Legend: 1: illumination objective lens, 2: perfusion system, 3: specimen chamber, 4: A. thaliana in capillary, 5: detection objective lens, 6: microscope stage, 7: laser light sheet, 8: filter wheel, 9: camera.}
+\caption[Arabidopsis plant after imaging in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).]
+{{\bf Arabidopsis plant after imaging in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).} 
+(Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish seven weeks after the imaging acquisition.}
 	\label{fig:mDSLM}
 \end{figure}
 %
@@ -1127,16 +1127,15 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\label{fig:gravistimul}
 \end{figure}
 %
-\clearpage
-%
-\begin{figure}[htbp]
-\centering
-	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
-	\end{overpic}
-\caption[Time lapse recordings of five lateral root primordia.]
-{{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::nls-GUS-GFP} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
-	\label{fig:alldatasets}
-\end{figure}
+% \clearpage
+% \begin{figure}[htbp]
+% \centering
+% 	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
+% 	\end{overpic}
+% \caption[Time lapse recordings of five lateral root primordia.]
+% {{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::nls-GUS-GFP} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
+% 	\label{fig:alldatasets}
+% \end{figure}
 %
 \clearpage
 \begin{figure}[htbp]
@@ -1196,16 +1195,15 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\label{fig:growthcurves}
 \end{figure}
 %
-\clearpage
-%
-\begin{figure}[htbp]
-\centering
-	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
-	\end{overpic}
-\caption[Geometry and volume measurements.]
-{{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of VLR dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
-	\label{fig:VLWR}
-\end{figure}
+% \clearpage
+% \begin{figure}[htbp]
+% \centering
+% 	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
+% 	\end{overpic}
+% \caption[Geometry and volume measurements.]
+% {{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of VLR dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
+% 	\label{fig:VLWR}
+% \end{figure}
 %
 \clearpage
 %
