@@ -139,18 +139,18 @@
 
 \title{\Large
 \textbf{Supplemental Material}\\[1em]
-\textsc{Quantitative analysis and modelling of lateral root formation reveals the non-deterministic yet robust nature of post-embryonic organ morphogenesis in plants}}
+\textsc{Quantitative analysis and modelling of lateral root formation reveals the rules and self-organising properties of post-embryonic organ morphogenesis}}
 \author[1,2,5]{Daniel von Wangenheim}
 \author[2,3]{Jens Fangerau\thanks{Contributed equally.}}
 \author[1]{Alexander Schmitz\samethanks}
 \author[4]{Richard Smith}
 \author[3]{Heike Leitte}
-\author[1]{Ernst H. K. Stelzer\thanks{Corresponding authors. E-mail: \href{ernst.stelzer@physikalischebiologie.de}{ernst.stelzer@physikalischebiologie.de} (E.H.K.S) and \href{alexis.maizel@cos.uni-heidelberg.de}{alexis.maizel@cos.uni-heidelberg.de} (A.M.).}}
+\author[1]{Ernst H. K. Stelzer\thanks{Corresponding authors. E-mail: \href{alexis.maizel@cos.uni-heidelberg.de}{alexis.maizel@cos.uni-heidelberg.de} and (A.M.) \href{ernst.stelzer@physikalischebiologie.de}{ernst.stelzer@physikalischebiologie.de} (E.H.K.S).}}
 \author[2]{Alexis Maizel\samethanks}
 \affil[1]{Buchmann Institute for Molecular Life Sciences, Goethe University Frankfurt, D-60438 Frankfurt Am Main, Germany.}
 \affil[2]{Centre for Organismal Studies, Heidelberg University, D-69120 Heidelberg, Germany.}
-\affil[3]{Interdisciplinary Centre for Scientific Computing (IWR), Heidelberg University, D-69120 Heidelberg, Germany.}
-\affil[4]{Max Planck Institute for Plant Breeding Research, D-50829 Cologne, Germany.}
+\affil[3]{Interdisciplinary Center for Scientific Computing, Heidelberg University, D-69120 Heidelberg, Germany.}
+\affil[4]{Department of Comparative Development and Genetics, Max Planck Institute of Plant Breeding Research, D-50829 Cologne, Germany.}
 \affil[5]{Present address: Developmental and Cell Biology of Plants, Institute of Science and Technology Austria, 3400 Klosterneuburg, Austria.}
 
 \renewcommand\Authands{ and }
@@ -190,7 +190,7 @@ Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germ
 \subsubsection{Imaging}
 The plant was placed vertically in the 0.5X MS-filled chamber with the leaves in the air. It was inserted from above but held from below. During imaging the plant was illuminated by a flexible glass fiber (1/2 inch in diameter) that guided standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5X MS medium and maintained at 23$\degree $C.
 
-Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 75 ms, the laser intensity was set between 0.02 mW and 0.6 mW depending on the respective fluorescence intensity. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
+Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 75 ms, the laser intensity was set between 0.02 mW and 0.6 mW depending on the respective fluorescence intensity. Each time point was acquired within 40 seconds and consists of 466 images (233 z-planes, 2 channels) resulting in 768 time points and up to 357888 images. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
 
 \subsubsection{Image Processing}
 Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The complete four-dimensional dataset ($x,y,z,t$) was loaded in \textit{Fiji} (\href{http://fiji.sc/Fiji}{http://fiji.sc/Fiji}) as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
@@ -203,7 +203,7 @@ Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The compl
 \noindent
 The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program. This tool provides an interactive visual representation of the 3D datasets over time. The user can manually track the spatial position and lineage of individual cell nuclei. For each marked cell nucleus the program stores a unique identifier, the spatial position, the time point and a list holding the identification numbers of its parent cells. Cell nuclei are marked at two time points: right after the division in which the cell is born (or the very first appearance of a founder cell) and right before the cell divides (or the last time point analysed). The positions in between are interpolated linearly. Segmentation and tracking were realized for the first 24 hours of lateral root development and the resulting data was exported to a file in tabular format for further data processing and analysis (see supporting datasets in Section~\ref{sec:datasets}). We thereby created a total of five virtual lateral root (VLR) datasets that store all information about cell nuclei positions, lineages and cell divisions. Figure~\ref{fig:allTrees} shows the reconstructed cell lineage trees for all five datasets with nodes coloured according to the underlying division types. The classification of division types is explained in Section~\ref{sec:divisionTypes}.
 
-In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in a file a unique colour (see Figure 1D, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \TODO{@Alexis: put reference here about the article that refers to the swelling (?)}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1C, main text). The cell file assignment for each cell nucleus is added to the VLR datasets.
+In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in a file a unique colour (see Figure 1D, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \cite{Vermeer:2014fl}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1C, main text). The cell file assignment for each cell nucleus is added to the VLR datasets.
 
 \subsection{Registration of Datasets}
 \label{sec:registration}
@@ -836,7 +836,7 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 		1\textsuperscript{st} anticlinal division & 10 & 11 & 11 & 9 & 15 & 11 & 2\\
 		1\textsuperscript{st} periclinal division & 22 & 25 & 30 & 16 & 28 & 24 & 5\\
 		2\textsuperscript{nd} periclinal division & 58 & 51 & 64 & 50 & 56 & 56 & 6\\
-		1\textsuperscript{st} radial division & 36 & 62 & 106 & 55 & 97 & 71 & 39\\
+%		1\textsuperscript{st} radial division & 36 & 62 & 106 & 55 & 97 & 71 & 39\\
 		Emergence & - & 155 & 208 & - & 173 & 179 & 27\\
 		\bottomrule
 		\end{tabular}
@@ -1108,11 +1108,11 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 %
 \begin{figure}[H]
 \centering
-	\begin{overpic}[width=1.\linewidth]{images/mDSLM_specimen_qc_compressed.pdf}
+	\begin{overpic}[width=1.\linewidth]{images/mDSLM_specimen_qc_v2.pdf}
 	\end{overpic}
-\caption[Arabidopsis in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).]
-{{\bf Arabidopsis in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).} 
-(A) Perspective sketch of the plant specimen holder in front of the two objective lenses. Only the fluorophores in a thin planar volume that overlaps with the focal plane of the detection objective lens are excited. Thus, fluorophores outside this volume do not blur the image and are not subjected to photo bleaching. (B, E) The central components of the mDSLM are mounted on a plate. All optical components are inside a single aluminium block. Four motors below the specimen chamber move and rotate the plant. The filter wheel is uncoupled from the aluminium block. Images are captured with cameras from either Andor Clara or Andor Neo. A flexible optical glass fiber guides the light coming from a small fluorescent lamp above the plant in the microscope specimen chamber. (C) Top view of the specimen chamber. (D, F) Side-view into the chamber with the root in front of the detection lens. The plant grows in an upright position. While the leaves remain in the air, the root system is perfused with a liquid medium. (G) Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish seven weeks after the imaging acquisition. Legend: 1: illumination objective lens, 2: perfusion system, 3: specimen chamber, 4: A. thaliana in capillary, 5: detection objective lens, 6: microscope stage, 7: laser light sheet, 8: filter wheel, 9: camera.}
+\caption[Arabidopsis plant after imaging in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).]
+{{\bf Arabidopsis plant after imaging in the monolithic Digital Scanned Laser Light Sheet-based Fluorescence Microscope (mDSLM).} 
+(Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish seven weeks after the imaging acquisition.}
 	\label{fig:mDSLM}
 \end{figure}
 %
@@ -1126,16 +1126,15 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\label{fig:gravistimul}
 \end{figure}
 %
-\clearpage
-%
-%\begin{figure}[htbp]
-%\centering
-%	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
-%	\end{overpic}
-%\caption[Time lapse recordings of five lateral root primordia.]
-%{{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::nls-GUS-GFP} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
-%	\label{fig:alldatasets}
-%\end{figure}
+% \clearpage
+% \begin{figure}[htbp]
+% \centering
+% 	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
+% 	\end{overpic}
+% \caption[Time lapse recordings of five lateral root primordia.]
+% {{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::nls-GUS-GFP} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
+% 	\label{fig:alldatasets}
+% \end{figure}
 %
 \clearpage
 \begin{figure}[htbp]
@@ -1195,16 +1194,15 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 	\label{fig:growthcurves}
 \end{figure}
 %
-\clearpage
-%
-%\begin{figure}[htbp]
-%\centering
-%	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
-%	\end{overpic}
-%\caption[Geometry and volume measurements.]
-%{{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of VLR dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
-%	\label{fig:VLWR}
-%\end{figure}
+% \clearpage
+% \begin{figure}[htbp]
+% \centering
+% 	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
+% 	\end{overpic}
+% \caption[Geometry and volume measurements.]
+% {{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of VLR dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
+% 	\label{fig:VLWR}
+% \end{figure}
 %
 \clearpage
 %
