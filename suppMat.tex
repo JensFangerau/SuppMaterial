@@ -139,8 +139,8 @@
 
 \title{\Large
 \textbf{Supplemental Material}\\[1em]
-\textsc{Cell lineages analysis of lateral root formation reveals the non-stereotyped yet robust nature of post-embryonic organ morphogenesis in plants}}
-\author[1,2]{Daniel von Wangenheim}
+\textsc{Quantitative analysis and modelling of lateral root formation reveals the non-deterministic yet robust nature of post-embryonic organ morphogenesis in plants}}
+\author[1,2,5]{Daniel von Wangenheim}
 \author[2,3]{Jens Fangerau\thanks{Contributed equally.}}
 \author[1]{Alexander Schmitz\samethanks}
 \author[4]{Richard Smith}
@@ -149,8 +149,9 @@
 \author[2]{Alexis Maizel\samethanks}
 \affil[1]{Buchmann Institute for Molecular Life Sciences, Goethe University Frankfurt, D-60438 Frankfurt Am Main, Germany.}
 \affil[2]{Centre for Organismal Studies, Heidelberg University, D-69120 Heidelberg, Germany.}
-\affil[3]{Interdisciplinary Center for Scientific Computing, Heidelberg University, D-69120 Heidelberg, Germany.}
-\affil[4]{Max Planck Institue for Plant Breeding Research, D-50829 Cologne, Germany.}
+\affil[3]{Interdisciplinary Centre for Scientific Computing (IWR), Heidelberg University, D-69120 Heidelberg, Germany.}
+\affil[4]{Max Planck Institute for Plant Breeding Research, D-50829 Cologne, Germany.}
+\affil[5]{Present address: Developmental and Cell Biology of Plants, Institute of Science and Technology Austria, 3400 Klosterneuburg, Austria.}
 
 \renewcommand\Authands{ and }
 \setlength{\affilsep}{3em}
@@ -804,7 +805,7 @@ We run several simulations of one model using division rules with randomized var
 	\end{center}
 \end{figure}
 %
-For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. We also use a simplified version of this tree as illustrated in Figure 5B,E,H,K,N.
+For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. We also use a simplified version of this tree when the number of simulations as well as the sequence labels can be ignored (see Figure 5B,E,H,K,N).
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1127,22 +1128,22 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 %
 \clearpage
 %
-\begin{figure}[htbp]
-\centering
-	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
-	\end{overpic}
-\caption[Time lapse recordings of five lateral root primordia.]
-{{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::nls-GUS-GFP} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
-	\label{fig:alldatasets}
-\end{figure}
+%\begin{figure}[htbp]
+%\centering
+%	\begin{overpic}[width=1.\linewidth]{images/LRP-RawDataSets_compressed.pdf}
+%	\end{overpic}
+%\caption[Time lapse recordings of five lateral root primordia.]
+%{{\bf Time lapse recordings of five lateral root primordia.} For each indicated dataset (details in Table 1 (main text) and \ref{tab:metadata}) five time points of a longitudinal section (side view) and a transverse section (radial view) are shown. Time is relative to the point of gravistimulation. The signal of \textit{pUBQ10::YFP-PIP1;4} (membranes) and \textit{pGATA23::nls-GUS-GFP} (nuclei) is shown. Scale bar: 20 $\mu$m. Detailed recording metadata are in Table~\ref{tab:metadata}. Links to movies of each datasets are listed in Section~\ref{sec:suppmovies}.}
+%	\label{fig:alldatasets}
+%\end{figure}
 %
 \clearpage
 \begin{figure}[htbp]
 \centering
 	\begin{overpic}[width=1.\linewidth]{images/DatasetsTrackingFounders_compressed.pdf}
 	\end{overpic}
-\caption[Five wild type VLR primordia.]
-{{\bf Five wild type VLR primordia.} For each indicated dataset, the spatial distribution of cell nuclei is represented. The first and last time point of segmented nuclei as well as the 143-cell stage are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 1D (main text). Links to movies of each dataset are listed in~\ref{sec:suppmovies}.}
+\caption[Reconstruction of five wild type lateral root primordia.]
+{{\bf Reconstruction of five wild type lateral root primordia.} For each indicated dataset, the spatial distribution of cell nuclei is represented. The first and last time point of segmented nuclei as well as the 143-cell stage are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 1D (main text). Links to movies of each dataset are listed in~\ref{sec:suppmovies}.}
 	\label{fig:trackingfounders}
 \end{figure}
 %
@@ -1196,14 +1197,14 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 %
 \clearpage
 %
-\begin{figure}[htbp]
-\centering
-	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
-	\end{overpic}
-\caption[Geometry and volume measurements.]
-{{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of VLR dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
-	\label{fig:VLWR}
-\end{figure}
+%\begin{figure}[htbp]
+%\centering
+%	\begin{overpic}[width=1.\linewidth]{images/LR-VolumeLengthWidthRatio-02_compressed.pdf}
+%	\end{overpic}
+%\caption[Geometry and volume measurements.]
+%{{\bf Geometry and volume measurements.} (A) Convex hull of all cell nuclei of VLR dataset \#120830 in radial and side views. (B) The height is computed by the distance between the minimum and maximum positions of all cell nuclei in the master cell file in the radial view. (C) The width is calculated by the largest distance of all cell nuclei positions in the radial view. (D) The length is measured as the maximum distance between any two cells in side view at 50\% of the height. (E) Average volume per cell as a function of the total number of cells. The total volume of the VLR is given by the volume of the convex hull. (F) Length to width ratio. The triangles highlight the first and second periclinal cell division, the discs the first radial division.}
+%	\label{fig:VLWR}
+%\end{figure}
 %
 \clearpage
 %
@@ -1312,7 +1313,7 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 \end{figure}
 \clearpage
 
-\begin{figure}[htbp]
+\begin{sidewaysfigure}[htbp]
 \centering
 	\begin{overpic}[width=0.95\linewidth]{images/Model_visu.pdf}
 	\end{overpic}
@@ -1320,7 +1321,7 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 {{\bf Alternative visualisations of the model results.} For each model scenario (see Section~\ref{sec:modelScenarios}), the models at the end of the simulation are represented. Three types of visualisation are used: cell contours (top), nuclei (middle) and adjacent cell layers (bottom). Colours indicate the layers as illustrated in Figure 2D (main text). The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells.
 }
 \label{fig:visumodel}
-\end{figure}
+\end{sidewaysfigure}
 %
 %\begin{figure}[htbp]
 %\centering
