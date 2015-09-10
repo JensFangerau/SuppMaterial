@@ -801,6 +801,7 @@ For example, consider the first B\'ezier surface with two cells at the first mod
 %The first representation shows the cell contour information within the evolving tissue. Each cell is coloured by its corresponding layer value. The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells. Figure~\ref{fig:visumodel} shows the visualisations for the last model step of the four model scenarios.
 
 \subsection{Visual Division Analysis}
+\label{sec:visualAnalysis}
 \noindent
 We run several simulations of one model using division rules with randomized variation, each resulting in one division sequence tree as shown in Figure~\ref{fig:treeDivisionSequencesCells}. Multiple simulation runs of each model allow us to use statistically solid model results and to compare them with the datasets.
 %
@@ -816,7 +817,7 @@ We run several simulations of one model using division rules with randomized var
 	\end{center}
 \end{figure}
 %
-For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. We also use a simplified version of this tree when the number of simulations as well as the sequence labels can be ignored (see Figure 5B,E,H,K,N).
+For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. The averaged division sequence trees for our six model results are shown in Figure~\ref{fig:Modeldivisions}. We also use a simplified version of this tree when the number of simulations as well as the sequence labels can be ignored (see Figure 5B,E,H,K,N).
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1338,6 +1339,19 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 }
 \label{fig:visumodel}
 \end{figure}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+	\begin{overpic}[width=1.0\linewidth]{images/Model_divisions.pdf}
+	\end{overpic}
+\caption[Averaged division sequence trees for the model results.]
+{{\bf Averaged division sequence trees for the model results.} For each model scenario (see Section~\ref{sec:modelScenarios}) with 100 simulations, an averaged division sequence tree is shown (see Section~\ref{sec:visualAnalysis}) that illustrates the percentage in which the upper layers were generated before the lower ones.
+}
+\label{fig:Modeldivisions}
+\end{figure}
+%
+
 %
 %\begin{figure}[htbp]
 %\centering
