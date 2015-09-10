@@ -696,7 +696,8 @@ In Model 5, we force the first division round to be an asymmetric anticlinal one
 \noindent
 \textbf{Model 6: Random with equal areas}\\
 \noindent
-For Model 6, the orientation of the division axes are chosen randomly for all divisions but we apply our approach of preserving the cell shape as explained in Section~\ref{sec:cellShape} (see Figure~\ref{fig:visumodel}).
+For Model 6, the orientation of the division axes are chosen randomly for all divisions but for each division axis the resulting areas of the two daughter cells are computed and compared with each other. If the areas differ in more than $10\%$ then a new division axis is chosen randomly and the areas are checked again. If no division axis results in almost equal areas after $50$ attempts, the last randomly generated one is chosen (see model in Figure~\ref{fig:visumodel}).
+\clearpage
 
 %
 \begin{figure}[htbp]
@@ -718,10 +719,6 @@ For each model scenario, we perform $100$ simulations with $500$ model steps (ti
 
 \subsection{Model Modifications}
 We apply some modifications to the model that affect the resulting tissue and cells in order to better approximate a real-world behaviour.
-\subsubsection{Cell Shape Preservation}
-\label{sec:cellShape}
-\noindent
-In the model, a total random configuration of cell division axes may result in implausible cell developments with unequal sizes and triangle-shaped contours that cannot be observed in any real-world scenario of plant growth. We want to analyse a random behaviour of cell divisions that somehow preserve equal sizes and shapes of cells after divisions. We therefore first find a set of division axis orientations that satisfy a specific constraint and assign each one the same probability value. The idea of this approach is explained in Figure~\ref{fig:shapePreserving}. We use a value of $\delta = 0.15$ for the random division rule while this approach is not applied to the Besson-Dumais rule because there we do not observe any implausible cell shapes.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -735,6 +732,11 @@ In the model, a total random configuration of cell division axes may result in i
 	\end{center}
 \end{figure}
 %
+78
+\subsubsection{Cell Shape Preservation}
+\label{sec:cellShape}
+\noindent
+In the model, a total random configuration of cell division axes may result in implausible cell developments with unequal sizes and triangle-shaped contours that cannot be observed in any real-world scenario of plant growth. We want to analyse a random behaviour of cell divisions that somehow preserve equal sizes and shapes of cells after divisions. We therefore first find a set of division axis orientations that satisfy a specific constraint and assign each one the same probability value. The idea of this approach is explained in Figure~\ref{fig:shapePreserving}. We use a value of $\delta = 0.15$ for the random division rule while this approach is not applied to the Besson-Dumais rule because there we do not observe any implausible cell shapes.
 
 \subsubsection{Computation of Centre of Mass}
 \noindent
