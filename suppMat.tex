@@ -368,7 +368,7 @@ However, when using a single surface to represent the whole VLR we can only deri
 %%
 
 \clearpage
-\section{Quantification and Visualisation of Lateral Root Deformation}
+\section{Quantification and Visualisation of Lateral Root Primordium Deformation}
 \noindent
 The datasets served as a basis to perform an analysis of the lateral root deformation as a function of time. The analysis was inspired by the work of Graner~et~al.~\cite{graner_et_al_2008}. The idea is that the deformation can be computed using geometrical and topological properties of the underlying tissue. Since in our case we have a set of 3D cell nuclei for each time point (red nodes in Figure~\ref{fig:deformation}) we use their 3D positions to generate a triangulation (e.g. Delaunay triangulation) creating a surface that represents the tissue (see Figure~\ref{fig:deformation}). The deformation analysis can be performed object- or spatial-oriented. This means that either the deformation is evaluated and illustrated for each cell or the total area of interest is subdivided into regions of equal sizes to measure the deformation within each subregion. We consider the former case because we want to focus on individual cell changes. Besides, the initial number of cells in each dataset is quite small and therefore, the total area of interest is not covered by all cells which makes an object-oriented analysis per cell more reasonable.
 %
@@ -491,7 +491,7 @@ As a result, each tile shows an averaged deformation represented by a line with 
 We perform this averaging for all three views (front, side, radial). Figure 2B in the main text shows the deformation result for the first, mid and last time point ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only on the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations in the different views. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increase rate of $12.06$ cells per step. The exact numbers of cells for each step in the supplemental movie (see Section~\ref{sec:suppmovies}) are given in Table~\ref{tab:growthTensor}. The deformation computation as well as the visualisation are realized in \textit{MATLAB}.
 
 \clearpage
-\section{Modelling of a Lateral Root Formation}
+\section{Modelling of a Lateral Root Primordium Formation}
 \noindent
 We use a non-mechanical 2D vertex-based model for lateral root development. The evolving 2D tissue of the model is described by a graph, i.e.~an abstract structure in which a set of vertices is connected by a set of edges. In this context, an edge denotes a cell wall and a vertex corresponds to a junction that forms the point of contact between at least two cell walls~\cite{prusinkiewicz_lindenmayer_1990, prusinkiewicz_runions_2012}. As a consequence, the complete topology of all cells in the model (such as neighbourhood information) can be accessed via a graph rotation system~\cite{edmonds_1960}. We realize the implementation of the 2D model using \textit{OpenGL} (\href{https://www.opengl.org/}{https://www.opengl.org/}) and the \textit{VV} (Vertex-Vertex) programming language~\cite{smith_et_al_2004, smith_2006} which is embedded in a C{}\verb!++! programming environment.
 
