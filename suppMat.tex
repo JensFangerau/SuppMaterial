@@ -452,7 +452,7 @@ The total deformation for each cell is then given by $B+T$. This sum is a matrix
 
 \subsection{Averaging over Datasets}
 \noindent
-The above evaluation allows us to analyse the deformation of individual cells between two time points $t$ and $t + \Delta t$. Our intention is to analyse the averaged deformation of the VLR with respect to all five datasets. Note that we performed a spatial and a temporal registration of all datasets as described in Section~\ref{sec:registration}. The intersection range for the number of cells is $[18, 143]$. With this, the time point size $\Delta t$ is actually the variation of number of cells depending on the total number of considered steps $S$:
+The above evaluation allows us to analyse the deformation of individual cells between two time points $t$ and $t + \Delta t$. Our intention is to analyse the averaged deformation of the lateral roots with respect to all five datasets. Note that we performed a spatial and a temporal registration of all datasets as described in Section~\ref{sec:registration}. The intersection range for the number of cells is $[18, 143]$. With this, the time point size $\Delta t$ is actually the variation of number of cells depending on the total number of considered steps $S$:
 \begin{equation}
 \Delta t = \frac{143 - 18}{S},
 \end{equation}
@@ -666,27 +666,38 @@ In contrast, the random rule generates arbitrary division axis orientations thro
 \subsection{Model Scenarios}
 \label{sec:modelScenarios}
 \noindent
-Using the B\'ezier surfaces, the setting of founder cells as well as the division properties, we are able to create a model of the lateral root. We research how the division behaviour is influenced when cells are dividing based on a specific rule or randomly. Furthermore, we investigate the robustness of the model when changing certain properties. In total, we consider four different model scenarios:
+Using the B\'ezier surfaces, the setting of founder cells as well as the division properties, we are able to create a model of the lateral root. We research how the division behaviour is influenced when cells are dividing based on a specific rule or randomly. Furthermore, we investigate the robustness of the model when changing certain properties. For all models, we choose an initial configuration with two founder cells that have equal areas and shapes (see Figure~\ref{fig:founderCellsSetting}, left). In total, we consider six different model scenarios:
 
 \noindent
 \textbf{Model 1: Geometric}\\
 \noindent
-In Model 1, we choose the first configuration with two founder cells that have equal areas and shapes. The division axes are chosen based on the Besson-Dumais division rule described in Section~\ref{sec:divisionRules} (see Figure 5D-F in main text).
+In Model 1, the division axes are chosen based on the Besson-Dumais division rule described in Section~\ref{sec:divisionRules} (see Figure 5D-F in main text).
 
 \noindent
 \textbf{Model 2: Random}\\
 \noindent
-For Model 2, the initial founder cell configuration is identical to Model 1 but the orientation of the division axis is chosen randomly for all divisions (see Figure 5G-I in main text).
+For Model 2, the orientation of the division axes are chosen randomly for all divisions (see Figure 5G-I in main text and Figure~\ref{fig:visumodel}).
 
 \noindent
 \textbf{Model 3: 1\textsuperscript{st} random then geometric}\\
 \noindent
-In Model 3, the initial cell configuration is identical to Model 1 but we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 5J-L in main text). By this, we can analyse the robustness of the model development with respect to the first division round.
+In Model 3, we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 5J-L in main text and Figure~\ref{fig:visumodel}). By this, we can analyse the robustness of the model development with respect to the first division round.
 
 \noindent
 \textbf{Model 4: Basal growth}\\
 \noindent
-Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Figure~\ref{fig:basalGrowth}). We force the first division round to be an asymmetric anticlinal one and we use the Besson-Dumais rule for subsequent divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 5M-O in main text) although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points. \TODO{@Alexis: in the main text we are using 1DC for the basal growth; should we maybe only use NH? Then all models share the same cell founder setting.}
+Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Figure~\ref{fig:basalGrowth}). We force the first division round to be an asymmetric anticlinal one (see Figure~\ref{fig:founderCellsSetting}, right) and we use the Besson-Dumais rule for subsequent divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 5M-O in main text and Figure~\ref{fig:visumodel}) although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points.
+
+\noindent
+\textbf{Model 5: 1\textsuperscript{st} asymmetric then geometric}\\
+\noindent
+In Model 5, we force the first division round to be an asymmetric anticlinal one yielding pairs of daughter cells with volume ratios of 2:1 (see Figure~\ref{fig:founderCellsSetting}, right). The Besson-Dumais division rule is used for all subsequent divisions (see Figure~\ref{fig:visumodel}).
+
+\noindent
+\textbf{Model 6: Random with equal areas}\\
+\noindent
+For Model 6, the orientation of the division axes are chosen randomly for all divisions but we apply our approach of preserving the cell shape as explained in Section~\ref{sec:cellShape} (see Figure~\ref{fig:visumodel}).
+
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -980,6 +991,8 @@ Geometric & 0.320 & 59.8 & 19.6 & 38.1 & -\\
 Random & 0.308 & 65.9 & 30.6 & 33.2 & -\\
 1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7 & -\\
 Basal growth & 0.420 & 64.9 & 18.1 & 44.7 & -\\
+1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3 & -\\
+Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3 & -\\
 \textbf{Real data}\\
 \#120830 & - & 64 & 31 & 23 & 8\\
 \#121204 & - & 49 & 17 & 24 & 6\\
@@ -990,10 +1003,11 @@ Average (wild types) & - & 64.4 & 23.4 & 28.4 & 9.8\\
 Aurora mutant & - & 129 & 56 & 50 & 21\\
 \bottomrule
 \end{tabular}
-	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD), periclinal (PD) and radial (RD) divisions for each of the four model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset. \TODO{update basal growth when using NH: area ratio impair NH: 0.3}
+	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD), periclinal (PD) and radial (RD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
 	}
 	\label{tab:modelParameters}
 \end{table}
+
 %\begin{table}\centering
 %\begin{tabular}{@{}lcccccc@{}}\toprule
 %& \multicolumn{5}{c}{Idealized models}\\
@@ -1366,11 +1380,14 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
     \item Dataset \#121211 \href{http://youtu.be/NOouEVqpGj8}{\textcolor{blue}{[LINK]}}.
     \item Dataset \#130508 \href{http://youtu.be/EajarNlRvtA}{\textcolor{blue}{[LINK]}}.
   \end{Itemize}
-  \TODO{@Alexis: update model movies such that only the four models are shown: replace ``Geometric plus asymmetric'' by ``1st random then geometric''}
-  \item Model of lateral root formation, \emph{Geometric} model, corresponding to Figure 5D (main text) \href{https://youtu.be/GLUKCE4nN3A}{\textcolor{blue}{[LINK]}}.
-  \item Model of lateral root formation, \emph{Random} model, corresponding to Figure 5G (main text) \href{https://youtu.be/V9xkyPfRQeM}{\textcolor{blue}{[LINK]}}.
-  \item Model of lateral root formation, \emph{Geometric plus asymmetric} model, corresponding to Figure 5J (main text) \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}.
-  \item Model of lateral root formation, \emph{Basal growth} model, corresponding to Figure 5M (main text) \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}.
+  \item \emph{Geometric} model of lateral root formation, corresponding to Figure 5D (main text) \href{https://youtu.be/GLUKCE4nN3A}{\textcolor{blue}{[LINK]}}.
+  \item \emph{Random} model of lateral root formation, corresponding to Figure 5G (main text) \href{https://youtu.be/V9xkyPfRQeM}{\textcolor{blue}{[LINK]}}.
+  \item \emph{1\textsuperscript{st} random then geometric} model of lateral root formation, corresponding to Figure 5J (main text)
+  \TODO{add movie link}
+  \item \emph{Basal growth} model of lateral root formation, corresponding to Figure 5M (main text) \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}.
+  \item \emph{1\textsuperscript{st} asymmetric then geometric} model of lateral root formation, corresponding to Figure~\ref{fig:visumodel} \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}.
+  \item \emph{Random with equal areas} model of lateral root formation, corresponding to Figure~\ref{fig:visumodel}
+  \TODO{create movie and add movie link}
 
   \item Time lapse recording of the \emph{aur1-2 aur2-2} double mutant, dataset \#131203. Corresponds to Figure~\ref{fig:aurora} \href{http://youtu.be/y8b-0J4lPHg}{\textcolor{blue}{[LINK]}}.
   \item Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant \href{http://youtu.be/kkQZub-puVI}{\textcolor{blue}{[LINK]}}.
