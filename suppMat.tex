@@ -194,7 +194,7 @@ Two colour channels were recorded, GFP and YFP were excited by a 488nm diode las
 
 \subsubsection{Image Processing}
 Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The complete four-dimensional dataset ($x,y,z,t$) was loaded in \textit{Fiji} (\href{http://fiji.sc/Fiji}{http://fiji.sc/Fiji}) as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
-(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}) which registers the time points using the phase correlation algorithm based on the intensity of the membrane channel. The dataset was then cropped to the region containing the lateral root primordium along the x-, y- and z-directions. The three-dimensional (3D) reconstruction in Figure 1B (main text) was performed with \textit{Arivis} (\href{http://www.arivis.com}{http://www.arivis.com}).
+(\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}) which registers the time points using the phase correlation algorithm based on the intensity of the membrane channel. The dataset was then cropped to the region containing the lateral root primordium along the x-, y- and z-directions. The three-dimensional (3D) reconstruction in Figure 1E (main text) was performed with \textit{Arivis} (\href{http://www.arivis.com}{http://www.arivis.com}).
 
 \clearpage
 \section{The Datasets}
@@ -203,7 +203,7 @@ Images were stored in 16-bit lossless Tagged Image File Format (TIFF). The compl
 \noindent
 The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program. This tool provides an interactive visual representation of the 3D datasets over time. The user can manually track the spatial position and lineage of individual cell nuclei. For each marked cell nucleus the program stores a unique identifier, the spatial position, the time point and a list holding the identification numbers of its parent cells. Cell nuclei are marked at two time points: right after the division in which the cell is born (or the very first appearance of a founder cell) and right before the cell divides (or the last time point analysed). The positions in between are interpolated linearly. Segmentation and tracking were realized for the first 24 hours of lateral root development and the resulting data was exported to a file in tabular format for further data processing and analysis (see supporting datasets in Section~\ref{sec:datasets}). We thereby created a total of five segmented-tracked datasets that store all information about cell nuclei positions, lineages and cell divisions. Figure~\ref{fig:allTrees} shows the reconstructed cell lineage trees for all five datasets with nodes coloured according to the underlying division types. The classification of division types is explained in Section~\ref{sec:divisionTypes}.
 
-In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in a file a unique colour (see Figure 1D, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \cite{Vermeer:2014fl}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1C, main text). The cell file assignment for each cell nucleus is added to the datasets.
+In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in a file a colour (see Figure 1F-G, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \cite{Vermeer:2014fl}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1C, main text). The cell file assignment for each cell nucleus is added to the datasets.
 
 \subsection{Registration of the Datasets}
 \label{sec:registration}
@@ -286,13 +286,13 @@ Type of division, i.e. anticlinal, periclinal or radial (see Section~\ref{sec:di
 %
 
 \noindent
-We performed statistical analyses and plottings of the interphase duration (Figure 3C, main text and Figure~\ref{fig:mastertimediv}) and of the angle between two consecutive divisions (Figure 4C-D, I and Figure 5C, F, I, L, O in main text using \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
+We performed statistical analyses and plottings of the interphase duration (Figure 3C, main text and Figure~\ref{fig:mastertimediv}) and of the angle between two consecutive divisions (Figure 1C and Figure 4C-D, H and Figure 5C, F, I, L in main text using \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
 
 \clearpage
 \section{Automatic Classification of Cell Divisions in the Datasets}
 \label{sec:divisionTypes}
 \noindent
-We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015}\TODO{@Jens: it woudl be good to provide, in the bibliography, a link to the PDF of your thesis - I guess it is in some kind of repository?} to classify the three different division types occurring during growth in the lateral root based on the orientation of the cell division axis: \textcolor{red}{\textbf{anticlinal}} divisions are parallel to the root-shoot axis, \textcolor{green}{\textbf{periclinal}} divisions are normal to the surface of the main root and \textcolor{blue}{\textbf{radial}} divisions are tangential to the surface of the main root and orthogonal to the root-shoot axis (see Figure~\ref{fig:divisionTypes}).
+We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to classify the three different division types occurring during growth in the lateral root based on the orientation of the cell division axis: \textcolor{red}{\textbf{anticlinal}} divisions are parallel to the root-shoot axis, \textcolor{green}{\textbf{periclinal}} divisions are normal to the surface of the main root and \textcolor{blue}{\textbf{radial}} divisions are tangential to the surface of the main root and orthogonal to the root-shoot axis (see Figure~\ref{fig:divisionTypes}).
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -663,6 +663,33 @@ In contrast, the random rule generates arbitrary division axis orientations thro
 %\end{equation}
 %If $| p_1 - p_2 | > \eta$ with $\eta$ a user-chosen threshold then a new division orientation is randomly chosen until this inequality is satisfied (with a maximum number of attempts $N$ to avoid infinity loops). A model result is given in Figure~\ref{fig:suppmodel}D-F with $\eta = 10$ and $N=50$.
 
+\subsubsection{Classification of Division Type}
+\label{sec:ClassificationOfDivisions}
+\noindent
+In our 2D model, we are able to classify a division type either as an anticlinal or a periclinal one. We realize this by investigating the orientation of the division axis with respect to a unit vector $(0,1,0)$ that corresponds to the y-axis. Figure~\ref{fig:divisionClassification} illustrates the idea and we classify the division type according to the following angle computation:
+\begin{equation}
+\alpha =
+\begin{cases}
+\measuredangle \left( \frac{p-q}{\lVert p-q \rVert}, (0,1,0) \right) & \text{if}\; p.y \geq q.y,\\
+\measuredangle \left( \frac{q-p}{\lVert q-p \rVert}, (0,1,0) \right) & \text{else}.\\
+\end{cases}
+\end{equation}
+If the angle $\alpha$ is smaller or equal than some angle threshold then the division is an anticlinal one, else it is a periclinal division. We use an angle threshold of $45$ degrees in all models.
+
+%
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{overpic}[width=0.5\linewidth]{images/divisionClassification.pdf}
+		\end{overpic}
+\caption[]
+{
+{\bf Classification of division type in our models.}
+}
+	\label{fig:divisionClassification}
+	\end{center}
+\end{figure}
+%
+
 \subsection{Model Scenarios}
 \label{sec:modelScenarios}
 \noindent
@@ -671,33 +698,32 @@ Using the B\'ezier surfaces, the setting of founder cells as well as the divisio
 \noindent
 \textbf{Model 1: Geometric}\\
 \noindent
-In Model 1, the division axes are chosen based on the Besson-Dumais division rule described in Section~\ref{sec:divisionRules} (see Figure 5D-F in main text).
+In Model 1, the division axes are chosen based on the Besson-Dumais division rule described in Section~\ref{sec:divisionRules} (see Figure 1A-C in main text).
 
 \noindent
 \textbf{Model 2: Random}\\
 \noindent
-For Model 2, the orientation of the division axes are chosen randomly for all divisions (see Figure 5G-I in main text and Figure~\ref{fig:visumodel}).
+For Model 2, the orientation of the division axes are chosen randomly for all divisions (see Figure 5D-F in main text and Figure~\ref{fig:visumodel}).
 
 \noindent
 \textbf{Model 3: 1\textsuperscript{st} random then geometric}\\
 \noindent
-In Model 3, we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 5J-L in main text and Figure~\ref{fig:visumodel}). By this, we can analyse the robustness of the model development with respect to the first division round.
+In Model 3, we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 5G-I in main text and Figure~\ref{fig:visumodel}). By this, we can analyse the robustness of the model development with respect to the first division round.
 
 \noindent
 \textbf{Model 4: Basal growth}\\
 \noindent
-Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Figure~\ref{fig:basalGrowth}). We force the first division round to be an asymmetric anticlinal one (see Figure~\ref{fig:founderCellsSetting}, right) and we use the Besson-Dumais rule for subsequent divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 5M-O in main text and Figure~\ref{fig:visumodel}) although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points.
+Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Figure~\ref{fig:basalGrowth}). We force the first division round to be an asymmetric anticlinal one (see Figure~\ref{fig:founderCellsSetting}, right) and we use the Besson-Dumais rule for subsequent divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 5J-L in main text and Figure~\ref{fig:visumodel}) although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points.
 
 \noindent
 \textbf{Model 5: 1\textsuperscript{st} asymmetric then geometric}\\
 \noindent
-In Model 5, we force the first division round to be an asymmetric anticlinal one yielding pairs of daughter cells with volume ratios of 2:1 (see Figure~\ref{fig:founderCellsSetting}, right). The Besson-Dumais division rule is used for all subsequent divisions (see Figure~\ref{fig:visumodel}).
+In Model 5, we force the first division round to be an asymmetric anticlinal one yielding pairs of daughter cells with volume ratios of 2:1 (see Figure~\ref{fig:founderCellsSetting}, right). The Besson-Dumais division rule is used for all subsequent divisions (see Figure~\ref{fig:Modelsupp}).
 
 \noindent
 \textbf{Model 6: Random with equal areas}\\
 \noindent
-For Model 6, the orientation of the division axes are chosen randomly for all divisions but for each division axis the resulting areas of the two daughter cells are computed and compared with each other. If the areas differ in more than $10\%$ then a new division axis is chosen randomly and the areas are checked again. If no division axis results in almost equal areas after $50$ attempts, the last randomly generated one is chosen (see model in Figure~\ref{fig:visumodel}).
-\clearpage
+For Model 6, the orientation of the division axes are chosen randomly for all divisions but for each division axis the resulting areas of the two daughter cells are computed and compared with each other. If the areas differ in more than $10\%$ then a new division axis is chosen randomly and the areas are checked again. If no division axis results in almost equal areas after $50$ attempts, the last randomly generated one is chosen (see Figure~\ref{fig:Modelsupp}).
 
 %
 \begin{figure}[htbp]
@@ -819,7 +845,7 @@ We run several simulations of one model using division rules with randomized var
 	\end{center}
 \end{figure}
 %
-For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. We also use a simplified version of this tree when the number of simulations as well as the sequence labels can be ignored (see Figure 5B,E,H,K,N).
+For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Figure~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. We also use a simplified version of this tree when the number of simulations as well as the sequence labels can be ignored (see Figures 1B and 5B, E, H, K).
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1125,10 +1151,22 @@ Aurora mutant & - & 129 & 56 & 50 & 21\\
 %
 \begin{figure}[htbp]
 \centering
+	\begin{overpic}[width=1.0\linewidth]{images/Model_visu.pdf}
+	\end{overpic}
+\caption[Alternative visualisations of the model results.]
+{{\bf Alternative visualisations of the model results.} For each model scenario (see Section~\ref{sec:modelScenarios}), the models at the end of the simulation are represented (\textbf{A} corresponds to Figure 1A in main text, \textbf{B} to Figure 5D, \textbf{C} to Figure 5G and \textbf{D} to Figure 5J). Three types of visualisation are used: cell contours (top), nuclei (middle) and adjacent cell layers (bottom). Colours indicate the layers as illustrated in Figure 2D (main text). The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells.
+}
+\label{fig:visumodel}
+\end{figure}
+
+\clearpage
+%
+\begin{figure}[htbp]
+\centering
 	\begin{overpic}[width=1.\linewidth]{images/GravitropicStimulation.pdf}
 	\end{overpic}
 \caption[Lateral root induction by gravistimulation.]
-{{\bf Lateral root induction by gravistimulation.} Seven days old plants were rotated by 90$\degree$ for different time periods. The number of emerged lateral roots in the region of the bend were counted, three days later. In total, 94 plants from three independent experiments were analysed. See Supplemental movie  \href{http://youtu.be/sLvVCbWye-E}{\textcolor{blue}{[LINK]}}}.
+{{\bf Lateral root induction by gravistimulation.} Seven days old plants were rotated by 90$\degree$ for different time periods. The number of emerged lateral roots in the region of the bend were counted, three days later. In total, 94 plants from three independent experiments were analysed. See Supplemental movie  \href{http://youtu.be/sLvVCbWye-E}{\textcolor{blue}{[LINK]}}.}
 	\label{fig:gravistimul}
 \end{figure}%
 
@@ -1161,7 +1199,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 	\begin{overpic}[width=1.\linewidth]{images/DatasetsTrackingFounders_compressed.pdf}
 	\end{overpic}
 \caption[Reconstruction of five wild type lateral root primordia.]
-{{\bf Reconstruction of five wild type lateral root primordia.} For each indicated dataset, the spatial distribution of cell nuclei is represented. The first and last time point of segmented nuclei as well as the 143-cell stage are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 1D (main text). Links to movies of each dataset are listed in~\ref{sec:suppmovies}.}
+{{\bf Reconstruction of five wild type lateral root primordia.} For each indicated dataset, the spatial distribution of cell nuclei is represented. The first and last time point of segmented nuclei as well as the 143-cell stage are shown in the front, side and radial views. Clonally related cells share the same colour. The colour scheme used is identical to Figure 1G (main text). Links to movies of each dataset are listed in~\ref{sec:suppmovies}.}
 	\label{fig:trackingfounders}
 \end{figure}
 %
@@ -1197,7 +1235,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 	\begin{overpic}[width=0.5\linewidth]{images/LRPcenterFirstAndLast_compressed.pdf}
 	\end{overpic}
 \caption[Single cell initiation events are restricted to the periphery of the field of founder cells.]
-{{\bf Single cell initiation events are restricted to the periphery of the field of founder cells.} (A) First time point of the membrane channel in the front view. (B) A sketch of the position of the cell boundaries. Cells in the master cell file are coloured in light and dark green, respectively. The cells in the two flanking cell files are coloured in yellow or orange while the other cell files are illustrated in grey. The arrowhead indicates founders not belonging to a pair of pericycle cells.}
+{{\bf Single cell initiation events are restricted to the periphery of the field of founder cells.} (\textbf{A}) First time point of the membrane channel in the front view. (\textbf{B}) A sketch of the position of the cell boundaries. Cells in the master cell file are coloured in light and dark green, respectively. The cells in the two flanking cell files are coloured in yellow or orange while the other cell files are illustrated in grey. The arrowhead indicates founders not belonging to a pair of pericycle cells.}
 	\label{fig:founderstop}
 \end{figure}
 %
@@ -1231,7 +1269,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 		\end{overpic}
 \caption[Layer visualisations of the five datasets.]
 {
-{\bf Layer visualisations of the five datasets.} On top of each column, all cell nuclei of a dataset is shown in the last time point of segmentation in side and radial views. Each row shows the cell nuclei of an individual cell file (label at top right). Each cell nucleus is coloured according to the sequence of periclinal divisions.}
+{\bf Layer visualisations of the five datasets.} On top of each column, all cell nuclei of a dataset are shown in the last time point of segmentation in side and radial views. Each row shows the cell nuclei of an individual cell file (label at top right). Each cell nucleus is coloured according to the sequence of periclinal divisions.}
 	\label{fig:datasetsLayering}
 \end{sidewaysfigure}
 %
@@ -1265,7 +1303,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 
 
 %
-\begin{figure}[htbp]
+\begin{sidewaysfigure}[htbp]
 \centering
 	\begin{overpic}[width=1.\linewidth]{images/MasterCellFile_time_of_divisions_v2.pdf}
 	\end{overpic}
@@ -1273,7 +1311,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 {{\bf Timing of each division per cell file.} For each indicated round of division (sub panels cycle 1$, \ldots$ Cycle 6), each cell division is plotted according to its cell file location and its time of occurrence (since the first division). The dashed box indicates the master cell file. All datasets are considered.
 }
 	\label{fig:mastertimediv}
-\end{figure}
+\end{sidewaysfigure}
 %
 \clearpage
 %
@@ -1282,7 +1320,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 	\begin{overpic}[width=0.5\linewidth]{images/Founders_and_endodermis_compressed.pdf}
 	\end{overpic}
 \caption[Correlation between the topology of endodermis cells and most contributing founders.]
-{{\bf Correlation between the topology of endodermis cells and most contributing founders.} (A) First time point of the membrane channel in the front view. (B) A sketch of the position of the cell boundaries. Cells in the master cell file are coloured in light and dark green, respectively. The cells in the two flanking cell files are coloured in yellow or orange while the other cell files are given in grey. The white-magenta dashed line represents the contours of the overlaying endodermis cells. The blue arrowhead indicates the founder contributing most to the primordium.}
+{{\bf Correlation between the topology of endodermis cells and most contributing founders.} (\textbf{A}) First time point of the membrane channel in the front view. (\textbf{B}) A sketch of the position of the cell boundaries. Cells in the master cell file are coloured in light and dark green, respectively. The cells in the two flanking cell files are coloured in yellow or orange while the other cell files are given in grey. The white-magenta dashed line represents the contours of the overlaying endodermis cells. The blue arrowhead indicates the founder contributing most to the primordium.}
 	\label{fig:foundersendo}
 \end{figure}
 %
@@ -1294,7 +1332,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 	\begin{overpic}[width=1.\linewidth]{images/division_rules_compressed.pdf}
 	\end{overpic}
 \caption[Orientation of divisions in relation to the cell geometry.]
-{{\bf Orientation of divisions in relation to the cell geometry.} For each dataset, single sections along indicated cell files (overview upper left) are shown. The sections show several time points (A-E). Cell divisions are assigned into two classes depending on the size of the cell wall relative to the cell dimensions. Yellow- division along the short axis , blue - division along the long axis. }
+{{\bf Orientation of divisions in relation to the cell geometry.} For each dataset, single sections along indicated cell files (overview upper left) are shown. The sections show several time points (\textbf{A-E}). Cell divisions are assigned into two classes depending on the size of the cell wall relative to the cell dimensions. Yellow- division along the short axis , blue - division along the long axis. }
 	\label{fig:divrules}
 \end{figure}
 %
@@ -1323,22 +1361,11 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 %
 \begin{figure}[htbp]
 \centering
-	\begin{overpic}[width=0.7\linewidth]{images/LRP-auroraRAW_compressed.pdf}
+	\begin{overpic}[width=0.9\linewidth]{images/LRP-auroraRAW_compressed.pdf}
 	\end{overpic}
 \caption[Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant. ]
-{{\bf Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant. } Single slice of the master cell file in dataset \#131203 at indicated time points. Raw data on the left and a sketch of the plasmamembrane and nuclei on the right. (A-C) The cell divided without building a cell wall. (D-F) Both daughter cells divided periclinal and their cell walls connected in the center creating two binucleated cells. (G) The next cell divisions appear more or less arbitrarily. Scale bar: 20 $\mu$m.}
+{{\bf Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant. } Single slice of the master cell file in dataset \#131203 at indicated time points. Raw data on the left and a sketch of the plasmamembrane and nuclei on the right. (\textbf{A-C}) The cell divided without building a cell wall. (\textbf{D-F}) Both daughter cells divided periclinal and their cell walls connected in the center creating two binucleated cells. (\textbf{G}) The next cell divisions appear more or less arbitrarily. Scale bar: 20 $\mu$m.}
 	\label{fig:aurora}
-\end{figure}
-\clearpage
-%
-\begin{figure}[htbp]
-\centering
-	\begin{overpic}[width=1.0\linewidth]{images/Model_visu.pdf}
-	\end{overpic}
-\caption[Alternative visualisations of the model results.]
-{{\bf Alternative visualisations of the model results.} For each model scenario (see Section~\ref{sec:modelScenarios} and Figure 5 in the main text), the models at the end of the simulation are represented. Three types of visualisation are used: cell contours (top), nuclei (middle) and adjacent cell layers (bottom). Colours indicate the layers as illustrated in Figure 2D (main text). The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells.
-}
-\label{fig:visumodel}
 \end{figure}
 \clearpage
 
@@ -1347,7 +1374,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 	\begin{overpic}[width=1.0\linewidth]{images/Model_supp.pdf}
 	\end{overpic}
 \caption[Additional models of lateral root morphogenesis.]
-{{\bf Additional models of lateral root morphogenesis.} For each indicated model scenario (see Section~\ref{sec:modelScenarios}) with 100 simulations, the models at the end of the simulation are represented in 5A, B). In (C, D) an averaged division sequence tree is shown (see Section~\ref{sec:visualAnalysis}) that illustrates the percentage in which the upper layers were generated before the lower ones. In (E, F) the pie charts indicate the proportion of alternating divisions (in blue) in the indicated division rounds.
+{{\bf Additional models of lateral root morphogenesis.} For each indicated model scenario (see Section~\ref{sec:modelScenarios}) with 100 simulations, the models at the end of the simulation are represented in \textbf{A} and \textbf{B}. (\textbf{C}, \textbf{D}) The corresponding averaged division sequence trees are shown (see Section~\ref{sec:visualAnalysis}) that illustrate the percentage in which the upper layers were generated before the lower ones. (\textbf{E}, \textbf{F}) The pie charts indicate the proportion of alternating divisions (in blue) in the indicated division rounds.
 }
 \label{fig:Modelsupp}
 \end{figure}
@@ -1375,7 +1402,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 \label{sec:suppmovies}
 
 \begin{Itemize}
-  \item Recording of the entire process of lateral root formation. Corresponds to Figure 1B (main text) \href{http://youtu.be/navcxqh7KCo}{\textcolor{blue}{[LINK]}}.
+  \item Recording of the entire process of lateral root formation. Corresponds to Figure 1E (main text) \href{http://youtu.be/navcxqh7KCo}{\textcolor{blue}{[LINK]}}.
   % \item Time lapse recording of individual datasets:
   % \begin{Itemize}
   % 	\item Time lapse recording \#120803 \href{http://youtu.be/hvoDhoWLdSI}{\textcolor{blue}{[LINK]}}.
@@ -1395,13 +1422,13 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
     \item Dataset \#121211 \href{http://youtu.be/NOouEVqpGj8}{\textcolor{blue}{[LINK]}}.
     \item Dataset \#130508 \href{http://youtu.be/EajarNlRvtA}{\textcolor{blue}{[LINK]}}.
   \end{Itemize}
-  \item \emph{Geometric} model of lateral root formation, corresponding to Figure 5D (main text) \href{https://youtu.be/1bVEY_ORSfI}{\textcolor{blue}{[LINK]}}.
-  \item \emph{Random} model of lateral root formation, corresponding to Figure 5G (main text) \href{https://youtu.be/So1GQrtu41w}{\textcolor{blue}{[LINK]}}.
-  \item \emph{1\textsuperscript{st} random then geometric} model of lateral root formation, corresponding to Figure 5J (main text)
+  \item \emph{Geometric} model of lateral root formation. Corresponds to Figure 1A (main text) \href{https://youtu.be/1bVEY_ORSfI}{\textcolor{blue}{[LINK]}}.
+  \item \emph{Random} model of lateral root formation. Corresponds to Figure 5D (main text) \href{https://youtu.be/So1GQrtu41w}{\textcolor{blue}{[LINK]}}.
+  \item \emph{1\textsuperscript{st} random then geometric} model of lateral root formation. Corresponds to Figure 5G (main text)
   \href{https://youtu.be/H6RUvnqBTVA}{\textcolor{blue}{[LINK]}}.
-  \item \emph{Basal growth} model of lateral root formation, corresponding to Figure 5M (main text) \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}.
-  \item \emph{1\textsuperscript{st} asymmetric then geometric} model of lateral root formation, corresponding to Figure~\ref{fig:Modelsupp} \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}.
-  \item \emph{Random with equal areas} model of lateral root formation, corresponding to Figure~\ref{fig:Modelsupp}
+  \item \emph{Basal growth} model of lateral root formation. Corresponds to Figure 5J (main text) \href{https://youtu.be/TZqwYTnmAgg}{\textcolor{blue}{[LINK]}}.
+  \item \emph{1\textsuperscript{st} asymmetric then geometric} model of lateral root formation. Corresponds to Figure~\ref{fig:Modelsupp}A \href{https://youtu.be/ypBdyjFyqYw}{\textcolor{blue}{[LINK]}}.
+  \item \emph{Random with equal areas} model of lateral root formation. Corresponds to Figure~\ref{fig:Modelsupp}B
   \href{https://youtu.be/gB-Qt0_H1ok}{\textcolor{blue}{[LINK]}}.
   \item Time lapse recording of the \emph{aur1-2 aur2-2} double mutant, dataset \#131203. Corresponds to Figure~\ref{fig:auroraRaw} \href{http://youtu.be/y8b-0J4lPHg}{\textcolor{blue}{[LINK]}}.
   \item Altered cell divisions in the \emph{aur1-2 aur2-2} double mutant. Corresponds to Figure~\ref{fig:aurora} \href{http://youtu.be/kkQZub-puVI}{\textcolor{blue}{[LINK]}}.
