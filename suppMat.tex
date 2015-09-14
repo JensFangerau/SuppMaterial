@@ -139,7 +139,7 @@
 
 \title{\Large
 \textbf{Supplemental Material}\\[1em]
-\textsc{Quantitative analysis and modelling of lateral root formation reveals the rules and self-organising properties of post-embryonic organ morphogenesis}}
+\textsc{Rules and self-organising properties of post-embryonic plant organ morphogenesis}}
 \author[1,5]{Daniel von Wangenheim}
 \author[2,3]{Jens Fangerau\thanks{Contributed equally.}}
 \author[1]{Alexander Schmitz\samethanks}
@@ -886,24 +886,6 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 	\label{tab:developmentalStages}
 \end{table}
 %
-%
-\begin{table}
-	\begin{center}
-		\begin{tabular}[h]{@{}llc@{}}
-		\toprule
-		View & Cell file & [Min, Max] deformation in $\boldsymbol{\nicefrac{\mu m}{min}}$\\
-		\midrule
-		Front & All & $[ 0.0032, 0.1995 ]$\\
-		Side & Master & $[ 0.0016, 0.1259 ]$\\
-		Radial & All & $[ 0.0016, 0.0501 ]$\\
-		\bottomrule
-		\end{tabular}
-	\end{center}
-	\caption[Deformation magnitudes after averaging over all datasets in different views.]{\textbf{Deformation magnitudes after averaging over all datasets in different views.}
-	}
-	\label{tab:deformationParameters}
-\end{table}
-%
 \setlength{\tabcolsep}{0.2em}
 %
 \begin{table}
@@ -923,6 +905,23 @@ For this purpose, we modify the visualisation of the division sequence trees. Le
 	\caption[Considered cell ranges for each step of the deformation computation.]{\textbf{Considered cell ranges for each step of the deformation computation given in the growth tensor movie (see Section~\ref{sec:suppmovies}).}
 	}
 	\label{tab:growthTensor}
+\end{table}
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}[h]{@{}llc@{}}
+		\toprule
+		View & Cell file & [Min, Max] deformation in $\boldsymbol{\nicefrac{\mu m}{min}}$\\
+		\midrule
+		Front & All & $[ 0.0032, 0.1995 ]$\\
+		Side & Master & $[ 0.0016, 0.1259 ]$\\
+		Radial & All & $[ 0.0016, 0.0501 ]$\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption[Deformation magnitudes after averaging over all datasets in different views.]{\textbf{Deformation magnitudes after averaging over all datasets in different views.}
+	}
+	\label{tab:deformationParameters}
 \end{table}
 %
 \clearpage
@@ -1014,28 +1013,53 @@ Post Processing & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift 
 %
 \begin{table}\centering
 \begin{tabular}{@{}lccccc@{}}\toprule
-& Area ratio & Average \#Cells & Average \#AD & Average \#PD & Average \#RD\\ \midrule
+& Area ratio & Average \#Cells & Average \#AD & Average \#PD\\ \midrule
 \textbf{Model data}\\
-Geometric & 0.320 & 59.8 & 19.6 & 38.1 & -\\
-Random & 0.308 & 65.9 & 30.6 & 33.2 & -\\
-1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7 & -\\
-Basal growth & 0.420 & 64.9 & 18.1 & 44.7 & -\\
-1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3 & -\\
-Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3 & -\\
+Geometric & 0.320 & 59.8 & 19.6 & 38.1\\
+Random & 0.308 & 65.9 & 30.6 & 33.2\\
+1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7\\
+Basal growth & 0.420 & 64.9 & 18.1 & 44.7\\
+1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3\\
+Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3\\
 \textbf{Real data}\\
-\#120830 & - & 64 & 31 & 23 & 8\\
-\#121204 & - & 49 & 17 & 24 & 6\\
-\#121211 & - & 81 & 25 & 36 & 15\\
-\#130508 & - & 46 & 18 & 19 & 7\\
-\#130607 & - & 82 & 26 & 40 & 13\\
-Average (wild types) & - & 64.4 & 23.4 & 28.4 & 9.8\\
-Aurora mutant & - & 129 & 56 & 50 & 21\\
+\#120830 & - & 64 & 31 & 23\\
+\#121204 & - & 49 & 17 & 24\\
+\#121211 & - & 81 & 25 & 36\\
+\#130508 & - & 46 & 18 & 19\\
+\#130607 & - & 82 & 26 & 40\\
+Average (wild types) & - & 64.4 & 23.4 & 28.4\\
+Aurora mutant & - & 129 & 56 & 50\\
 \bottomrule
 \end{tabular}
-	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD), periclinal (PD) and radial (RD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
+	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD) and periclinal (PD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
 	}
 	\label{tab:modelParameters}
 \end{table}
+
+% \begin{table}\centering
+% \begin{tabular}{@{}lccccc@{}}\toprule
+% & Area ratio & Average \#Cells & Average \#AD & Average \#PD & Average \#RD\\ \midrule
+% \textbf{Model data}\\
+% Geometric & 0.320 & 59.8 & 19.6 & 38.1 & -\\
+% Random & 0.308 & 65.9 & 30.6 & 33.2 & -\\
+% 1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7 & -\\
+% Basal growth & 0.420 & 64.9 & 18.1 & 44.7 & -\\
+% 1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3 & -\\
+% Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3 & -\\
+% \textbf{Real data}\\
+% \#120830 & - & 64 & 31 & 23 & 8\\
+% \#121204 & - & 49 & 17 & 24 & 6\\
+% \#121211 & - & 81 & 25 & 36 & 15\\
+% \#130508 & - & 46 & 18 & 19 & 7\\
+% \#130607 & - & 82 & 26 & 40 & 13\\
+% Average (wild types) & - & 64.4 & 23.4 & 28.4 & 9.8\\
+% Aurora mutant & - & 129 & 56 & 50 & 21\\
+% \bottomrule
+% \end{tabular}
+% 	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD), periclinal (PD) and radial (RD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
+% 	}
+% 	\label{tab:modelParameters}
+% \end{table}
 
 %\begin{table}\centering
 %\begin{tabular}{@{}lcccccc@{}}\toprule
@@ -1371,7 +1395,7 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 
 \begin{figure}[htbp]
 \centering
-	\begin{overpic}[width=1.0\linewidth]{images/Model_supp.pdf}
+	\begin{overpic}[width=1.0\linewidth]{images/model_supp.pdf}
 	\end{overpic}
 \caption[Additional models of lateral root morphogenesis.]
 {{\bf Additional models of lateral root morphogenesis.} For each indicated model scenario (see Section~\ref{sec:modelScenarios}) with 100 simulations, the models at the end of the simulation are represented in \textbf{A} and \textbf{B}. (\textbf{C}, \textbf{D}) The corresponding averaged division sequence trees are shown (see Section~\ref{sec:visualAnalysis}) that illustrate the percentage in which the upper layers were generated before the lower ones. (\textbf{E}, \textbf{F}) The pie charts indicate the proportion of alternating divisions (in blue) in the indicated division rounds.
