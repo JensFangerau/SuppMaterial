@@ -19,6 +19,8 @@
 % also setting of specific properties for corresponding environment
 % algorithm
 
+\usepackage{hvfloat}
+
 \usepackage{cite}
 
 % for nicer fractions
@@ -71,11 +73,6 @@
 % new command for colored TODO text
 \newcommand{\TODO}[1]{
 \textcolor{red}{TODO:#1}
-}
-
-\newcommand{\Title}[1]{
-\noindent
-{\LARGE \textbf{#1}}
 }
 
 % package for tables
@@ -191,8 +188,8 @@
 
 \clearpage
 % renaming of references
-\addto\captionsenglish{\renewcommand{\refname}{\Title{Supplemental References}}}
-\renewcommand{\refname}{\Title{Supplemental References}}
+\addto\captionsenglish{\renewcommand{\refname}{\section*{Supplemental References}}}
+\renewcommand{\refname}{Supplemental References}
 % list of sources included in the table of contents: 
 %\addcontentsline{toc}{section}{%
 % \numberline{}Supplemental References}
