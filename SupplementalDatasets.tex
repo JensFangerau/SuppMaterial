@@ -1,0 +1,28 @@
+\clearpage
+\Title{Supplemental Datasets}
+\noindent
+In this section, we briefly explain the file formatting of the generated and analysed dataset files stored in the \textit{*.csv} format. In total, there are five wild type datasets (\#120830WT.csv, \#121204WT.csv, \#121211WT.csv, \#130508WT.csv, \#130607WT.csv) and the \emph{aurora} mutant (auroraMutant.csv). As already explained in section~\ref{sec:segmentation}, for each cell, we only store the position of the first and the last frame before it divides. In the program, the positions in between are interpolated linearly. All files share the same header information which are explained below:
+
+\noindent
+\begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{2.8cm} X @{}}
+\textbf{DataRotation:} &
+Angles for which the dataset is rotated around the x, y and z axes to create the three viewing types: Front (x-y), side (x-z) and radial (y-z).\\
+\textbf{RootCenter:} &
+Centre of the root which is determined manually.\\
+\textbf{DataDimension:} &
+Dimension of the raw dataset.\\
+\textbf{Id:} &
+The unique ID for each cell nucleus.\\
+\textbf{X, Y, Z, T:} &
+The 3D position and the time point of the cell.\\
+\textbf{Precursors:} &
+The sorted list of precursor IDs to generate the tracking information.\\
+\textbf{Lineage:} &
+The cell lineage identifier.\\
+\textbf{CellFile:} &
+The cell file value which is determined manually.\\
+\textbf{Layer:} &
+The unique layer value according to performed periclinal divisions.\\
+\textbf{DivType:} &
+The type of division of the cell: anticlinal $\widehat{=} \; 0$, periclinal $\widehat{=} \; 1$, radial $\widehat{=} \; 2$. For the first pair of a cell description and the last analysed time point, ``-'' is inserted.\\
+\end{tabularx}

@@ -1,0 +1,302 @@
+% Reset the Figure numbering and Add the "S"
+\setcounter{table}{0}
+\makeatletter 
+\renewcommand{\thetable}{S\@arabic\c@table}
+\makeatother
+
+\Title{Supplemental Tables}
+%\renewcommand*\listtablename{\vspace{-1.3cm}}
+%\listoftables
+%
+% more space between rows
+\renewcommand{\arraystretch}{1.1}
+%
+\begin{table}
+	\begin{center}
+		\begin{tabular}[htbp]{@{}lccccccc@{}}
+		\toprule
+		Event & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & Average & SD\\
+		\midrule
+		1\textsuperscript{st} anticlinal division & 10 & 11 & 11 & 9 & 15 & 11 & 2\\
+		1\textsuperscript{st} periclinal division & 22 & 25 & 30 & 16 & 28 & 24 & 5\\
+		2\textsuperscript{nd} periclinal division & 58 & 51 & 64 & 50 & 56 & 56 & 6\\
+%		1\textsuperscript{st} radial division & 36 & 62 & 106 & 55 & 97 & 71 & 39\\
+		Emergence & - & 155 & 208 & - & 173 & 179 & 27\\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption[Number of cells in developmental events for all datasets.]{\textbf{Number of cells in developmental events for all datasets with average and standard deviation (SD) values.}
+	}
+	\label{tab:developmentalStages}
+\end{table}
+%
+\setlength{\tabcolsep}{0.2em}
+%
+%\begin{table}
+%\small
+%	\begin{center}
+%		\begin{tabular}[htbp]{@{}lcccccccccc@{}}
+%		\toprule
+%		Step & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+%		%\midrule
+%		Cell range & $[18, 24]$ & $[24, 31]$ & $[31, 37]$ & $[37, 43]$ & $[43, 49]$ & $[49, 56]$ & $[56, 62]$ & $[62, 68]$ & $[68, 74]$ & $[74, 81]$\\
+%		\midrule
+%		Step & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20\\
+%		Cell range & $[81, 87]$ & $[87, 93]$ & $[93, 99]$ & $[99, 106]$ & $[106, 112]$ & $[112, 118]$ & $[118, 124]$ & $[124, 131]$ & $[131, 137]$ & $[137, 143]$\\
+%		\bottomrule
+%		\end{tabular}
+%	\end{center}
+%	\caption[Considered cell ranges for each step of the deformation computation.]{\textbf{Considered cell ranges for each step of the deformation computation given in the growth tensor movie (see Section~\ref{sec:suppmovies}).}
+%	}
+%	\label{tab:growthTensor}
+%\end{table}
+
+%\begin{table}
+%	\begin{center}
+%		\begin{tabular}[h]{@{}llc@{}}
+%		\toprule
+%		View & Cell file & [Min, Max] deformation in $\boldsymbol{\nicefrac{\mu m}{min}}$\\
+%		\midrule
+%		Front & All & $[ 0.0032, 0.1995 ]$\\
+%		Side & Master & $[ 0.0016, 0.1259 ]$\\
+%		Radial & All & $[ 0.0016, 0.0501 ]$\\
+%		\bottomrule
+%		\end{tabular}
+%	\end{center}
+%	\caption[Deformation magnitudes after averaging over all datasets in different views.]{\textbf{Deformation magnitudes after averaging over all datasets in different views.}
+%	}
+%	\label{tab:deformationParameters}
+%\end{table}
+%
+\clearpage
+%
+\begin{sidewaystable}
+	\miniscule
+\begin{longtable}{@{} l l l l l l l @{}}
+\toprule
+Dataset & \#120830 & \#121204 & \#121211 & \#130508 & \#130607 & Aurora mutant\\
+\midrule
+Specimen & \textit{\textit{Arabidopsis thaliana}}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0 & \textit{Arabidopsis thaliana}, Col-0
+aur1-2 aur2-2 double mutant\\
+Reporters & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pGATA23::nls-GUS-GFP & pUBQ10::H2B-RFP\\
+& pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pUBQ10::H2B-RFP & pPIN1::PIN1-GFP\\
+& pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & pUBQ10::YFP-PIP1;4 & \ \\
+\ & \ & \ & \ & \ & \ & \ \\
+Growth & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator & Cultivation Percival E-41L3 Plant Incubator\\
+\cmidrule{2-7}
+& Seeds Sowed: 23.8.2012 & Seeds Sowed: 26.11.2012 & Seeds Sowed: 5.12.2012 & Seeds Sowed: 2.5.2013 & Seeds Sowed: 31.5.2013 & Seeds Sowed: 26.11.2013\\
+& 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates & 1/2 MS Culture Medium Plates\\
+& 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01)\\
+& 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017) & 1.5 \% Phytagel (Sigma, p8169-500G, LOT\# 048k0017)\\
+& 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433)\\
+& 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546) & 1\% Saccharose (Roth, 4621.1, LOT\# 330160546)\\
+& Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions\\
+& Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-3 & Light Intensity = 120-140 $\mu$mol*m-2*s-4 & Light Intensity = 120-140 $\mu$mol*m-2*s-5 & Light Intensity = 120-140 $\mu$mol*m-2*s-6 & Light Intensity = 120-140 $\mu$mol*m-2*s-6\\
+& Light Cycle Day/Night = 16/8 & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night & Light = 16h Day, 8h Night\\
+& Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C & Temperature = 22\degree C\\
+& Gravistimulation Prior To Recording = 8h 34min & Gravistimulation Prior To Recording = 14h 20min & Gravistimulation Prior To Recording = 15h 45min & Gravistimulation Prior To Recording = 8h 25min & Gravistimulation Prior To Recording = 7h 15min & Gravistimulation Prior To Recording = 12h 40min\\
+& 30.08.12, 7:50am - 16:00pm & 3.12.2012, 11:00pm - 9:00am (+1 Day) & 10.12.2012, 11:00pm - 9:00am (+1 Day) & 8.5.2013, 04:00am - 11:00am & 3.6.2013, 07:45am - 14:45pm & 3.12.2013, 00:00am - 07:30am\\
+& & & & & & \ \\
+Light sheet Imaging & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope & Cultivation in microscope\\
+\cmidrule{2-7}
+& Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium & Perfused Medium = 1/2 MS Medium\\
+& 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01) & 2.33 g/L MS (Duchefa, M0222.0050, LOT\# P08381.01)\\
+& 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433) & 0.1\% MES (Sigma, M3671-50G, LOT\# 120M5433)\\
+& Perfusion Speed = 0.47ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min & Perfusion Speed = 0.55ml/min\\
+& Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions & Growth Conditions\\
+& Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1 & Light Intensity = 120-140 $\mu$mol*m-2*s-1\\
+& Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8 & Light Cycle Day/Night = 16/8\\
+& Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C & Temperature = 23\degree C\\
+& & & & & \ & \ \\
+& Microscopy & Microscopy & Microscopy & Microscopy & Microscopy & Microscopy\\
+\cmidrule{2-7}
+& Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data & Aquisition Data\\
+& Start Time = 30.8.2012, 16:24pm & Start Time = 4.12.2012, 1:20pm & Start Time = 11.12.2012, 14:45pm & Start Time = 8.5.2013, 12:25pm & Start Time = 3.6.2013, 15:00pm & Start Time = 3.12.2013, 12:40pm\\
+& Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min & Interval = 5min\\
+& Total Recording Time = 47h & Total Recording Time = 45h & Total Recording Time = 39h 30min & Total Recording Time = 50h 30min & Total Recording Time = 65h 20min & Total Recording Time = 42h 55min\\
+& Total Raw Data = 175 GB & Total Raw Data = 167 GB & Total Raw Data = 147 GB & Total Raw Data = 188 GB & Total Raw Data = 243 GB & Total Raw Data = 159 GB\\
+& Detection Lens & Detection Lens & Detection Lens & Detection Lens & Detection Lens & Detection Lens\\
+& Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W & Carl Zeiss N-Achroplan 40x/0.75 W\\
+& Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens & Illumination Lens\\
+& Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16 & Carl Zeiss Plan-Neofluar 5x/0.16\\
+& Stack & Stack & Stack & Stack & Stack & Stack\\
+& Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233 & Number Of Planes = 233\\
+& Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645 & Spacing = 0.645\\
+& Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m & Depth = 150$\mu$m\\
+& Channels & Channels & Channels & Channels & Channels & Channels\\
+& Channel 1 & Channel 1 & Channel 1 & Channel 1 & Channel 1 & Channel 1\\
+& Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm & Wave Length = 488 nm\\
+& Laser Power = 0.16 mW & Laser Power = 0.18 mW & Laser Power = 0.12 mW & Laser Power = 0.42 mW & Laser Power = 0.42 mW & Laser Power = 0.02 mW (re-adjust to 0.35 mW)\\
+& Filter = 534/30 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50 & Filter = 525/50\\
+& Camera Integration Time = 75 ms & Camera Integration Time = 40 ms & Camera Integration Time = 75 ms & Camera Integration Time = 30 ms & Camera Integration Time = 30 ms & Camera Integration Time = 40 ms\\
+& Channel 2 & Channel 2 & Channel 2 & Channel 2 & Channel 2 & Channel 2\\
+& Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm & Wave Length = 561 nm\\
+& Laser Power = 0.32 mW & Laser Power = 0.4 mW & Laser Power = 0.21 mW & Laser Power = 0.21 mW & Laser Power = 0.6 mW & Laser Power = 0.02 mW\\
+& Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70 & Filter = 607/70\\
+& Camera Integration Time = 75 ms & Camera Integration Time = 40 ms & Camera Integration Time = 75 ms & Camera Integration Time = 30 ms & Camera Integration Time = 30 ms & Camera Integration Time = 40 ms\\
+& Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara & Camera = Andor Clara\\
+& Binning & Binning & Binning & Binning & Binning & Binning\\
+& Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True & Hardware Bin Enabled = True\\
+& Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2 & Hardware Bin Factor = 2\\
+& Format & Format & Format & Format & Format & Format\\
+& Pixels = 1372 x 1040 (688 x 520) & Pixels = 1376 x 1040 (688 x 520) & Pixels = 1376 x 1040 (688 x 520) & Pixels = 1376 x 1040 (688 x 520) & Pixels = 1376 x 1040 (688 x 520) & Pixels = 1376 x 1040 (688 x 520)\\
+& Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14 & Bits Per Pixel = 14\\
+& Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m & Pixel Pitch = 6.45 $\mu$m\\
+& Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1 & Gain = 1\\
+& \ & \ & \ & \ & \ & \ \\
+Post Processing & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift\\
+& Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z\\
+& 555 x 221 x 147 & 689 x 393 x 200 & 736 x 376 x 170 & 682 x 406 x 130 & 666 x 404 x 130 & 684 x 378 x 110\\
+\bottomrule
+\caption[Metadata of light sheet recordings.]{\textbf{Metadata of light sheet recordings.}}
+\label{tab:metadata}
+\end{longtable}
+\end{sidewaystable}
+%
+\clearpage
+%
+\begin{table}\centering
+\begin{tabular}{@{}lccccc@{}}\toprule
+& Area ratio & Average \#Cells & Average \#AD & Average \#PD\\ \midrule
+\textbf{Model data}\\
+Geometric & 0.320 & 59.8 & 19.6 & 38.1\\
+Random & 0.308 & 65.9 & 30.6 & 33.2\\
+1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7\\
+Basal growth & 0.420 & 64.9 & 18.1 & 44.7\\
+1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3\\
+Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3\\
+\textbf{Real data}\\
+\#120830 & - & 64 & 31 & 23\\
+\#121204 & - & 49 & 17 & 24\\
+\#121211 & - & 81 & 25 & 36\\
+\#130508 & - & 46 & 18 & 19\\
+\#130607 & - & 82 & 26 & 40\\
+Average (wild types) & - & 64.4 & 23.4 & 28.4\\
+Aurora mutant & - & 129 & 56 & 50\\
+\bottomrule
+\end{tabular}
+	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD) and periclinal (PD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
+	}
+	\label{tab:modelParameters}
+\end{table}
+
+% \begin{table}\centering
+% \begin{tabular}{@{}lccccc@{}}\toprule
+% & Area ratio & Average \#Cells & Average \#AD & Average \#PD & Average \#RD\\ \midrule
+% \textbf{Model data}\\
+% Geometric & 0.320 & 59.8 & 19.6 & 38.1 & -\\
+% Random & 0.308 & 65.9 & 30.6 & 33.2 & -\\
+% 1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7 & -\\
+% Basal growth & 0.420 & 64.9 & 18.1 & 44.7 & -\\
+% 1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3 & -\\
+% Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3 & -\\
+% \textbf{Real data}\\
+% \#120830 & - & 64 & 31 & 23 & 8\\
+% \#121204 & - & 49 & 17 & 24 & 6\\
+% \#121211 & - & 81 & 25 & 36 & 15\\
+% \#130508 & - & 46 & 18 & 19 & 7\\
+% \#130607 & - & 82 & 26 & 40 & 13\\
+% Average (wild types) & - & 64.4 & 23.4 & 28.4 & 9.8\\
+% Aurora mutant & - & 129 & 56 & 50 & 21\\
+% \bottomrule
+% \end{tabular}
+% 	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD), periclinal (PD) and radial (RD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
+% 	}
+% 	\label{tab:modelParameters}
+% \end{table}
+
+%\begin{table}\centering
+%\begin{tabular}{@{}lcccccc@{}}\toprule
+%& \multicolumn{5}{c}{Idealized models}\\
+%\cmidrule{2-6}
+%& BD & D & PDG & R & RE\\ \midrule
+%\textbf{Two founder cells with equal sizes: (\textit{i}) in Section~\ref{sec:founderCells}}\\
+%Area ratio & 0.320 & 0.300 & 0.300 & 0.308 & 0.308\\
+%Average $\#$ Cells & 59.8 & 64.0 & 68.8 & 65.9 & 66.4\\
+%Average $\#$ AD & 19.6 & 27.0 & 6.11 & 30.6 & 34.0\\
+%Average $\#$ PD & 38.1 & 35.0 & 60.7 & 33.2 & 30.3\\
+%\textbf{First asymmetric anticlinal division: (\textit{ii}) in Section~\ref{sec:founderCells}}\\
+%Area Ratio & 0.420 & 0.445 & 0.445 & 0.450 & 0.450\\
+%Average $\#$ Cells & 66.6 & 63.6 & 62.5 & 58.3 & 61.9\\
+%Average $\#$ AD & 18.3 & 26.0 & 3.98 & 28.8 & 34.1\\
+%Average $\#$ PD & 46.3 & 35.6 & 56.5 & 27.5 & 25.8\\
+%\textbf{Second symmetric periclinal division: (\textit{iii}) in Section~\ref{sec:founderCells}}\\
+%Area Ratio & 0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
+%Average $\#$ Cells & 62.6 & 64.5 & 60.2 & 61.2 & 65.3\\
+%Average $\#$ AD & 20.3 & 26.0 & 4.08 & 29.9 & 42.2\\
+%Average $\#$ PD & 40.2 & 36.5 & 54.1 & 29.2 & 21.1\\
+%\textbf{Second symmetric anticlinal division: (\textit{iv}) in Section~\ref{sec:founderCells}}\\
+%Area Ratio & 0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
+%Average $\#$ Cells & 62.5 & 66.2 & 72.9 & 59.5 & 65.8\\
+%Average $\#$ AD & 18.0 & 36.6 & 4.24 & 29.9 & 25.5\\
+%Average $\#$ PD & 42.4 & 27.5 & 66.7 & 27.6 & 38.3\\
+%\textbf{Real Data}\\
+%$\#$ Cells & 64 & 49 & 81 & 45 & 82\\
+%$\#$ AD & 31 & 21 & 25 & 18 & 27\\
+%$\#$ PD & 23 & 19 & 36 & 19 & 39\\
+%$\#$ RD & 8 & 7 & 15 & 7 & 13\\
+%\bottomrule
+%\end{tabular}
+%	\caption[Parameters for idealized models.]{\textbf{Parameters for idealized models.} The table lists the average number of cells, anticlinal (AD) and periclinal divisions (PD) for each division model setting (see Section~\ref{sec:divisionRules}) and scenario (see Section~\ref{sec:founderCells}) performing 100 runs. At the bottom, the number of cells and divisions are given for the real datasets.
+%	\TODO{update values with respect to models in main text}
+%	}
+%	\label{tab:modelParameters}
+%\end{table}
+
+% Old table with data-driven models for having the parameters
+%\begin{table}\centering
+%\begin{tabular}{@{}lccccccccccc@{}}\toprule
+%& \multicolumn{5}{c}{Data-driven models} & \phantom{abc}& \multicolumn{5}{c}{Idealized models}\\
+%\cmidrule{2-6} \cmidrule{8-12}
+%& $\#120830$ & $\#121204$ & $\#121211$ & $\#130508$ & $\#130607$ && BD & D & PDG & R & RE\\ \midrule
+%\textbf{NH}\\
+%Area ratio & 0.098 & 0.080 & 0.100 & 0.129 & 0.118 &&
+%0.320 & 0.300 & 0.300 & 0.308 & 0.308\\
+%Average $\#$ Cells & 63.8 & 47.1 & 82.2 & 42.4 & 82.3 &&
+%59.8 & 64.0 & 68.8 & 65.9 & 66.4\\
+%Average $\#$ AD & 29.6 & 24.9 & 28.1 & 21.0 & 36.6 &&
+%19.6 & 27.0 & 6.11 & 30.6 & 34.0\\
+%Average $\#$ PD & 32.1 & 20.2 & 49.1 & 20.4 & 42.7 &&
+%38.1 & 35.0 & 60.7 & 33.2 & 30.3\\
+%\textbf{1DC}\\
+%Area Ratio & 0.070 & 0.070 & 0.034 & 0.035 & 0.095 &&
+%0.420 & 0.445 & 0.445 & 0.450 & 0.450\\
+%Average $\#$ Cells & 63.5 & 48.5 & 81.6 & 46.2 & 81.4 &&
+%66.6 & 63.6 & 62.5 & 58.3 & 61.9\\
+%Average $\#$ AD & 30.2 & 23.4 & 32.5 & 20.1 & 38.1 &&
+%18.3 & 26.0 & 3.98 & 28.8 & 34.1\\
+%Average $\#$ PD & 31.3 & 23.0 & 47.1 & 24.1 & 41.3 &&
+%46.3 & 35.6 & 56.5 & 27.5 & 25.8\\
+%\textbf{2DC}\\
+%Area Ratio & 0.078 & 0.060 & 0.048 & 0.047 & 0.054 &&
+%0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
+%Average $\#$ Cells & 61.9 & 48.3 & 79.1 & 45.1 & 86.5 &&
+%62.6 & 64.5 & 60.2 & 61.2 & 65.3\\
+%Average $\#$ AD & 32.1 & 27.3 & 33.3 & 22.5 & 42.3 &&
+%20.3 & 26.0 & 4.08 & 29.9 & 42.2\\
+%Average $\#$ PD & 27.8 & 19.0 & 43.8 & 20.5 & 42.1 &&
+%40.2 & 36.5 & 54.1 & 29.2 & 21.1\\
+%\textbf{2DCBase}\\
+%Area Ratio & & & & & &&
+%0.450 & 0.450 & 0.450 & 0.450 & 0.450\\
+%Average $\#$ Cells & & & & & &&
+%62.5 & 66.2 & 72.9 & 59.5 & 65.8\\
+%Average $\#$ AD & & & & & &&
+%18.0 & 36.6 & 4.24 & 29.9 & 25.5\\
+%Average $\#$ PD & & & & & &&
+%42.4 & 27.5 & 66.7 & 27.6 & 38.3\\
+%\textbf{Real Data}\\
+%$\#$ Cells & 64 & 49 & 81 & 45 & 82 &&
+%& & & &\\
+%$\#$ AD & 31 & 21 & 25 & 18 & 27 &&
+%& & & &\\
+%$\#$ PD & 23 & 19 & 36 & 19 & 39 &&
+%& & & &\\
+%$\#$ RD & 8 & 7 & 15 & 7 & 13 &&
+%& & & &\\
+%\bottomrule
+%\end{tabular}
+%	\caption[Parameters for data-driven and idealized models.]{\textbf{Parameters for data-driven and idealized models.} The table lists the average number of cells, anticlinal (AD) and periclinal divisions (PD) for each model setting performing 100 runs. NH, 1DC, 2DC and 2DCBase describe the different hard-wired division settings in the model. At the bottom, the number of cells and divisions are given for the real-world datasets.
+%	}
+%	\label{tab:modelParameters}
+%\end{table}
