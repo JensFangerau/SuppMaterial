@@ -60,11 +60,11 @@
 % to get really small font size:
 \makeatletter
 \ifcase \@ptsize \relax% 10pt
-  \newcommand{\miniscule}{\@setfontsize\miniscule{3}{4}}% \tiny: 5/6
+  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 4/5
 \or% 11pt
-  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 6/7
+  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 4/5
 \or% 12pt
-  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 6/7
+  \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}% \tiny: 4/5
 \fi
 \makeatother
 
@@ -480,41 +480,41 @@ Arabidopsis plant in the mDSLM sample holder capillary inside of a petri dish se
 %
 \setlength{\tabcolsep}{0.2em}
 %
-\begin{table}
-\small
-	\begin{center}
-		\begin{tabular}[htbp]{@{}lcccccccccc@{}}
-		\toprule
-		Step & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
-		%\midrule
-		Cell range & $[18, 24]$ & $[24, 31]$ & $[31, 37]$ & $[37, 43]$ & $[43, 49]$ & $[49, 56]$ & $[56, 62]$ & $[62, 68]$ & $[68, 74]$ & $[74, 81]$\\
-		\midrule
-		Step & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20\\
-		Cell range & $[81, 87]$ & $[87, 93]$ & $[93, 99]$ & $[99, 106]$ & $[106, 112]$ & $[112, 118]$ & $[118, 124]$ & $[124, 131]$ & $[131, 137]$ & $[137, 143]$\\
-		\bottomrule
-		\end{tabular}
-	\end{center}
-	\caption[Considered cell ranges for each step of the deformation computation.]{\textbf{Considered cell ranges for each step of the deformation computation given in the growth tensor movie (see Section~\ref{sec:suppmovies}).}
-	}
-	\label{tab:growthTensor}
-\end{table}
+%\begin{table}
+%\small
+%	\begin{center}
+%		\begin{tabular}[htbp]{@{}lcccccccccc@{}}
+%		\toprule
+%		Step & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+%		%\midrule
+%		Cell range & $[18, 24]$ & $[24, 31]$ & $[31, 37]$ & $[37, 43]$ & $[43, 49]$ & $[49, 56]$ & $[56, 62]$ & $[62, 68]$ & $[68, 74]$ & $[74, 81]$\\
+%		\midrule
+%		Step & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20\\
+%		Cell range & $[81, 87]$ & $[87, 93]$ & $[93, 99]$ & $[99, 106]$ & $[106, 112]$ & $[112, 118]$ & $[118, 124]$ & $[124, 131]$ & $[131, 137]$ & $[137, 143]$\\
+%		\bottomrule
+%		\end{tabular}
+%	\end{center}
+%	\caption[Considered cell ranges for each step of the deformation computation.]{\textbf{Considered cell ranges for each step of the deformation computation given in the growth tensor movie (see Section~\ref{sec:suppmovies}).}
+%	}
+%	\label{tab:growthTensor}
+%\end{table}
 
-\begin{table}
-	\begin{center}
-		\begin{tabular}[h]{@{}llc@{}}
-		\toprule
-		View & Cell file & [Min, Max] deformation in $\boldsymbol{\nicefrac{\mu m}{min}}$\\
-		\midrule
-		Front & All & $[ 0.0032, 0.1995 ]$\\
-		Side & Master & $[ 0.0016, 0.1259 ]$\\
-		Radial & All & $[ 0.0016, 0.0501 ]$\\
-		\bottomrule
-		\end{tabular}
-	\end{center}
-	\caption[Deformation magnitudes after averaging over all datasets in different views.]{\textbf{Deformation magnitudes after averaging over all datasets in different views.}
-	}
-	\label{tab:deformationParameters}
-\end{table}
+%\begin{table}
+%	\begin{center}
+%		\begin{tabular}[h]{@{}llc@{}}
+%		\toprule
+%		View & Cell file & [Min, Max] deformation in $\boldsymbol{\nicefrac{\mu m}{min}}$\\
+%		\midrule
+%		Front & All & $[ 0.0032, 0.1995 ]$\\
+%		Side & Master & $[ 0.0016, 0.1259 ]$\\
+%		Radial & All & $[ 0.0016, 0.0501 ]$\\
+%		\bottomrule
+%		\end{tabular}
+%	\end{center}
+%	\caption[Deformation magnitudes after averaging over all datasets in different views.]{\textbf{Deformation magnitudes after averaging over all datasets in different views.}
+%	}
+%	\label{tab:deformationParameters}
+%\end{table}
 %
 \clearpage
 %
@@ -794,35 +794,35 @@ Aurora mutant & - & 129 & 56 & 50\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SUPP DATASETS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\Title{Supplemental Datasets}
-\TODO{i think should be in a separate word file (as for movies)}
-\noindent
-In this section, we briefly explain the file formatting of the generated and analysed dataset files stored in the \textit{*.csv} format. In total, there are five wild type datasets (\#120830WT.csv, \#121204WT.csv, \#121211WT.csv, \#130508WT.csv, \#130607WT.csv) and the \emph{aurora} mutant (auroraMutant.csv). As already explained in section~\ref{sec:segmentation}, for each cell, we only store the position of the first and the last frame before it divides. In the program, the positions in between are interpolated linearly. All files share the same header information which are explained below:
-
-\noindent
-\begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{2.8cm} X @{}}
-\textbf{DataRotation:} &
-Angles for which the dataset is rotated around the x, y and z axes to create the three viewing types: Front (x-y), side (x-z) and radial (y-z).\\
-\textbf{RootCenter:} &
-Centre of the root which is determined manually.\\
-\textbf{DataDimension:} &
-Dimension of the raw dataset.\\
-\textbf{Id:} &
-The unique ID for each cell nucleus.\\
-\textbf{X, Y, Z, T:} &
-The 3D position and the time point of the cell.\\
-\textbf{Precursors:} &
-The sorted list of precursor IDs to generate the tracking information.\\
-\textbf{Lineage:} &
-The cell lineage identifier.\\
-\textbf{CellFile:} &
-The cell file value which is determined manually.\\
-\textbf{Layer:} &
-The unique layer value according to performed periclinal divisions.\\
-\textbf{DivType:} &
-The type of division of the cell: anticlinal $\widehat{=} \; 0$, periclinal $\widehat{=} \; 1$, radial $\widehat{=} \; 2$. For the first pair of a cell description and the last analysed time point, ``-'' is inserted.\\
-\end{tabularx}
+%\clearpage
+%\Title{Supplemental Datasets}
+%\TODO{i think should be in a separate word file (as for movies)}
+%\noindent
+%In this section, we briefly explain the file formatting of the generated and analysed dataset files stored in the \textit{*.csv} format. In total, there are five wild type datasets (\#120830WT.csv, \#121204WT.csv, \#121211WT.csv, \#130508WT.csv, \#130607WT.csv) and the \emph{aurora} mutant (auroraMutant.csv). As already explained in section~\ref{sec:segmentation}, for each cell, we only store the position of the first and the last frame before it divides. In the program, the positions in between are interpolated linearly. All files share the same header information which are explained below:
+%
+%\noindent
+%\begin{tabularx}{\textwidth}{@{} >{\RaggedRight}p{2.8cm} X @{}}
+%\textbf{DataRotation:} &
+%Angles for which the dataset is rotated around the x, y and z axes to create the three viewing types: Front (x-y), side (x-z) and radial (y-z).\\
+%\textbf{RootCenter:} &
+%Centre of the root which is determined manually.\\
+%\textbf{DataDimension:} &
+%Dimension of the raw dataset.\\
+%\textbf{Id:} &
+%The unique ID for each cell nucleus.\\
+%\textbf{X, Y, Z, T:} &
+%The 3D position and the time point of the cell.\\
+%\textbf{Precursors:} &
+%The sorted list of precursor IDs to generate the tracking information.\\
+%\textbf{Lineage:} &
+%The cell lineage identifier.\\
+%\textbf{CellFile:} &
+%The cell file value which is determined manually.\\
+%\textbf{Layer:} &
+%The unique layer value according to performed periclinal divisions.\\
+%\textbf{DivType:} &
+%The type of division of the cell: anticlinal $\widehat{=} \; 0$, periclinal $\widehat{=} \; 1$, radial $\widehat{=} \; 2$. For the first pair of a cell description and the last analysed time point, ``-'' is inserted.\\
+%\end{tabularx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SUPP EXPERIMENTAL PROCEDURES
@@ -1156,7 +1156,7 @@ D_a = \frac{1}{n} \sum_{n} d_a, \qquad M_a = \frac{1}{n} \sum_{n} m_a.
 \end{equation}
 As a result, each tile shows an averaged deformation represented by a line with normalized length. The averaged magnitudes are illustrated by a colour map and additional ``bow ties'' illustrate the variance of the deformation orientation (see Figure~\ref{fig:gridDeformation}, right).
 
-We perform this averaging for all three views (front, side, radial). Figure 2B in the main text shows the deformation result for the first, mid and last time point ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only on the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. Table~\ref{tab:deformationParameters} lists the minimum and maximum magnitudes for the deformations in the different views. We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increase rate of $12.06$ cells per step. The exact numbers of cells for each step in the supplemental movie (see Section~\ref{sec:suppmovies}) are given in Table~\ref{tab:growthTensor}. The deformation computation as well as the visualisation are realized in \textit{MATLAB}.
+We perform this averaging for all three views (front, side, radial). Figure 2B in the main text shows the deformation result for the first, mid and last time point ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only on the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. The magnitudes with unit $\boldsymbol{\nicefrac{\mu m}{min}}$ are in the range of $[0.0032, 0.1995]$ (front), $[0.0016, 0.1259]$ (side), and $[0.0016, 0.0501]$ (radial). We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increase rate of $12.06$ cells per step. The deformation computation as well as the visualisation are realized in \textit{MATLAB}.
 
 \clearpage
 \section{Modelling of a Lateral Root Primordium Formation}
