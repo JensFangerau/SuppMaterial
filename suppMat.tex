@@ -21,7 +21,7 @@
 
 \usepackage{hvfloat}
 
-\usepackage{cite}
+%\usepackage{cite}
 
 % for nicer fractions
 \usepackage{units}
@@ -123,8 +123,32 @@
 % no space after a punctuation mark
 \frenchspacing
 
+\usepackage{ifthen}
+
 % for defining the authors
 \usepackage{authblk}
+
+% for modifying references within the text
+% not so nice using hspace but it works
+\usepackage[square,sort,comma,numbers]{natbib}
+\renewcommand{\cite}[2][]{%
+[S\citealp{#2}
+\ifthenelse{\equal{#1}{}}{\hspace{-0.1cm}}{\hspace{-0.1cm}, #1}] 
+\hspace{-0.2cm}
+}%
+
+\newcommand{\citeMM}[2]{%
+[S\citealp{#1},
+S\citealp{#2}]
+\hspace{-0.2cm}
+}%
+
+\newcommand{\citeMMM}[3]{%
+[S\citealp{#1},
+S\citealp{#2},
+S\citealp{#3}]
+\hspace{-0.2cm}
+}%
 
 % to use the same footnote for several authors
 \newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
@@ -142,9 +166,9 @@
 \makeatletter
 \renewcommand*{\@seccntformat}[1]{\csname the#1\endcsname\hspace{0.3cm}}
 
-% add S in front of each reference
+% add S in front of each reference in the reference list
 \renewcommand\@biblabel[1]{[S#1]}
-\renewcommand{\citeleft}{[S}
+%\renewcommand{\citeleft}{[S}
 \makeatother
 
 {\renewcommand{\arraystretch}{1.2}
