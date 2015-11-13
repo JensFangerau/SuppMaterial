@@ -4,6 +4,7 @@
 \renewcommand{\thetable}{S\@arabic\c@table}
 \makeatother
 
+\Needspace{5\baselineskip}
 \section*{Supplemental Tables}
 %\renewcommand*\listtablename{\vspace{-1.3cm}}
 %\listoftables
@@ -69,7 +70,7 @@
 %
 %\clearpage
 %
-\begin{sidewaystable}
+\begin{sidewaystable}[!ht]
 	\miniscule
 \begin{longtable}{@{} l l l l l l l @{}}
 \toprule
@@ -147,37 +148,37 @@ Post Processing & Fiji Plugin: Correct 3D Drift & Fiji Plugin: Correct 3D Drift 
 & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z & Crop Dimension X x Y x Z\\
 & 555 x 221 x 147 & 689 x 393 x 200 & 736 x 376 x 170 & 682 x 406 x 130 & 666 x 404 x 130 & 684 x 378 x 110\\
 \bottomrule
-\caption[Metadata of light sheet recordings.]{\textbf{Metadata of light sheet recordings.}}
+\caption[Metadata of light sheet recordings.]{Related to Figure 1. \textbf{Metadata of light sheet recordings.}}
 \label{tab:metadata}
 \end{longtable}
 \end{sidewaystable}
 %
-\clearpage
-%
-\begin{table}\centering
-\begin{tabular}{@{}lccccc@{}}\toprule
-& Area ratio & Average \#Cells & Average \#AD & Average \#PD\\ \midrule
-\textbf{Model data}\\
-Geometric & 0.320 & 59.8 & 19.6 & 38.1\\
-Random & 0.308 & 65.9 & 30.6 & 33.2\\
-1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7\\
-Basal growth & 0.420 & 64.9 & 18.1 & 44.7\\
-1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3\\
-Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3\\
-\textbf{Real data}\\
-\#120830 & - & 64 & 31 & 23\\
-\#121204 & - & 49 & 17 & 24\\
-\#121211 & - & 81 & 25 & 36\\
-\#130508 & - & 46 & 18 & 19\\
-\#130607 & - & 82 & 26 & 40\\
-Average (wild types) & - & 64.4 & 23.4 & 28.4\\
-Aurora mutant & - & 129 & 56 & 50\\
-\bottomrule
-\end{tabular}
-	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD) and periclinal (PD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
-	}
-	\label{tab:modelParameters}
-\end{table}
+%\clearpage
+%%
+%\begin{table}\centering
+%\begin{tabular}{@{}lccccc@{}}\toprule
+%& Area ratio & Average \#Cells & Average \#AD & Average \#PD\\ \midrule
+%\textbf{Model data}\\
+%Geometric & 0.320 & 59.8 & 19.6 & 38.1\\
+%Random & 0.308 & 65.9 & 30.6 & 33.2\\
+%1\textsuperscript{st} random then geometric & 0.320 & 63.4 & 22.7 & 38.7\\
+%Basal growth & 0.420 & 64.9 & 18.1 & 44.7\\
+%1\textsuperscript{st} asymmetric then geometric & 0.420 & 66.6 & 18.3 & 46.3\\
+%Random with equal areas & 0.308 & 66.4 & 34.0 & 30.3\\
+%\textbf{Real data}\\
+%\#120830 & - & 64 & 31 & 23\\
+%\#121204 & - & 49 & 17 & 24\\
+%\#121211 & - & 81 & 25 & 36\\
+%\#130508 & - & 46 & 18 & 19\\
+%\#130607 & - & 82 & 26 & 40\\
+%Average (wild types) & - & 64.4 & 23.4 & 28.4\\
+%Aurora mutant & - & 129 & 56 & 50\\
+%\bottomrule
+%\end{tabular}
+%	\caption[Parameters for model results.]{\textbf{Parameters for model results.} The table lists the area ratio values and the average number of cells, anticlinal (AD) and periclinal (PD) divisions for each of the six model scenarios (see Section~\ref{sec:modelScenarios}) performing 100 simulations. At the bottom, the exact numbers of cells and divisions occurring in the master cell files only are given for each real dataset.
+%	}
+%	\label{tab:modelParameters}
+%\end{table}
 
 % \begin{table}\centering
 % \begin{tabular}{@{}lccccc@{}}\toprule

@@ -44,10 +44,6 @@ In \textit{Mathematica}, we grouped the cell lineages that belong to the same ce
 \label{sec:registration}
 \noindent
 In order to compare all datasets with each other we require a spatial and a temporal registration of the datasets. 
-
-\subsubsection{Spatial Registration}
-\noindent
-We compute the centre of mass, the principal components and the convex hull of the set of all 3D cell positions at the last time point. Our aim is that the convex hulls of different datasets should match optimally. Using this information, each dataset is then initially translated to the origin (black node in Illustration~\ref{fig:spatialRegistration}, top) according to the centre of mass and rotated by its associated principal components (arrows in Illustration~\ref{fig:spatialRegistration}, top). Through this, we have created a common Cartesian coordinate system resulting in three orthogonal views: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis), and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Refinements are done manually by slight affine transformations in such a way that the base of the primordia fits with respect to the convex hulls (see Illustration~\ref{fig:spatialRegistration}, bottom). This fitting represents an optimal basis for comparing different lateral roots developing from almost the same base position.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -61,6 +57,10 @@ We compute the centre of mass, the principal components and the convex hull of t
 	\end{center}
 \end{figure}
 %
+
+\subsubsection{Spatial Registration}
+\noindent
+We compute the centre of mass, the principal components and the convex hull of the set of all 3D cell positions at the last time point. Our aim is that the convex hulls of different datasets should match optimally. Using this information, each dataset is then initially translated to the origin (black node in Illustration~\ref{fig:spatialRegistration}, top) according to the centre of mass and rotated by its associated principal components (arrows in Illustration~\ref{fig:spatialRegistration}, top). Through this, we have created a common Cartesian coordinate system resulting in three orthogonal views: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis), and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Refinements are done manually by slight affine transformations in such a way that the base of the primordia fits with respect to the convex hulls (see Illustration~\ref{fig:spatialRegistration}, bottom). This fitting represents an optimal basis for comparing different lateral roots developing from almost the same base position.
 
 \subsubsection{Temporal Registration}
 \noindent
@@ -120,7 +120,7 @@ Type of division, i.e. anticlinal, periclinal or radial (see Section~\ref{sec:di
 %
 
 \noindent
-We performed statistical analyses and plottings of the interphase duration (Figure 3C, main text and Figure~\ref{fig:S4}E) and of the angle between two consecutive divisions (Figure 1C and Figure 4C-D, H and Figure 5C, F, I, L in main text using \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}). \TODO{add supp figures}
+We performed statistical analyses and plottings of the interphase duration (Figure 3C, main text and Figure~\ref{fig:S4}F) and of the angle between two consecutive divisions (Figure 1C and Figure 4C-D, H and Figure 5C, F, I, L in main text using \textit{R} (\href{http://www.R-project.org/}{http://www.R-project.org/}).
 
 \clearpage
 \section{Automatic Classification of Cell Divisions in the Datasets}
@@ -534,22 +534,22 @@ Using the B\'ezier surfaces, the setting of founder cells as well as the divisio
 \noindent
 \textbf{Model 1: Geometric}\\
 \noindent
-In Model 1, the division axes are chosen based on the Besson-Dumais division rule described in Section~\ref{sec:divisionRules} (see Figure 1A in main text).
+In Model 1, the division axes are chosen based on the Besson-Dumais division rule described in Section~\ref{sec:divisionRules} (see Figure 1A, main text and Figure~\ref{fig:S6}A).
 
 \noindent
 \textbf{Model 2: Random}\\
 \noindent
-For Model 2, the orientation of the division axes are chosen randomly for all divisions while preserving the cell shape (see Figure 5D in main text and Figure~\ref{fig:S6}). \TODO{correct ref}
+For Model 2, the orientation of the division axes are chosen randomly for all divisions while preserving the cell shape (see Figure 5D, main text and Figure~\ref{fig:S6}B).
 
 \noindent
 \textbf{Model 3: 1\textsuperscript{st} random then geometric}\\
 \noindent
-In Model 3, we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 5G in main text and Figure~\ref{fig:S6}). \TODO{correct ref} By this, we can analyse the robustness of the model development with respect to the first division round.
+In Model 3, we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 5G, main text and Figure~\ref{fig:S6}C). By this, we can analyse the robustness of the model development with respect to the first division round.
 
 \noindent
 \textbf{Model 4: Basal growth}\\
 \noindent
-Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Illustration~\ref{fig:basalGrowth}).  We use the Besson-Dumais rule for all divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 5J-L in main text and Figure~\ref{fig:S6}) \TODO{correct ref} although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points.
+Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Illustration~\ref{fig:basalGrowth}).  We use the Besson-Dumais rule for all divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 5J-L, main text and Figure~\ref{fig:S6}D) although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points.
 
 %\noindent
 %\textbf{Model 5: 1\textsuperscript{st} asymmetric then geometric}\\
@@ -665,22 +665,22 @@ For example, consider the first B\'ezier surface with two cells at the first mod
 %%
 %The first representation shows the cell contour information within the evolving tissue. Each cell is coloured by its corresponding layer value. The positions of the rendered spheres are given by the centres of mass of each cell. The third representation displays the cell layers between adjacent cells that share the same layer value. Cells are adjacent if they share at least one common cell wall. The lines (cylinders) are drawn for at least two cells through the centres of mass of the corresponding cells. Figure~\ref{fig:visumodel} shows the visualisations for the last model step of the four model scenarios.
 
-\subsection{Visual Division Analysis}
-\label{sec:visualAnalysis}
-\noindent
-\TODO{maybe simplify based on figure result}
-We run several simulations of one model using division rules with randomized variation, each resulting in one division sequence tree as shown in Figures~\ref{fig:S3} \TODO{correct ref}. Multiple simulation runs of each model allow us to use statistically solid model results and to compare them with the datasets.
-%
-\begin{figure}[htbp]
-	\begin{center}
-		\begin{overpic}[width=0.4\linewidth]{images/averagedTreeDivisionSequence.pdf}
-		\end{overpic}
-\caption[]
-{
-{\bf Averaged division sequence tree.} In only $48 \%$ of the $100$ comparisons in total, the upper layers were generated before the lower ones resulting in a red rectangle. In the other two cases with fewer comparisons ($81$ and $92$), more than $74 \%$ of the upper layers were generated first and green rectangles are drawn.
-}
-	\label{fig:averagedTreeDivisionSequence}
-	\end{center}
-\end{figure}
-%
-For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Illustration~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. We also use a simplified version of this tree when the number of simulations as well as the sequence labels can be ignored (see Figures 1B and 5B, E, H, K in the main text).
+%\subsection{Visual Division Analysis}
+%\label{sec:visualAnalysis}
+%\noindent
+%\TODO{maybe simplify based on figure result}
+%We run several simulations of one model using division rules with randomized variation, each resulting in one division sequence tree as shown in Figures~\ref{fig:S3} \TODO{correct ref}. Multiple simulation runs of each model allow us to use statistically solid model results and to compare them with the datasets.
+%%
+%\begin{figure}[htbp]
+%	\begin{center}
+%		\begin{overpic}[width=0.4\linewidth]{images/averagedTreeDivisionSequence.pdf}
+%		\end{overpic}
+%\caption[]
+%{
+%{\bf Averaged division sequence tree.} In only $48 \%$ of the $100$ comparisons in total, the upper layers were generated before the lower ones resulting in a red rectangle. In the other two cases with fewer comparisons ($81$ and $92$), more than $74 \%$ of the upper layers were generated first and green rectangles are drawn.
+%}
+%	\label{fig:averagedTreeDivisionSequence}
+%	\end{center}
+%\end{figure}
+%%
+%For this purpose, we modify the visualisation of the division sequence trees. Let $l$ be the sequence length for a generated layer (e.g.\ $l=3$ for $012$). We replace the x-axis showing the time points by a fixed temporal layout of the tree in which the pair of upper concurrently generated layers (with identical number sequence except for the last number) always occur first (slight translation to the left) with respect to its lower layers with almost the same division sequence (except for the $(l-1)$-th number). For example, the pair of layers $0111/0112$ are combined because their sequences only differ in the last number. This pair is compared with the pair $0121/0122$ because they differ in the third ($l-1 = 4-1 = 3$) position of the sequence. For each such a comparison we render a rectangle that includes these two pairs of layers and its colour is set to red or green. The rectangle is green if in more than $50 \%$ of the model simulations the upper layer occurred first with respect to the lower one and else we colour it red. This allows an immediate visual feedback of the high-order pattern while detailed information about the percentage and number of possible comparisons are given in the mid of each rectangle (see Illustration~\ref{fig:averagedTreeDivisionSequence}). A comparison between pair of layers is not possible if only one pair of layers is generated or none at all. We also use a simplified version of this tree when the number of simulations as well as the sequence labels can be ignored (see Figures 1B and 5B, E, H, K in the main text).
