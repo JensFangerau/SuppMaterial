@@ -20,15 +20,16 @@ Before imaging plants were grown vertically on 0.5X MS plates. These plates were
 
 \subsection{Light Sheet Fluorescence Imaging}
 \subsubsection{Sample Preparation}
-Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip, slid carefully over the root until the capillary reached the leaves and then lifted from the plate. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). A supplementary video illustrating the sample preparation procedure is available (\TODO{movie}). A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$L pipet tip glued into the lid of a 15 mL tube.
+Capillaries (3 mm in diameter, 30 mm in height - Hilgenberg GmbH, Malsfeld, Germany) and carbon rods (0.28 mm in diameter, 30 mm in height, from Conrad Electronic GmbH \& Co KG, Wels, Germany) were cleaned in an ultrasound unit with 2\% Hellmanex (Hellma GmbH \& Co. KG, Muellheim, Germany) for 10 min, rinsed with water several times and then autoclaved. For sample preparation, the capillary was pushed 1.5 mm deep into the Phytagel to about 10 mm below the root tip, slid carefully over the root until the capillary reached the leaves and then lifted from the plate. The capillary was pushed into Phytagel to fill the capillary. A carbon rod was inserted from the top, behind the plant. The capillary was pushed into Phytagel in order to extrude the plant up to the region of interest (0 - 4 mm above the edge of the capillary). A drop of 2\% Agarose (no. 6351.2, Carl Roth, Karlsruhe, Germany) was placed above the region of interest in order to mount the root onto the Phytagel. Until imaging, the plants were kept in custom made chambers made by a 10 mm segment of the large end of a 200 $\mu$L pipet tip glued into the lid of a 15 mL tube.
 
 \subsubsection{Imaging}
-Imaging of lateral root development was performed using LSFM~\citeMMM{Huisken2004}{keller_et_al_2008}{maizel_et_al_2011}. The plant was placed vertically in the 0.5X MS-filled chamber with the leaves in the air. It was inserted from above but held from below. During imaging the plant was illuminated by a flexible glass fiber (1/2 inch in diameter) that guided standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5X MS medium and maintained at 23$\degree $C.
+The imaging of the lateral root development was performed using Light Sheet-based Fluorescence Microscopy (LSFM)~\citeMMM{Huisken2004}{keller_et_al_2008}{maizel_et_al_2011}. The plant was placed vertically in the 0.5X MS-filled chamber with the leaves in the air. It was inserted from above but held from below. During imaging the plant was illuminated by a flexible glass fiber (1/2 inch in diameter) that guided standard fluorescent light above the plant (120-140 $\mu$mol/m\textsuperscript{2}/s). A shutter on this illumination device is operated by the data acquisition software of the LSFM to turn the light off whenever a stack of fluorescence images is recorded, a standard time switch for the lamp generates the diurnal cycle. The microscope chamber was perfused continuously (0.55 ml/min) with fresh 0.5X MS medium and maintained at 23$\degree $C.
+\newline
 
-Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 75 ms, the laser intensity was set between 0.02 mW and 0.6 mW depending on the respective fluorescence intensity. Each time point was acquired within 40 seconds and consists of 466 images (233 z-planes, 2 channels) resulting in 768 time points and up to 357888 images. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}.
+Two colour channels were recorded, GFP and YFP were excited by a 488nm diode laser, fluorescence emission was filtered with a 525/50 band-pass filter. RFP was excited by a 561nm diode-pumped solid state (DPSS) laser, the fluorescence emission was filtered with a 607/70 band-pass filter. Image stacks consisting of 233 planes with an axial pitch of 0.645 $\mu$m were recorded every 5 min. A Carl Zeiss N-Achroplan 40x/0.75 W objective lens was used in the detection path and a Carl Zeiss EC Plan-Neofluar 5x/0.16 served in the illumination path. An Andor Clara camera (6.45 $\mu$m pixel pitch) was driven in a binning (2x2) mode. Camera exposure time was between 30 ms and 75 ms, the laser intensity was set between 0.02 mW and 0.6 mW depending on the respective fluorescence intensity. Each time point was acquired within 40 seconds and consists of 466 images (233 z-planes, 2 channels) resulting in 768 time points and up to 357888 images. The detailed individual settings of each recording can be found in Table~\ref{tab:metadata}. Movie S2 shows the time-dependent recordings of all datasets.
 
 \subsubsection{Image Processing}
-Images were stored in 16-bit Tagged Image File Format (TIFF). The complete four-dimensional dataset ($x,y,z,t$) was loaded in \textit{Fiji} (\href{http://fiji.sc/Fiji}{http://fiji.sc/Fiji}) as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
+14-bit images were stored in 16-bit Tagged Image File Format (TIFF). The complete four-dimensional dataset ($x,y,z,t$) was loaded in \textit{Fiji} (\href{http://fiji.sc/Fiji}{http://fiji.sc/Fiji}) as virtual hyperstack via the Bio-Formats Importer plugin (\href{http://fiji.sc/Bio-Formats}{http://fiji.sc/Bio-Formats}). The hyperstack was registered using the Fiji plugin \textsl{Correct 3D drift}
 (\href{http://fiji.sc/wiki/index.php/Correct_3D_drift}{http://fiji.sc/wiki/index.php/Correct\_3D\_drift}) which registers the time points using the phase correlation algorithm based on the intensity of the membrane channel. The dataset was then cropped to the region containing the lateral root primordium along the x-, y- and z-directions. The three-dimensional (3D) reconstruction in Figure 1E (main text) was performed with \textit{Arivis} (\href{http://www.arivis.com}{http://www.arivis.com}).
 
 \clearpage
@@ -36,9 +37,10 @@ Images were stored in 16-bit Tagged Image File Format (TIFF). The complete four-
 \subsection{Nuclei Segmentation and Tracking}
 \label{sec:segmentation}
 \noindent
-The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program. This tool provides an interactive visual representation of the 3D datasets over time. The user can manually track the spatial position and lineage of individual cell nuclei. For each marked cell nucleus the program stores a unique identifier, the spatial position, the time point and a list holding the identification numbers of its parent cells. Cell nuclei are marked at two time points: right after the division in which the cell is born (or the very first appearance of a founder cell) and right before the cell divides (or the last time point analysed). The positions in between are interpolated linearly. Segmentation and tracking were realized for the first 24 hours of lateral root development and the resulting data was exported to a file in tabular format for further data processing and analysis. We thereby created a total of six datasets from the complete morphogenesis of five lateral root primordia as well as one aurora mutant that store all information about cell nuclei positions, lineages and cell divisions. Figure~\ref{fig:S2} shows the reconstructed cell lineage trees for all datasets with nodes coloured according to the underlying division types. The classification of division types is explained in Section~\ref{sec:divisionTypes}.
+The nuclei were segmented and tracked manually for each dataset by means of an in-house \textit{Mathematica} (\href{http://www.wolfram.com/mathematica/}{http://www.wolfram.com/mathematica/}) program. This tool provides an interactive visual representation of the 3D datasets over time. The user can manually track the spatial position and lineage of individual cell nuclei. For each marked cell nucleus the program stores a unique identifier, the spatial position, the time point and a list holding the identification numbers of its parent cells. Cell nuclei are marked at two time points: right after the division in which the cell is born (or the very first appearance of a founder cell) and right before the cell divides (or the last time point analysed). The positions in between are interpolated linearly. Segmentation and tracking were realized for the first 25 hours of lateral root development and the resulting data was exported to a file in tabular format for further data processing and analysis. We thereby tracked the complete morphogenesis of five lateral root primordia as well as one aurora mutant that store all information about cell nuclei positions, lineages and cell divisions. Figure~\ref{fig:S2} shows the reconstructed cell lineage trees for all datasets with nodes coloured according to the underlying division types and Figure~\ref{fig:S4}A shows a 3D reconstruction of cell nuclei positions. The classification of division types is explained in Section~\ref{sec:divisionTypes}.
+\newline
 
-In \textit{Mathematica}, we grouped the cell lineages that belong to the same cell file and assigned each cell nucleus in such a file a colour (see Figure 1F-G, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \cite{Vermeer:2014fl}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1F, main text). The cell file assignment for each cell nucleus was added to the datasets.
+In \textit{Mathematica}, we grouped the cell lineages that belong to the same pericycle cell file and assigned each cell nucleus in such a file a colour (see Figure 1F-G, main text). In this context, we define the \textit{master cell file} as the one that swells the most and label it with index \textbf{0} \cite{Vermeer:2014fl}. In the radial view, cell files to the left were assigned negative indices (\textbf{-1, -2, -3}), whereas cell files to the right were assigned positive indices (\textbf{+1, +2, +3}) (see Figure 1F, main text). The cell file assignment for each cell nucleus was added to the datasets.
 
 \subsection{Registration of the Datasets}
 \label{sec:registration}
@@ -51,7 +53,7 @@ In order to compare all datasets with each other we require a spatial and a temp
 		\end{overpic}
 \caption[]
 {
-{\bf Spatial registration of datasets. Top:} Generation of front, side and radial views according to centre of mass (black node) and principal components. {\bf Bottom:} Manual fitting based on convex hulls of datasets: \textcolor{magenta}{\#120830}, \textcolor{yellow}{\#121204}, \textcolor{red}{\#121211}, \textcolor{green}{\#130508}, \textcolor{blue}{\#130607}.
+{\bf Spatial registration of datasets. Top:} Generation of front, side and radial views according to centre of mass (black node) and principal components. {\bf Bottom:} Manual fitting based on convex hulls of datasets.
 }
 	\label{fig:spatialRegistration}
 	\end{center}
@@ -60,11 +62,11 @@ In order to compare all datasets with each other we require a spatial and a temp
 
 \subsubsection{Spatial Registration}
 \noindent
-We compute the centre of mass, the principal components and the convex hull of the set of all 3D cell positions at the last time point. Our aim is that the convex hulls of different datasets should match optimally. Using this information, each dataset is then initially translated to the origin (black node in Illustration~\ref{fig:spatialRegistration}, top) according to the centre of mass and rotated by its associated principal components (arrows in Illustration~\ref{fig:spatialRegistration}, top). Through this, we have created a common Cartesian coordinate system resulting in three orthogonal views: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis), and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Refinements are done manually by slight affine transformations in such a way that the base of the primordia fits with respect to the convex hulls (see Illustration~\ref{fig:spatialRegistration}, bottom). This fitting represents an optimal basis for comparing different lateral roots developing from almost the same base position.
+We compute the centre of mass, the principal components and the convex hull of the set of all 3D cell positions at the last time point. Using this information, each dataset is then initially translated to the origin (black node in Illustration~\ref{fig:spatialRegistration}, top) according to the centre of mass and rotated by its associated principal components (arrows in Illustration~\ref{fig:spatialRegistration}, top). Thus, we obtain a common Cartesian coordinate system resulting in three orthogonal views: \textit{Front} (x-y, growth towards the observer), \textit{side} (x-z, along shoot/root axis), and \textit{radial} view (y-z, transversal cut perpendicular to shoot/root axis). Slight manual refinements were done using affine transformations such that the bases of the primordia are aligned with respect to the convex hulls (see Illustration~\ref{fig:spatialRegistration}, bottom). This fitting represents an optimal basis for comparing different lateral roots developing from almost the same base position.
 
 \subsubsection{Temporal Registration}
 \noindent
-The lapse of time between gravistimulation and the onset of lateral root primordium initiation and imaging differs between the datasets. Therefore, we compensated for the temporal difference between the recordings by synchronizing the datasets on the total number of cells. This approach provides a developmental synchronization and allows to directly compare the datasets. For this purpose, the intersection set of the number of cells among all datasets for the first and last time points are observed. The number of cells are in the range of $[10,176]$ for \#120830, $[15,160]$ for \#121204, $[18,260]$ for \#121211, $[9,143]$ for \#130508 and $[15,267]$ for \#130607. Consequently, the intersection range is $[18, 143]$ and datasets are analysed for identical numbers of cells.
+The lapse of time between gravistimulation, the onset of lateral root primordium initiation and imaging differs between the datasets. Therefore, we compensated for the temporal difference between the recordings by synchronizing the datasets on the total number of cells. This approach provides a developmental synchronization and allows to directly compare the datasets. For this purpose, the intersection set of the number of cells among all datasets for the first and last time points are observed. The number of cells are in the range of $[10,176]$ for \#120830, $[15,160]$ for \#121204, $[18,260]$ for \#121211, $[9,143]$ for \#130508 and $[15,267]$ for \#130607. Consequently, the intersection range is $[18, 143]$ and datasets are analysed for identical numbers of cells.
 
 \clearpage
 \section{Quantitative Analysis of the Datasets}
@@ -148,7 +150,7 @@ We developed an automatic algorithm~\cite[chapter 4]{FangerauDiss_2015} to class
 		\end{overpic}
 \caption[]
 {
-{\bf Visualisation and approximation of the virtual lateral root. Top:} Nuclei of last time point for dataset $\# 130607$ in front, side and radial view. {\bf Bottom:} Approximation of the lateral root using $\alpha$-shapes.
+{\bf Visualisation and approximation of the virtual lateral root. Top:} Nuclei of last time point for dataset $\# 130607$ in front (xy), side (xz) and radial (yz) view. {\bf Bottom:} Approximation of the lateral root using $\alpha$-shapes.
 }
 	\label{fig:alphaShapes}
 	\end{center}
@@ -305,7 +307,7 @@ The usage of the floor function rounds $s(i)$ to the nearest integer value becau
 		\end{overpic}
 \caption[]
 {
-{\bf Averaging over datasets and visualisation of deformation information. Left:} Example of how the deformation information of all datasets is averaged using a grid approach. {\bf Right:} Visualisation of averaged deformation magnitudes by colour-coded lines and ``bow ties'' illustrating the variance over all datasets in side view. The black contour shows the convex hull using a B\'ezier curve.
+{\bf Averaging over datasets and visualisation of deformation information. Left:} Example of how the deformation information of all datasets is averaged using a grid approach. {\bf Right:} Visualisation of averaged deformation magnitudes by colour-coded lines and ``bow ties'' illustrating the variance over all datasets in side view. The black contour shows the convex hull using a B\'ezier curve. Movie S3 shows the averaged deformation of all datasets based on the number of cells.
 }
 	\label{fig:gridDeformation}
 	\end{center}
@@ -320,27 +322,42 @@ Afterwards, the deformation vectors $d_a$ and the corresponding magnitudes $m_a$
 \begin{equation}
 D_a = \frac{1}{n} \sum_{n} d_a, \qquad M_a = \frac{1}{n} \sum_{n} m_a.
 \end{equation}
-As a result, each tile shows an averaged deformation represented by a line with normalized length. The averaged magnitudes are illustrated by a colour map and additional ``bow ties'' illustrate the variance of the deformation orientation (see Figure~\ref{fig:gridDeformation}, right).
-
-We perform this averaging for all three views (front, side, radial). Figure 2B in the main text shows the deformation result for the first, mid and last time point ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only on the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. The magnitudes with unit $\boldsymbol{\nicefrac{\mu m}{min}}$ are in the range of $[0.0032, 0.1995]$ (front), $[0.0016, 0.1259]$ (side), and $[0.0016, 0.0501]$ (radial). We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increase rate of $12.06$ cells per step. The deformation computation as well as the visualisation are realized in \textit{MATLAB}.
+As a result, each tile shows an averaged deformation represented by a line with normalized length. The averaged magnitudes are illustrated by a colour map and additional ``bow ties'' illustrate the variance of the deformation orientation (see Illustration~\ref{fig:gridDeformation}, right). We perform this averaging for all three views (front, side, radial). Figure 2B in the main text shows the deformation result for the first, mid and last time point ranges. For the front and radial view, we illustrate the deformation for all cells while for the side view we focus only on the cell changes located in the master cell file. Note that we determine in all cases the deformation information based on all 3D+t cell data. The magnitudes with unit $\boldsymbol{\nicefrac{\mu m}{min}}$ are in the range of $[0.0032, 0.1995]$ (front), $[0.0016, 0.1259]$ (side), and $[0.0016, 0.0501]$ (radial). We have chosen $S=20$ steps for which $\Delta t = 6.25$ with an average increase rate of $12.06$ cells per step. The deformation computation as well as the visualisation are realized in \textit{MATLAB}.
 
 \clearpage
 \section{Modelling of a Lateral Root Primordium Formation}
 \noindent
 We use a non-mechanical 2D vertex-based model for lateral root development. The evolving 2D tissue of the model is described by a graph, i.e.~an abstract structure in which a set of vertices is connected by a set of edges. In this context, an edge denotes a cell wall and a vertex corresponds to a junction that forms the point of contact between at least two cell walls~\citeMM{prusinkiewicz_lindenmayer_1990}{prusinkiewicz_runions_2012}. As a consequence, the complete topology of all cells in the model (such as neighbourhood information) can be accessed via a graph rotation system~\cite{edmonds_1960}. We realize the implementation of the 2D model using \textit{OpenGL} (\href{https://www.opengl.org/}{https://www.opengl.org/}) and the \textit{VV} (Vertex-Vertex) programming language~\citeMM{smith_et_al_2004}{smith_2006} which is embedded in a C{}\verb!++! programming environment.
+\newline
 
 %L-systems or also called Lindenmayer~Systems~\cite{lindenmayer_1968, prusinkiewicz_lindenmayer_1990}. The L-system is a language that consists of a set of strings based on predefined rules. More precisely, it consists of an axiom, the starting point of the system, and a set of production rules. The growth of a dynamic structure is realized by applying these rules to the axiom in which the resulting string is again in the language of the used system. Through this, the growth can be described by an infinite set of strings that 'steers' the growth behaviour. L-systems are commonly used to model plant growths as well as to generate fractals such as the Sierpinski triangle, for example.
 
 We use a 2D model for two main reasons. First, we focus our analysis on the cells located in the master cell file. These cells contribute most to the growth of the primordium and feature the property that they are mostly located within a plane in 3D. Thus, their 3D locations can be projected onto a 2D plane in side view without (too much) loss of information. Second, such a model is much easier to describe than a 3D model which significantly reduces the complexity and therefore simplifies the analysis. Our intention is the creation of an idealised model based on simple rules that allows an investigation of division patterns and a comparison to the datasets.
+\newline
 
 \noindent
 Our model requires the application of a underlying \textbf{model surface} that represents the developing lateral root. Furthermore, the positioning and the number of \textbf{founder cells} that contribute to the development have to be determined. Additionally, the \textbf{rules for cell division events} have to be defined, i.e.~the type and time point of a division event. The simulation starts with a predefined number and positioning of founder cells and develops over time based on the underlying surface structure. During the simulation, the model surface and the cells within grow and increase in area. According to the chosen division properties, a cell divides if it exceeds a specific area threshold or area ratio with respect to its initial size right after its birth. Through this, we generate a convenient model representing the growth of the lateral root.
+\newline
 
-In the next sections, we will describe the underlying model surface and the settings for the initial founder cells and divisions. Afterwards, we explain the different model scenarios addressed in the main text. \TODO{maybe add here main text title item}
+In the next sections, we will describe the underlying model surface and the settings for the initial founder cells and divisions. Afterwards, we explain the different model scenarios addressed in the main text.
 
 \subsection{Model Surface}
 \noindent
-The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that a change of vertex positions on the surface influences the walls and junctions of all cells in the model. In our case, we use \textit{B\'ezier surfaces} to create an idealised model that allows the investigation of a common growth behaviour of the lateral root~\cite[supplement]{smith_bayer_2004}.
+The choice of the underlying surface for the model fundamentally affects the development of the tissue. This means that a change of vertex positions on the surface influences the walls and junctions of all cells in the model.
+%
+\begin{figure}[htbp]
+	\begin{center}
+		\begin{overpic}[width=0.8\linewidth]{images/modelSurface.pdf}
+		\end{overpic}
+\caption[]
+{
+{\bf First and last B\'ezier surfaces of degree $(6, 6)$ for the idealised model.} The mapping of $(u_i, v_i)$ to the changing position on the surface is unique over time.
+}
+	\label{fig:modelSurface}
+	\end{center}
+\end{figure}
+%
+In our case, we use \textit{B\'ezier surfaces} to create an idealised model that allows the investigation of a common growth behaviour of the lateral root~\cite[supplement]{smith_bayer_2004}.
 %The first one is used to create a triangulation based on real nuclei positions in the dataset for each time point. Through this, we can generate a data-driven model that incorporates the deformation behaviour of the nuclei and are able to compare the result with the real-world datasets.
 %\subsubsection{Triangle Mesh}
 %\noindent
@@ -403,24 +420,11 @@ As a consequence, given only a pair of B\'ezier surfaces $S_{first}$ and $S_{las
 c_{i,j} = (1-t) \cdot a_{i,j} + t \cdot b_{i,j}, \qquad \forall i, j \in [0, n], [0, m],
 \end{equation}
 with the control points $c_{i,j}$ of the current B\'ezier surface $S_{cur}$ and $t \in [0,1]$ as the temporal interpolation factor. By this, only two B\'ezier surfaces need to be generated manually for the model while the B\'ezier surfaces in between are given by interpolation which ensures a smooth growth behaviour of the model. Another advantage of using this kind of surface is that the mapping of each pair of parametric coordinates $u_i, v_i$ to a 2D position on the surface is unique although the developing surface structure will change over time (see Illustration~\ref{fig:modelSurface}).
-%
-\begin{figure}[htbp]
-	\begin{center}
-		\begin{overpic}[width=0.8\linewidth]{images/modelSurface.pdf}
-		\end{overpic}
-\caption[]
-{
-{\bf First and last B\'ezier surfaces of degree $(6, 6)$ for the idealised model.} The mapping of $(u_i, v_i)$ to the changing position on the surface is unique over time.
-}
-	\label{fig:modelSurface}
-	\end{center}
-\end{figure}
-%
 
 \subsection{Configuration of Founder Cells}
 \label{sec:founderCells}
 \noindent
-For the model we have to set the number and spatial properties of founder cells of the lateral root.
+For the model we set the number and spatial properties of founder cells of the lateral root.
 %\subsubsection{Data-driven Models}
 %\noindent
 %The first setting is designed in such a way that a valid comparison between model and real world dataset is achieved. The underlying surface of the model is a triangle mesh based on real nuclei positions as explained above. Furthermore, the number of cells in the model is selected such that it approximately matches the same number of cells in the real-world datasets for both, the beginning and the end of the given datasets. In order to preserve the same number of cells at the end in the model, we steer the parameter for the division event as explained later.
@@ -452,13 +456,14 @@ We always set one configuration at the beginning in which the model starts with 
 In the model, time point and axis orientation of each division have to be determined. We use non-deterministic division rules for each model, i.e.\ a random variation of orientation of the division axis. By repeated simulations (e.g.\ 100) of such a probabilistic model with the same setting we can analyse its division behaviour based on statistically solid results.
 
 \subsubsection{Time Point of Division}
+\label{sec:timePointOfDivison}
 \noindent
 At each time point of the model simulation, the area of each cell is computed and compared with its initial area. If the cell's area exceeds the initial area by a certain amount a division event will occur. This amount is determined by setting an \textit{area ratio} and an \textit{area threshold}. The ratio defines the maximal percentage increase of a cell before it should divide. For example, a ratio of $0.5$ denotes that the cell will divide if its initial size has increased by at least $50\%$. However, only using this ratio would result in cell areas that converge to zero in later steps because the percentage ratio above would result in smaller cells over time. For this reason, the area threshold is used as a barrier to guarantee a minimum area for each cell before it divides.
 
 \subsubsection{Orientation of Division Axis}
 \label{sec:divisionRules}
 \noindent
-After defining the time point of a division event we need to set the orientation of the division axis. In our model, we consider two division rules which we refer to as Besson-Dumais rule and random rule.
+In our model, we consider two division rules which we refer to as Besson-Dumais rule and random rule.
 %\begin{Itemize}
 %\item Besson-Dumais (BD),
 %\item Alternating plane of division (D) + random variation,
@@ -486,6 +491,7 @@ The Besson-Dumais rule~\cite{besson_and_dumais_2011} can be seen as a generaliza
 p_i = \frac{e^{-\beta l_i / \rho}}{\sum_{j=1}^{N} e^{-\beta l_j / \rho}}.
 \end{equation}
 $\rho = \sqrt{A}$ is the mean cell diameter and $\beta = 20.6$ is a parameter that was empirically determined by Besson and Dumais~\cite{besson_and_dumais_2011} for which the proportion of cells dividing along the shortest wall is supported by this value. As a consequence, we have a probability distribution function for the set of division axes and the axis with the highest probability is identical with the shortest one. Illustration~\ref{fig:divisionRules} illustrates three examples of division orientations and their corresponding colour-coded probabilities.
+\newline
 
 %The next scenario is in choosing a division axis that is perpendicular to the principal direction of the cell's growth \textbf{(PDG)}. More precisely, a set of changing centre of mass positions for each cell since its birth and right before it divides is gathered. For this set, the principal component is computed and the next division axis is then perpendicular to this principal direction. However, the whole division behaviour is deterministic and we therefore include a randomized variation of the division orientations by defining a random angle range $[-\alpha, \alpha]$. After determining the division axis, its orientation is varied by a randomly chosen angle value within this range (see Figure~\ref{fig:divisionRules}, PDG). The model result with $\alpha = 10$ is given in Figure~\ref{fig:suppmodel}G-I.
 
@@ -526,30 +532,35 @@ If the angle $\alpha$ is smaller or equal than some angle threshold then the div
 \end{figure}
 %
 
+\newpage
 \subsection{Model Scenarios}
 \label{sec:modelScenarios}
 \noindent
 Using the B\'ezier surfaces, the setting of founder cells as well as the division properties, we are able to create a model of the lateral root. We research how the division behaviour is influenced when cells are dividing based on a specific rule or randomly. Furthermore, we investigate the robustness of the model when changing certain properties. For all models, we choose the initial configuration with two founder cells that have equal areas and shapes (see Illustration~\ref{fig:founderCellsSetting}). In total, we consider four different model scenarios:
+\newline
 
 \noindent
 \textbf{Model 1: Geometric}\\
 \noindent
 In Model 1, the division axes are chosen based on the Besson-Dumais division rule described in Section~\ref{sec:divisionRules} (see Figure 1A, main text and Figure~\ref{fig:S6}A).
+\newline
 
 \noindent
 \textbf{Model 2: Random}\\
 \noindent
-For Model 2, the orientation of the division axes are chosen randomly for all divisions while preserving the cell shape (see Figure 5D, main text and Figure~\ref{fig:S6}B).
+For Model 2, the orientation of the division axes are chosen randomly for all divisions while preserving the cell shape (see Figure 6D, main text and Figure~\ref{fig:S6}B).
+\newline
 
 \noindent
 \textbf{Model 3: 1\textsuperscript{st} random then geometric}\\
 \noindent
-In Model 3, we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 5G, main text and Figure~\ref{fig:S6}C). By this, we can analyse the robustness of the model development with respect to the first division round.
+In Model 3, we randomise the orientation of the division axes in the first division round and use the Besson-Dumais division rule for all subsequent divisions (see Figure 6G, main text and Figure~\ref{fig:S6}C). By this, we can analyse the robustness of the model development with respect to the first division round.
+\newline
 
 \noindent
 \textbf{Model 4: Basal growth}\\
 \noindent
-Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Illustration~\ref{fig:basalGrowth}).  We use the Besson-Dumais rule for all divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 5J-L, main text and Figure~\ref{fig:S6}D) although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points.
+Model 4 is designed to check whether the lateral root growth itself is responsible for the emergence of the observed sequence of periclinal divisions. For this purpose, we change the deformation behaviour of the B\'ezier surface from an equidistant distribution of control points to a distribution in which the control points are growing faster towards the dome tip (see Illustration~\ref{fig:basalGrowth}).  We use the Besson-Dumais rule for all divisions. As a result, the model leads to more dominant cell divisions at the base of the primordium. This model impairs the high-order pattern of periclinal divisions (see Figure 6J-L, main text and Figure~\ref{fig:S6}D) although the layer formation and division orientations are similar to the model results using an equidistant distribution of control points.
 
 %\noindent
 %\textbf{Model 5: 1\textsuperscript{st} asymmetric then geometric}\\
@@ -577,11 +588,16 @@ Model 4 is designed to check whether the lateral root growth itself is responsib
 
 \subsubsection{Model Simulation}
 \noindent
-For each model scenario, we perform $100$ simulations with $500$ model steps (time points) to test how stable the model and therefore the division results are based on the randomised variations of the division rules. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is chosen in such a way that at the end approximately $64$ cells are generated. This value originates from the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+46+82)/5 \approx 64$).
+For each model scenario, we perform $100$ simulations with $500$ model steps (time points) to test how stable the model and therefore the division results are based on the randomised variations of the division rules. Furthermore, we use a constant area threshold value of $1100$ while the area ratio is chosen in such a way that at the end approximately $64$ cells are generated. This value originates from the average number of cells in the master cell file for all five wild type datasets ($(64+49+81+46+82)/5 \approx 64$). Each model and corresponding alternative visualisations are illustrated in Figure~\ref{fig:S7} and movie S5.
 %Table~\ref{tab:modelParameters} lists all area ratios, average numbers of cells, anticlinal and periclinal divisions for each model scenario.
 
 \subsection{Model Modifications}
 We apply some modifications to the model that affect the resulting tissue and cells in order to better approximate a real-world behaviour.
+
+\subsubsection{Cell Shape Preservation}
+\label{sec:cellShape}
+\noindent
+We want to analyse a random behaviour of cell divisions that somehow preserve equal sizes and shapes of cells after divisions. However, a total random configuration of cell division axes may result in implausible cell developments with unequal sizes and triangle-shaped contours that cannot be observed in any real-world scenario of plant growth. We therefore first find a set of division axis orientations that satisfy a specific constraint and assign each one the same probability value. The idea of this approach is explained in Illustration~\ref{fig:shapePreserving}. We use a value of $\delta = 0.15$ for the random division rule while this approach is not applied to the Besson-Dumais rule because there we do not observe any implausible cell shapes.
 %
 \begin{figure}[htbp]
 	\begin{center}
@@ -595,11 +611,6 @@ We apply some modifications to the model that affect the resulting tissue and ce
 	\end{center}
 \end{figure}
 %
-
-\subsubsection{Cell Shape Preservation}
-\label{sec:cellShape}
-\noindent
-In the model, a total random configuration of cell division axes may result in implausible cell developments with unequal sizes and triangle-shaped contours that cannot be observed in any real-world scenario of plant growth. We want to analyse a random behaviour of cell divisions that somehow preserve equal sizes and shapes of cells after divisions. We therefore first find a set of division axis orientations that satisfy a specific constraint and assign each one the same probability value. The idea of this approach is explained in Illustration~\ref{fig:shapePreserving}. We use a value of $\delta = 0.15$ for the random division rule while this approach is not applied to the Besson-Dumais rule because there we do not observe any implausible cell shapes.
 
 \subsubsection{Computation of Centre of Mass}
 \noindent

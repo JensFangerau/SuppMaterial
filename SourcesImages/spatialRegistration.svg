@@ -10,9 +10,9 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    id="svg2"
-   viewBox="0 0 3361.867 883.40096"
-   height="249.31538mm"
-   width="948.79358mm"
+   viewBox="0 0 3366.504 988.34532"
+   height="278.93301mm"
+   width="950.10223mm"
    inkscape:version="0.91 r"
    sodipodi:docname="spatialRegistration.svg">
   <sodipodi:namedview
@@ -28,9 +28,9 @@
      inkscape:window-height="1025"
      id="namedview765"
      showgrid="false"
-     inkscape:zoom="0.33316521"
-     inkscape:cx="1802.9313"
-     inkscape:cy="575.67278"
+     inkscape:zoom="0.23558339"
+     inkscape:cx="2023.9403"
+     inkscape:cy="444.61491"
      inkscape:window-x="-3"
      inkscape:window-y="-3"
      inkscape:window-maximized="1"
@@ -485,6 +485,15 @@
          height="312.86099"
          id="rect6773" />
     </clipPath>
+    <clipPath
+       id="ID000001-8">
+      <rect
+         id="rect5799"
+         height="340.319"
+         width="1126.299"
+         y="378.367"
+         x="188.92799" />
+    </clipPath>
   </defs>
   <metadata
      id="metadata7">
@@ -631,7 +640,7 @@
   <path
      inkscape:connector-curvature="0"
      style="fill:#00ff00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 3088.2084,50.015261 22.3598,0 -11.3316,-42.2899996 z"
+     d="m 3088.2084,50.015261 22.3598,0 -11.3316,-42.2899988 z"
      id="path5139" />
   <path
      inkscape:connector-curvature="0"
@@ -842,83 +851,62 @@
     </g>
   </g>
   <g
-     id="ID000000"
-     transform="matrix(1.4479759,0,0,1.452671,-385.3867,-52.473342)"
-     style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none">
-    <clipPath
-       id="ID000001-8">
-      <rect
-         x="188.92799"
-         y="378.367"
-         width="1126.299"
-         height="340.319"
-         id="rect5799" />
-    </clipPath>
+     id="ID000002"
+     clip-path="url(#ID000001-8)"
+     style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(1.4479759,0,0,1.452671,-385.3867,-52.473342)">
+    <polyline
+       style="fill:none;stroke:#ff00ff;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+       points="511.645,569.137 609.908,605.084 686.028,617.102 757.428,616.579 827.750,602.577 859.284,595.797 920.225,570.702 954.327,542.719 973.997,518.127 898.164,488.817 769.966,455.161 716.791,451.214 472.919,455.595 412.096,484.991 386.489,508.125 511.645,569.137 "
+       id="polyline5804" />
     <g
-       id="g5801"
-       style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none">
-      <g
-         id="ID000002"
-         clip-path="url(#ID000001-8)"
-         style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none">
-        <polyline
-           style="fill:none;stroke:#ff00ff;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
-           points="511.645,569.137 609.908,605.084 686.028,617.102 757.428,616.579 827.750,602.577 859.284,595.797 920.225,570.702 954.327,542.719 973.997,518.127 898.164,488.817 769.966,455.161 716.791,451.214 472.919,455.595 412.096,484.991 386.489,508.125 511.645,569.137 "
-           id="polyline5804" />
-        <g
-           id="g5806"
-           style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
-      </g>
-      <g
-         id="ID000003"
-         clip-path="url(#ID000001-8)"
-         style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none">
-        <polyline
-           style="fill:none;stroke:#ffff00;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
-           points="612.633,614.829 677.710,628.452 731.767,628.553 802.176,621.487 1010.719,589.379 1095.913,573.761 1037.444,499.533 927.492,472.942 703.202,453.535 366.635,467.324 367.313,489.269 420.368,542.602 612.633,614.829 "
-           id="polyline5809" />
-        <g
-           id="g5811"
-           style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
-      </g>
-      <g
-         id="ID000004"
-         clip-path="url(#ID000001-8)"
-         style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none">
-        <polyline
-           style="fill:none;stroke:#ff0000;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
-           points="391.247,504.062 388.752,522.871 411.481,579.504 659.660,610.791 759.172,613.380 1226.312,573.122 1005.376,506.624 854.038,470.938 764.585,449.879 694.150,446.403 600.185,463.813 391.247,504.062 "
-           id="polyline5814" />
-        <g
-           id="g5816"
-           style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
-      </g>
-      <g
-         id="ID000005"
-         clip-path="url(#ID000001-8)"
-         style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none">
-        <polyline
-           style="fill:none;stroke:#00ff00;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
-           points="365.065,550.617 362.023,591.691 702.188,617.936 799.170,624.577 974.223,626.068 1132.807,591.337 1033.808,530.369 895.432,488.185 797.312,465.046 724.474,450.185 467.782,486.576 365.065,550.617 "
-           id="polyline5819" />
-        <g
-           id="g5821"
-           style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
-      </g>
-      <g
-         id="ID000006"
-         clip-path="url(#ID000001-8)"
-         style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none">
-        <polyline
-           style="fill:none;stroke:#0000ff;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
-           points="672.784,623.651 1162.603,609.826 1148.110,523.296 915.970,460.334 810.557,441.021 779.894,438.058 628.475,446.132 380.353,478.716 308.315,514.368 288.297,534.287 346.794,561.056 482.718,590.238 672.784,623.651 "
-           id="polyline5824" />
-        <g
-           id="g5826"
-           style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
-      </g>
-    </g>
+       id="g5806"
+       style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
   </g>
+  <g
+     id="ID000003"
+     clip-path="url(#ID000001-8)"
+     style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(1.4479759,0,0,1.452671,-385.3867,-52.473342)">
+    <polyline
+       style="fill:none;stroke:#ffff00;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+       points="612.633,614.829 677.710,628.452 731.767,628.553 802.176,621.487 1010.719,589.379 1095.913,573.761 1037.444,499.533 927.492,472.942 703.202,453.535 366.635,467.324 367.313,489.269 420.368,542.602 612.633,614.829 "
+       id="polyline5809" />
+    <g
+       id="g5811"
+       style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
+  </g>
+  <g
+     id="ID000004"
+     clip-path="url(#ID000001-8)"
+     style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(1.4479759,0,0,1.452671,-385.3867,-52.473342)">
+    <polyline
+       style="fill:none;stroke:#ff0000;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+       points="391.247,504.062 388.752,522.871 411.481,579.504 659.660,610.791 759.172,613.380 1226.312,573.122 1005.376,506.624 854.038,470.938 764.585,449.879 694.150,446.403 600.185,463.813 391.247,504.062 "
+       id="polyline5814" />
+    <g
+       id="g5816"
+       style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
+  </g>
+  <g
+     id="ID000005"
+     clip-path="url(#ID000001-8)"
+     style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(1.4479759,0,0,1.452671,-385.3867,-52.473342)">
+    <polyline
+       style="fill:none;stroke:#00ff00;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+       points="365.065,550.617 362.023,591.691 702.188,617.936 799.170,624.577 974.223,626.068 1132.807,591.337 1033.808,530.369 895.432,488.185 797.312,465.046 724.474,450.185 467.782,486.576 365.065,550.617 "
+       id="polyline5819" />
+    <g
+       id="g5821"
+       style="stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none" />
+  </g>
+  <polyline
+     id="polyline5824"
+     points="672.784,623.651 1162.603,609.826 1148.110,523.296 915.970,460.334 810.557,441.021 779.894,438.058 628.475,446.132 380.353,478.716 308.315,514.368 288.297,534.287 346.794,561.056 482.718,590.238 672.784,623.651 "
+     style="fill:none;stroke:#0000ff;stroke-width:3.44751143;stroke-miterlimit:4;stroke-dasharray:none"
+     transform="matrix(1.4479759,0,0,1.452671,-385.3867,-52.473342)" />
   <g
      id="ID000000-7"
      transform="matrix(1.5792592,0,0,1.5791632,1972.3909,-163.40732)"
@@ -997,4 +985,99 @@
       </g>
     </g>
   </g>
+  <rect
+     style="opacity:1;fill:#ff00ff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.12216997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4375"
+     width="288.9837"
+     height="64.213928"
+     x="10.065626"
+     y="924.13141" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.81585693px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="306.55206"
+     y="984.89038"
+     id="text4379"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4381"
+       x="306.55206"
+       y="984.89038"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '">#120830</tspan></text>
+  <rect
+     y="924.13141"
+     x="700.05426"
+     height="64.213928"
+     width="288.9837"
+     id="rect4383"
+     style="opacity:1;fill:#ffff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.12216997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text4385"
+     y="984.89038"
+     x="996.54065"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.81585693px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '"
+       y="984.89038"
+       x="996.54065"
+       id="tspan4387"
+       sodipodi:role="line">#121204</tspan></text>
+  <rect
+     style="opacity:1;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.12216997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4389"
+     width="288.9837"
+     height="64.213928"
+     x="1390.0428"
+     y="924.13141" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.81585693px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="1686.5292"
+     y="984.89038"
+     id="text4391"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4393"
+       x="1686.5292"
+       y="984.89038"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '">#121211</tspan></text>
+  <rect
+     y="924.13141"
+     x="2080.0312"
+     height="64.213928"
+     width="288.9837"
+     id="rect4395"
+     style="opacity:1;fill:#00ff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.12216997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text4397"
+     y="984.89038"
+     x="2376.5178"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.81585693px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '"
+       y="984.89038"
+       x="2376.5178"
+       id="tspan4399"
+       sodipodi:role="line">#130508</tspan></text>
+  <rect
+     style="opacity:1;fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.12216997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect4401"
+     width="288.9837"
+     height="64.213928"
+     x="2770.02"
+     y="924.13141" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:86.81585693px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="3066.5061"
+     y="984.89038"
+     id="text4403"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan4405"
+       x="3066.5061"
+       y="984.89038"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, '">#130607</tspan></text>
 </svg>

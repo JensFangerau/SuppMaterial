@@ -102,21 +102,24 @@
 % distance between two lines
 \def\baselinestretch{1.0}
 
+\usepackage{parskip}
+\usepackage[margin=2cm]{geometry}
+
 % page definitions
-\setlength{\topmargin}{1.5cm} % distance between upper boundary and headline
-\setlength{\headheight}{15pt} % height of the reserved space for the headline
-\setlength{\headsep}{20pt} % distance between headline and body of the page
-\setlength{\topskip}{12pt} % included distance on the upper boundary of the body of the page
-\setlength{\evensidemargin}{0pt}
-\setlength{\oddsidemargin}{0pt}
-\setlength{\textheight}{220mm}
-\setlength{\textwidth}{160mm}
+%\setlength{\topmargin}{1.5cm} % distance between upper boundary and headline
+%\setlength{\headheight}{15pt} % height of the reserved space for the headline
+%\setlength{\headsep}{20pt} % distance between headline and body of the page
+%\setlength{\topskip}{12pt} % included distance on the upper boundary of the body of the page
+%\setlength{\evensidemargin}{0pt}
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\textheight}{220mm}
+%\setlength{\textwidth}{160mm}
 \pdfpagewidth=215.9mm
 \pdfpageheight=279.4mm
-\setlength{\voffset}{-2.5cm}
-%\setlength{\hoffset}{-0.5cm}
-\setlength{\parindent}{0.7cm} % indention depth
-\setlength{\parskip}{11pt} % distance between sections
+%\setlength{\voffset}{-2.5cm}
+%%\setlength{\hoffset}{-0.5cm}
+%\setlength{\parindent}{0.7cm} % indention depth
+%\setlength{\parskip}{10cm} % distance between text paragraphs
 
 % fewer hyphenation at the end of line but more distance between the words within a line
 \sloppy
@@ -126,7 +129,7 @@
 \usepackage{ifthen}
 
 % for defining the authors
-\usepackage{authblk}
+%\usepackage{authblk}
 
 % for modifying references within the text
 % not so nice using hspace but it works
@@ -151,7 +154,7 @@ S\citealp{#3}]
 }%
 
 % to use the same footnote for several authors
-\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+%\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
 
 \usepackage{tabularx, ragged2e}
 %\usepackage{ltablex}
