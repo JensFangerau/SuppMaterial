@@ -136,6 +136,10 @@ FUNCTION {new.block}
   if$
 }
 
+FUNCTION {add.blank}
+{  " " * before.all 'output.state :=
+}
+
 FUNCTION {new.sentence}
 { output.state after.block =
     'skip$
@@ -448,8 +452,17 @@ FUNCTION {format.date}
   extra.label *
 }
 
+FUNCTION {format.publisher}
+{ publisher duplicate$ empty$
+    { "empty publisher in " cite$ * warning$
+       pop$ "" }
+           { "(" swap$ * ")" *}
+  if$
+  extra.label *
+}
+
 FUNCTION {format.btitle}
-{ title emphasize
+{ title
 }
 
 FUNCTION {tie.or.space.connect}
@@ -572,6 +585,18 @@ FUNCTION {format.vol.num.pages}
   if$
 }
 
+FUNCTION {format.vol.pages}
+{ volume field.or.null
+  pages empty$
+    'skip$
+    { duplicate$ empty$
+        { pop$ format.pages }
+        { emphasize ", \penalty0 " * pages n.dashify * }
+      if$
+    }
+  if$
+}
+
 FUNCTION {format.vol.num.eid}
 { volume field.or.null
   number empty$
@@ -613,8 +638,8 @@ FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
     { "" }
     { editor empty$
-        { "In " booktitle emphasize * }
-        { "In " format.editors * ", " * booktitle emphasize * }
+        { "In " booktitle * }
+        { "In " format.editors * ", " * booktitle * }
       if$
     }
   if$
@@ -725,9 +750,10 @@ FUNCTION {article}
   format.title "title" output.check
   new.block
   crossref missing$
-    { journal emphasize "journal" output.check
+    { journal "journal" output.check
+    add.blank
       eid empty$
-        { format.vol.num.pages output }
+        { format.vol.pages output }
         { format.vol.num.eid output }
       if$
 
@@ -740,7 +766,6 @@ FUNCTION {article}
     }
   if$
   format.issn output
-  format.doi output
   format.url output
   new.block
   note output
@@ -768,8 +793,8 @@ FUNCTION {book}
     { format.bvolume output
       new.block
       format.number.series output
-      new.sentence
-      publisher "publisher" output.check
+      add.blank
+      format.publisher "publisher" output.check
       address output
     }
     { new.block
@@ -778,7 +803,6 @@ FUNCTION {book}
   if$
   format.edition output
   format.isbn output
-  format.doi output
   format.url output
   new.block
   note output
@@ -853,11 +877,10 @@ FUNCTION {incollection}
   new.block
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
-      format.number.series output
-      format.chapter.pages output
-      new.sentence
-      publisher "publisher" output.check
+    	add.blank
+			format.vol.pages output
+      add.blank
+      format.publisher "publisher" output.check
       address output
       format.edition output
     }
@@ -866,7 +889,6 @@ FUNCTION {incollection}
     }
   if$
   format.isbn output
-  format.doi output
   format.url output
   new.block
   note output
@@ -904,7 +926,6 @@ FUNCTION {inproceedings}
     }
   if$
   format.isbn output
-  format.doi output
   format.url output
   new.block
   note output
@@ -975,7 +996,6 @@ FUNCTION {phdthesis}
   new.block
   "PhD thesis" format.thesis.type output.nonnull
   school "school" output.check
-  address output
   format.url output
   new.block
   note output
