@@ -29,8 +29,8 @@
      id="namedview765"
      showgrid="false"
      inkscape:zoom="0.23558339"
-     inkscape:cx="2023.9403"
-     inkscape:cy="444.61491"
+     inkscape:cx="1996.2935"
+     inkscape:cy="497.20226"
      inkscape:window-x="-3"
      inkscape:window-y="-3"
      inkscape:window-maximized="1"
@@ -503,7 +503,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -552,7 +552,7 @@
        xml:space="preserve"><tspan
          y="420.93362"
          x="-1687.3622"
-         id="tspan5076">X</tspan></text>
+         id="tspan5076">Y</tspan></text>
     <text
        sodipodi:linespacing="125%"
        xml:space="preserve"
@@ -562,7 +562,7 @@
        id="text5078"><tspan
          id="tspan5080"
          x="-1787.3622"
-         y="318.93362">Y</tspan></text>
+         y="318.93362">X</tspan></text>
   </g>
   <g
      id="g13076"
@@ -581,7 +581,7 @@
        id="text5084"><tspan
          id="tspan5086"
          x="-267.36218"
-         y="420.93362">X</tspan></text>
+         y="420.93362">Y</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text5088"
@@ -610,7 +610,7 @@
        xml:space="preserve"><tspan
          y="420.93362"
          x="1132.6378"
-         id="tspan5096">Y</tspan></text>
+         id="tspan5096">X</tspan></text>
     <text
        sodipodi:linespacing="125%"
        xml:space="preserve"
@@ -669,7 +669,7 @@
        id="text13094"><tspan
          id="tspan13096"
          x="-1687.3622"
-         y="420.93362">X</tspan></text>
+         y="420.93362">Y</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text13098"
@@ -679,7 +679,7 @@
        xml:space="preserve"><tspan
          y="318.93362"
          x="-1787.3622"
-         id="tspan13100">Y</tspan></text>
+         id="tspan13100">X</tspan></text>
   </g>
   <g
      id="g13102"
@@ -698,7 +698,7 @@
        xml:space="preserve"><tspan
          y="420.93362"
          x="-267.36218"
-         id="tspan13108">X</tspan></text>
+         id="tspan13108">Y</tspan></text>
     <text
        sodipodi:linespacing="125%"
        xml:space="preserve"
@@ -727,7 +727,7 @@
        id="text13118"><tspan
          id="tspan13120"
          x="1132.6378"
-         y="420.93362">Y</tspan></text>
+         y="420.93362">X</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text13122"
